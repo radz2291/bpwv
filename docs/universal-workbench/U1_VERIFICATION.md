@@ -33,3 +33,8 @@ Fault probes include SQLite trigger failures before artifact/attempt completion,
 U1 is a bounded local foundation: no external universal executor, collections, later primitives, remote publication, nested subflows, distributed recovery or hostile-code sandbox. Managed media is the documented PNG subset. PID reuse may conservatively hold an interrupted run; no automatic replay. Existing historical remote Weave output remains externally dependent and is not silently downloaded. Original tunnel permissions and single-user loopback UI trust model are preserved.
 
 Review the draft PR and close G8 with the actual ChatGPT-side sequence before owner acceptance. Recommend a separate U2 decision after U1 acceptance; do not start later primitives or merge automatically.
+
+## Committed candidate lineage
+
+- `d9499a776fb16dd6bb5600a6c1ac59e47ef8b07a`: first committed implementation. Independent fresh-context challenge **HELD for G3 repair**: array-only node/edge reordering incorrectly marked compatible results historical. Actual independent browser/runtime evidence and report are retained in `evidence/u1/independent/initial-d9499a7-review.md` and its timestamped fixture directory.
+- Repaired successor: sorts visual semantic nodes/edges by stable ID with the same code-point comparison as the runtime. The browser proof now explicitly reverses both arrays, saves/reopens, verifies all four completed badges and checks the original immutable run remains identical. This is a focused compatibility repair, not a schema/data migration. Exact successor SHA and independent recheck follow in the delivery record.

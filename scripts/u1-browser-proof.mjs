@@ -175,6 +175,28 @@ try {
   checks.push(
     'MCP-authored A exact local statistics visible; cosmetic UI save retains compatible results and immutable run'
   );
+  const reordered = await api('/api/workflows/' + proof.workflowA);
+  reordered.nodes.reverse();
+  reordered.edges.reverse();
+  await api('/api/workflows', reordered);
+  await open(proof.workflowA);
+  assert.equal(await page.locator('.status').textContent(), 'Run completed');
+  assert.equal(
+    await page
+      .locator('.canvas article footer')
+      .filter({ hasText: 'completed' })
+      .count(),
+    4
+  );
+  assert.deepEqual(
+    (
+      await api('/api/workbench?action=runs&workflowId=' + proof.workflowA)
+    ).find((r) => r.id === proof.runA),
+    runA
+  );
+  checks.push(
+    'Node/edge array reorder preserves compatible completed results and immutable historical run (independent G3 regression)'
+  );
   await open(proof.workflowB);
   await page.waitForFunction(
     () =>

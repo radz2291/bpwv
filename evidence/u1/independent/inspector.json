@@ -1,0 +1,3223 @@
+{
+  "root": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\independent\\mcp-1792855690778",
+  "transcript": [
+    {
+      "profile": "read",
+      "method": "tools/list",
+      "args": {},
+      "code": 0,
+      "stdout": "{\"result\":{\"tools\":[{\"name\":\"node_types\",\"description\":\"Discover versioned node kinds, typed ports, defaults, JSON configuration schemas and capability status. Draft model settings do not authorize a run.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"nodes\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"kind\":{\"type\":\"string\",\"minLength\":1},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"category\":{\"type\":\"string\"},\"provider\":{\"type\":\"string\",\"enum\":[\"local\",\"generative\"]},\"inputs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"type\":{\"type\":\"string\"},\"required\":{\"type\":\"boolean\"}},\"required\":[\"id\",\"type\"],\"additionalProperties\":false}},\"outputs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"type\":{\"type\":\"string\"},\"required\":{\"type\":\"boolean\"}},\"required\":[\"id\",\"type\"],\"additionalProperties\":false}},\"defaults\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}},\"configSchema\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}},\"capability\":{\"type\":\"string\"}},\"required\":[\"kind\",\"version\",\"label\",\"category\",\"provider\",\"inputs\",\"outputs\",\"defaults\",\"configSchema\",\"capability\"],\"additionalProperties\":false}},\"workflowSchema\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"nodes\",\"workflowSchema\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"list_workflows\",\"description\":\"List durable workflows with current revisions and editor URLs.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"workflows\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"name\":{\"type\":\"string\"},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"url\":{\"type\":\"string\",\"format\":\"uri\"}},\"required\":[\"id\",\"name\",\"revision\",\"url\"],\"additionalProperties\":false}}},\"required\":[\"workflows\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"get_workflow\",\"description\":\"Retrieve/reopen the complete persisted graph and its visual editor URL.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"workflowId\":{\"type\":\"string\",\"minLength\":1}},\"required\":[\"workflowId\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"workflow\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false},{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":1000},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\",\"maxLength\":1000},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}]},\"url\":{\"type\":\"string\",\"format\":\"uri\"}},\"required\":[\"workflow\",\"url\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"validate_workflow\",\"description\":\"Validate identities, typed ports, dependencies, cycles, configurations and groups without saving or executing. Incomplete drafts have readiness issues.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"workflow\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"]},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"]}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"]}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"]}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\"]},{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":1000},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\",\"maxLength\":1000},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\"],\"additionalProperties\":false}]}},\"required\":[\"workflow\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"valid\":{\"type\":\"boolean\"},\"readyToExecute\":{\"type\":\"boolean\"},\"issues\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"nodeId\":{\"type\":\"string\",\"minLength\":1},\"message\":{\"type\":\"string\"}},\"required\":[\"message\"],\"additionalProperties\":false}}},\"required\":[\"valid\",\"readyToExecute\",\"issues\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"get_execution\",\"description\":\"Retrieve latest persisted run, node states and originating asset associations. Authoring does not call a model.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"workflowId\":{\"type\":\"string\",\"minLength\":1}},\"required\":[\"workflowId\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"workflowId\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"url\":{\"type\":\"string\",\"format\":\"uri\"},\"run\":{\"anyOf\":[{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"workflowId\":{\"type\":\"string\",\"minLength\":1},\"workflowRevision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"graphSnapshot\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false},{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":1000},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\",\"maxLength\":1000},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}]},\"states\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"properties\":{\"status\":{\"type\":\"string\",\"enum\":[\"idle\",\"running\",\"completed\",\"pending\",\"failed\",\"blocked\"]},\"outputs\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}},\"error\":{\"type\":\"string\"},\"requestId\":{\"type\":\"string\"}},\"required\":[\"status\",\"outputs\"],\"additionalProperties\":false}},\"createdAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"workflowId\",\"workflowRevision\",\"graphSnapshot\",\"states\",\"createdAt\"],\"additionalProperties\":false},{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"workflowId\":{\"type\":\"string\"},\"revision\":{\"type\":\"number\"},\"status\":{\"type\":\"string\"},\"snapshot\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false},{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":1000},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\",\"maxLength\":1000},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}]},\"snapshotHash\":{\"type\":\"string\"},\"semanticHash\":{\"type\":\"string\"},\"contracts\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"string\"}},\"states\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"properties\":{\"status\":{\"type\":\"string\"},\"outputs\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"familyId\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"previousId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"schemaRef\":{\"type\":\"string\"},\"value\":{},\"contentHash\":{\"type\":\"string\"},\"parents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"artifactId\":{\"type\":\"string\"},\"role\":{\"type\":\"string\"}},\"required\":[\"artifactId\",\"role\"],\"additionalProperties\":false}},\"workflowId\":{\"type\":\"string\"},\"revision\":{\"type\":\"number\"},\"runId\":{\"type\":\"string\"},\"attemptId\":{\"type\":\"string\"},\"nodeId\":{\"type\":\"string\"},\"outputPort\":{\"type\":\"string\"},\"snapshotHash\":{\"type\":\"string\"},\"provenance\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"byteLength\":{\"type\":\"number\"},\"mime\":{\"type\":\"string\"}},\"required\":[\"id\",\"familyId\",\"version\",\"type\",\"value\",\"contentHash\",\"parents\",\"workflowId\",\"revision\",\"runId\",\"attemptId\",\"nodeId\",\"outputPort\",\"snapshotHash\",\"provenance\",\"createdAt\"],\"additionalProperties\":{}}},\"error\":{\"type\":\"string\"}},\"required\":[\"status\",\"outputs\"],\"additionalProperties\":{}}},\"attempts\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"nodeId\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"}},\"required\":[\"id\",\"nodeId\",\"status\"],\"additionalProperties\":{}}},\"createdAt\":{\"type\":\"string\"},\"completedAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"workflowId\",\"revision\",\"status\",\"snapshot\",\"snapshotHash\",\"semanticHash\",\"contracts\",\"states\",\"attempts\",\"createdAt\"],\"additionalProperties\":{}}]},{\"type\":\"null\"}]},\"assets\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"uri\":{\"type\":\"string\",\"pattern\":\"^(https:\\\\/\\\\/|\\\\/api\\\\/assets\\\\/)\"},\"mediaType\":{\"type\":\"string\",\"enum\":[\"image\",\"video\",\"audio\"]},\"parentIds\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"runId\":{\"type\":\"string\"},\"provenance\":{\"type\":\"string\",\"enum\":[\"external-reported\",\"imported\"]},\"predictionId\":{\"type\":\"string\"},\"workflowId\":{\"type\":\"string\",\"minLength\":1},\"sourceNodeId\":{\"type\":\"string\",\"minLength\":1},\"associatedAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"uri\",\"mediaType\",\"parentIds\",\"provenance\",\"workflowId\",\"sourceNodeId\",\"associatedAt\"],\"additionalProperties\":false}}},\"required\":[\"workflowId\",\"revision\",\"url\",\"run\",\"assets\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"get_assets\",\"description\":\"Retrieve durable asset associations and their originating nodes, run IDs and declared provenance.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"workflowId\":{\"type\":\"string\",\"minLength\":1}},\"required\":[\"workflowId\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"assets\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"uri\":{\"type\":\"string\",\"pattern\":\"^(https:\\\\/\\\\/|\\\\/api\\\\/assets\\\\/)\"},\"mediaType\":{\"type\":\"string\",\"enum\":[\"image\",\"video\",\"audio\"]},\"parentIds\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"runId\":{\"type\":\"string\"},\"provenance\":{\"type\":\"string\",\"enum\":[\"external-reported\",\"imported\"]},\"predictionId\":{\"type\":\"string\"},\"workflowId\":{\"type\":\"string\",\"minLength\":1},\"sourceNodeId\":{\"type\":\"string\",\"minLength\":1},\"associatedAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"uri\",\"mediaType\",\"parentIds\",\"provenance\",\"workflowId\",\"sourceNodeId\",\"associatedAt\"],\"additionalProperties\":false}}},\"required\":[\"assets\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"universal_catalog\",\"description\":\"Discover U1 versioned universal operations, trusted schemas, transform contracts, capability manifests and reusable recipes. External plans cannot execute.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{},\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"catalog\":{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"configSchemas\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"portContract\":{\"type\":\"object\",\"properties\":{\"role\":{\"type\":\"string\",\"const\":\"value\"},\"cardinality\":{\"type\":\"string\",\"const\":\"single\"},\"output\":{\"type\":\"string\",\"const\":\"value\"},\"input\":{\"type\":\"string\",\"const\":\"input\"},\"resolution\":{\"type\":\"string\"}},\"required\":[\"role\",\"cardinality\",\"output\",\"input\",\"resolution\"],\"additionalProperties\":false},\"operations\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"defaults\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}},\"configSchema\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"kind\",\"version\",\"defaults\"],\"additionalProperties\":{}}},\"transforms\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"input\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"output\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"inputSchema\":{\"type\":\"string\"},\"outputSchema\":{\"type\":\"string\"},\"settingsSchema\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"version\",\"input\",\"output\",\"settingsSchema\"],\"additionalProperties\":false}},\"manifests\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"input\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"output\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"inputSchema\":{\"type\":\"string\"},\"outputSchema\":{\"type\":\"string\"},\"settingsSchema\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}},\"adapter\":{\"type\":\"string\"},\"status\":{\"type\":\"string\",\"enum\":[\"implemented-local\",\"external-dependent\"]},\"effects\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"discoveredAt\":{\"type\":\"string\"},\"expiresAt\":{\"type\":\"string\"},\"hash\":{\"type\":\"string\"}},\"required\":[\"id\",\"version\",\"input\",\"output\",\"settingsSchema\",\"adapter\",\"status\",\"effects\",\"discoveredAt\",\"hash\"],\"additionalProperties\":false}},\"schemas\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"recipes\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"operations\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}}},\"required\":[\"id\",\"version\",\"operations\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"configSchemas\",\"portContract\",\"operations\",\"transforms\",\"manifests\",\"schemas\",\"recipes\"],\"additionalProperties\":false},\"allowLocalExecution\":{\"type\":\"boolean\"}},\"required\":[\"catalog\",\"allowLocalExecution\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"list_universal_runs\",\"description\":\"Read durable universal run snapshots, attempts and versioned artifact outputs; no replay.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"workflowId\":{\"type\":\"string\",\"minLength\":1}},\"required\":[\"workflowId\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"runs\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"workflowId\":{\"type\":\"string\"},\"revision\":{\"type\":\"number\"},\"status\":{\"type\":\"string\"},\"snapshot\":{\"anyOf\":[{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false},{\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":2},\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":1000},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\",\"maxLength\":1000},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1,\"maxLength\":160,\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}]},\"snapshotHash\":{\"type\":\"string\"},\"semanticHash\":{\"type\":\"string\"},\"contracts\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"string\"}},\"states\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"properties\":{\"status\":{\"type\":\"string\"},\"outputs\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"familyId\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"previousId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"schemaRef\":{\"type\":\"string\"},\"value\":{},\"contentHash\":{\"type\":\"string\"},\"parents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"artifactId\":{\"type\":\"string\"},\"role\":{\"type\":\"string\"}},\"required\":[\"artifactId\",\"role\"],\"additionalProperties\":false}},\"workflowId\":{\"type\":\"string\"},\"revision\":{\"type\":\"number\"},\"runId\":{\"type\":\"string\"},\"attemptId\":{\"type\":\"string\"},\"nodeId\":{\"type\":\"string\"},\"outputPort\":{\"type\":\"string\"},\"snapshotHash\":{\"type\":\"string\"},\"provenance\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"byteLength\":{\"type\":\"number\"},\"mime\":{\"type\":\"string\"}},\"required\":[\"id\",\"familyId\",\"version\",\"type\",\"value\",\"contentHash\",\"parents\",\"workflowId\",\"revision\",\"runId\",\"attemptId\",\"nodeId\",\"outputPort\",\"snapshotHash\",\"provenance\",\"createdAt\"],\"additionalProperties\":{}}},\"error\":{\"type\":\"string\"}},\"required\":[\"status\",\"outputs\"],\"additionalProperties\":{}}},\"attempts\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"nodeId\":{\"type\":\"string\"},\"status\":{\"type\":\"string\"}},\"required\":[\"id\",\"nodeId\",\"status\"],\"additionalProperties\":{}}},\"createdAt\":{\"type\":\"string\"},\"completedAt\":{\"type\":\"string\"}},\"required\":[\"id\",\"workflowId\",\"revision\",\"status\",\"snapshot\",\"snapshotHash\",\"semanticHash\",\"contracts\",\"states\",\"attempts\",\"createdAt\"],\"additionalProperties\":{}}}},\"required\":[\"runs\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}},{\"name\":\"get_artifact\",\"description\":\"Read and verify an immutable artifact version and its lineage. Corrupt or missing bytes fail visibly.\",\"inputSchema\":{\"type\":\"object\",\"properties\":{\"artifactId\":{\"type\":\"string\",\"minLength\":1}},\"required\":[\"artifactId\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\"},\"outputSchema\":{\"type\":\"object\",\"properties\":{\"artifact\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"familyId\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"previousId\":{\"type\":\"string\"},\"type\":{\"type\":\"string\",\"enum\":[\"text\",\"number\",\"boolean\",\"record\",\"image\"]},\"schemaRef\":{\"type\":\"string\"},\"value\":{},\"contentHash\":{\"type\":\"string\"},\"parents\":{\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"artifactId\":{\"type\":\"string\"},\"role\":{\"type\":\"string\"}},\"required\":[\"artifactId\",\"role\"],\"additionalProperties\":false}},\"workflowId\":{\"type\":\"string\"},\"revision\":{\"type\":\"number\"},\"runId\":{\"type\":\"string\"},\"attemptId\":{\"type\":\"string\"},\"nodeId\":{\"type\":\"string\"},\"outputPort\":{\"type\":\"string\"},\"snapshotHash\":{\"type\":\"string\"},\"provenance\":{\"type\":\"string\"},\"createdAt\":{\"type\":\"string\"},\"byteLength\":{\"type\":\"number\"},\"mime\":{\"type\":\"string\"}},\"required\":[\"id\",\"familyId\",\"version\",\"type\",\"value\",\"contentHash\",\"parents\",\"workflowId\",\"revision\",\"runId\",\"attemptId\",\"nodeId\",\"outputPort\",\"snapshotHash\",\"provenance\",\"createdAt\"],\"additionalProperties\":{}}},\"required\":[\"artifact\"],\"$schema\":\"http://json-schema.org/draft-07/schema#\",\"additionalProperties\":false},\"annotations\":{\"readOnlyHint\":true,\"destructiveHint\":false,\"idempotentHint\":true,\"openWorldHint\":false},\"execution\":{\"taskSupport\":\"forbidden\"}}]}}\n",
+      "stderr": "(node:24744) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nSchema portability: 0 errors, 33 warnings across 7 tools. Re-run with --strict for details.\n",
+      "result": {
+        "result": {
+          "tools": [
+            {
+              "name": "node_types",
+              "description": "Discover versioned node kinds, typed ports, defaults, JSON configuration schemas and capability status. Draft model settings do not authorize a run.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {},
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "nodes": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "kind": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "version": {
+                          "type": "integer",
+                          "exclusiveMinimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "label": {
+                          "type": "string"
+                        },
+                        "category": {
+                          "type": "string"
+                        },
+                        "provider": {
+                          "type": "string",
+                          "enum": [
+                            "local",
+                            "generative"
+                          ]
+                        },
+                        "inputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "required": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "outputs": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "type": {
+                                "type": "string"
+                              },
+                              "required": {
+                                "type": "boolean"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "type"
+                            ],
+                            "additionalProperties": false
+                          }
+                        },
+                        "defaults": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        "configSchema": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        },
+                        "capability": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "kind",
+                        "version",
+                        "label",
+                        "category",
+                        "provider",
+                        "inputs",
+                        "outputs",
+                        "defaults",
+                        "configSchema",
+                        "capability"
+                      ],
+                      "additionalProperties": false
+                    }
+                  },
+                  "workflowSchema": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "nodes",
+                  "workflowSchema"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "list_workflows",
+              "description": "List durable workflows with current revisions and editor URLs.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {},
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflows": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "name": {
+                          "type": "string"
+                        },
+                        "revision": {
+                          "type": "integer",
+                          "minimum": 0,
+                          "maximum": 9007199254740991
+                        },
+                        "url": {
+                          "type": "string",
+                          "format": "uri"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "name",
+                        "revision",
+                        "url"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "workflows"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "get_workflow",
+              "description": "Retrieve/reopen the complete persisted graph and its visual editor URL.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflowId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "workflowId"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9_-]+$"
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "nodes": {
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "label": {
+                                  "type": "string"
+                                },
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number"
+                                    },
+                                    "y": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "config": {
+                                  "type": "object",
+                                  "propertyNames": {
+                                    "type": "string"
+                                  },
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "kind",
+                                "version",
+                                "label",
+                                "position",
+                                "config"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "edges": {
+                            "maxItems": 2000,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "sourceHandle": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "targetHandle": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "source",
+                                "sourceHandle",
+                                "target",
+                                "targetHandle"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "groups": {
+                            "default": [],
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "nodeIds": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "nodeIds",
+                                "version"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "name",
+                          "revision",
+                          "nodes",
+                          "edges",
+                          "groups"
+                        ],
+                        "additionalProperties": false
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 2
+                          },
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9_-]+$"
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 1000
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "nodes": {
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "label": {
+                                  "type": "string",
+                                  "maxLength": 1000
+                                },
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number"
+                                    },
+                                    "y": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "config": {
+                                  "type": "object",
+                                  "propertyNames": {
+                                    "type": "string"
+                                  },
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "kind",
+                                "version",
+                                "label",
+                                "position",
+                                "config"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "edges": {
+                            "maxItems": 2000,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "sourceHandle": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "targetHandle": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "source",
+                                "sourceHandle",
+                                "target",
+                                "targetHandle"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "groups": {
+                            "default": [],
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "nodeIds": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "nodeIds",
+                                "version"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "name",
+                          "revision",
+                          "nodes",
+                          "edges",
+                          "groups"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  }
+                },
+                "required": [
+                  "workflow",
+                  "url"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "validate_workflow",
+              "description": "Validate identities, typed ports, dependencies, cycles, configurations and groups without saving or executing. Incomplete drafts have readiness issues.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflow": {
+                    "anyOf": [
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 1
+                          },
+                          "id": {
+                            "type": "string",
+                            "pattern": "^[a-zA-Z0-9_-]+$"
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "nodes": {
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "label": {
+                                  "type": "string"
+                                },
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number"
+                                    },
+                                    "y": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ]
+                                },
+                                "config": {
+                                  "type": "object",
+                                  "propertyNames": {
+                                    "type": "string"
+                                  },
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "kind",
+                                "version",
+                                "label",
+                                "position",
+                                "config"
+                              ]
+                            }
+                          },
+                          "edges": {
+                            "maxItems": 2000,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "sourceHandle": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "targetHandle": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "source",
+                                "sourceHandle",
+                                "target",
+                                "targetHandle"
+                              ]
+                            }
+                          },
+                          "groups": {
+                            "default": [],
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "nodeIds": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "nodeIds",
+                                "version"
+                              ]
+                            }
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "name",
+                          "revision",
+                          "nodes",
+                          "edges"
+                        ]
+                      },
+                      {
+                        "type": "object",
+                        "properties": {
+                          "schemaVersion": {
+                            "type": "number",
+                            "const": 2
+                          },
+                          "id": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 160,
+                            "pattern": "^[a-zA-Z0-9_-]+$"
+                          },
+                          "name": {
+                            "type": "string",
+                            "minLength": 1,
+                            "maxLength": 1000
+                          },
+                          "revision": {
+                            "type": "integer",
+                            "minimum": 0,
+                            "maximum": 9007199254740991
+                          },
+                          "nodes": {
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "kind": {
+                                  "type": "string"
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "label": {
+                                  "type": "string",
+                                  "maxLength": 1000
+                                },
+                                "position": {
+                                  "type": "object",
+                                  "properties": {
+                                    "x": {
+                                      "type": "number"
+                                    },
+                                    "y": {
+                                      "type": "number"
+                                    }
+                                  },
+                                  "required": [
+                                    "x",
+                                    "y"
+                                  ],
+                                  "additionalProperties": false
+                                },
+                                "config": {
+                                  "type": "object",
+                                  "propertyNames": {
+                                    "type": "string"
+                                  },
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "kind",
+                                "version",
+                                "label",
+                                "position",
+                                "config"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "edges": {
+                            "maxItems": 2000,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "source": {
+                                  "type": "string"
+                                },
+                                "sourceHandle": {
+                                  "type": "string"
+                                },
+                                "target": {
+                                  "type": "string"
+                                },
+                                "targetHandle": {
+                                  "type": "string"
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "source",
+                                "sourceHandle",
+                                "target",
+                                "targetHandle"
+                              ],
+                              "additionalProperties": false
+                            }
+                          },
+                          "groups": {
+                            "default": [],
+                            "maxItems": 500,
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "name": {
+                                  "type": "string"
+                                },
+                                "nodeIds": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "string"
+                                  }
+                                },
+                                "version": {
+                                  "type": "integer",
+                                  "exclusiveMinimum": 0,
+                                  "maximum": 9007199254740991
+                                }
+                              },
+                              "required": [
+                                "id",
+                                "name",
+                                "nodeIds",
+                                "version"
+                              ],
+                              "additionalProperties": false
+                            }
+                          }
+                        },
+                        "required": [
+                          "schemaVersion",
+                          "id",
+                          "name",
+                          "revision",
+                          "nodes",
+                          "edges"
+                        ],
+                        "additionalProperties": false
+                      }
+                    ]
+                  }
+                },
+                "required": [
+                  "workflow"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "valid": {
+                    "type": "boolean"
+                  },
+                  "readyToExecute": {
+                    "type": "boolean"
+                  },
+                  "issues": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "nodeId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "message": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "message"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "valid",
+                  "readyToExecute",
+                  "issues"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "get_execution",
+              "description": "Retrieve latest persisted run, node states and originating asset associations. Authoring does not call a model.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflowId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "workflowId"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflowId": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "revision": {
+                    "type": "integer",
+                    "minimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "url": {
+                    "type": "string",
+                    "format": "uri"
+                  },
+                  "run": {
+                    "anyOf": [
+                      {
+                        "anyOf": [
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "workflowId": {
+                                "type": "string",
+                                "minLength": 1
+                              },
+                              "workflowRevision": {
+                                "type": "integer",
+                                "minimum": 0,
+                                "maximum": 9007199254740991
+                              },
+                              "graphSnapshot": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "schemaVersion": {
+                                        "type": "number",
+                                        "const": 1
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "revision": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "nodes": {
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "kind": {
+                                              "type": "string"
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            },
+                                            "label": {
+                                              "type": "string"
+                                            },
+                                            "position": {
+                                              "type": "object",
+                                              "properties": {
+                                                "x": {
+                                                  "type": "number"
+                                                },
+                                                "y": {
+                                                  "type": "number"
+                                                }
+                                              },
+                                              "required": [
+                                                "x",
+                                                "y"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "config": {
+                                              "type": "object",
+                                              "propertyNames": {
+                                                "type": "string"
+                                              },
+                                              "additionalProperties": {}
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "kind",
+                                            "version",
+                                            "label",
+                                            "position",
+                                            "config"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "edges": {
+                                        "maxItems": 2000,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            },
+                                            "source": {
+                                              "type": "string"
+                                            },
+                                            "sourceHandle": {
+                                              "type": "string"
+                                            },
+                                            "target": {
+                                              "type": "string"
+                                            },
+                                            "targetHandle": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "source",
+                                            "sourceHandle",
+                                            "target",
+                                            "targetHandle"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "groups": {
+                                        "default": [],
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            },
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "nodeIds": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "name",
+                                            "nodeIds",
+                                            "version"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schemaVersion",
+                                      "id",
+                                      "name",
+                                      "revision",
+                                      "nodes",
+                                      "edges",
+                                      "groups"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "schemaVersion": {
+                                        "type": "number",
+                                        "const": 2
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 160,
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 1000
+                                      },
+                                      "revision": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "nodes": {
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "kind": {
+                                              "type": "string"
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            },
+                                            "label": {
+                                              "type": "string",
+                                              "maxLength": 1000
+                                            },
+                                            "position": {
+                                              "type": "object",
+                                              "properties": {
+                                                "x": {
+                                                  "type": "number"
+                                                },
+                                                "y": {
+                                                  "type": "number"
+                                                }
+                                              },
+                                              "required": [
+                                                "x",
+                                                "y"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "config": {
+                                              "type": "object",
+                                              "propertyNames": {
+                                                "type": "string"
+                                              },
+                                              "additionalProperties": {}
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "kind",
+                                            "version",
+                                            "label",
+                                            "position",
+                                            "config"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "edges": {
+                                        "maxItems": 2000,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "source": {
+                                              "type": "string"
+                                            },
+                                            "sourceHandle": {
+                                              "type": "string"
+                                            },
+                                            "target": {
+                                              "type": "string"
+                                            },
+                                            "targetHandle": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "source",
+                                            "sourceHandle",
+                                            "target",
+                                            "targetHandle"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "groups": {
+                                        "default": [],
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "nodeIds": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "name",
+                                            "nodeIds",
+                                            "version"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schemaVersion",
+                                      "id",
+                                      "name",
+                                      "revision",
+                                      "nodes",
+                                      "edges",
+                                      "groups"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              "states": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string"
+                                },
+                                "additionalProperties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "status": {
+                                      "type": "string",
+                                      "enum": [
+                                        "idle",
+                                        "running",
+                                        "completed",
+                                        "pending",
+                                        "failed",
+                                        "blocked"
+                                      ]
+                                    },
+                                    "outputs": {
+                                      "type": "object",
+                                      "propertyNames": {
+                                        "type": "string"
+                                      },
+                                      "additionalProperties": {}
+                                    },
+                                    "error": {
+                                      "type": "string"
+                                    },
+                                    "requestId": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status",
+                                    "outputs"
+                                  ],
+                                  "additionalProperties": false
+                                }
+                              },
+                              "createdAt": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "workflowId",
+                              "workflowRevision",
+                              "graphSnapshot",
+                              "states",
+                              "createdAt"
+                            ],
+                            "additionalProperties": false
+                          },
+                          {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "workflowId": {
+                                "type": "string"
+                              },
+                              "revision": {
+                                "type": "number"
+                              },
+                              "status": {
+                                "type": "string"
+                              },
+                              "snapshot": {
+                                "anyOf": [
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "schemaVersion": {
+                                        "type": "number",
+                                        "const": 1
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "revision": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "nodes": {
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1
+                                            },
+                                            "kind": {
+                                              "type": "string"
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            },
+                                            "label": {
+                                              "type": "string"
+                                            },
+                                            "position": {
+                                              "type": "object",
+                                              "properties": {
+                                                "x": {
+                                                  "type": "number"
+                                                },
+                                                "y": {
+                                                  "type": "number"
+                                                }
+                                              },
+                                              "required": [
+                                                "x",
+                                                "y"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "config": {
+                                              "type": "object",
+                                              "propertyNames": {
+                                                "type": "string"
+                                              },
+                                              "additionalProperties": {}
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "kind",
+                                            "version",
+                                            "label",
+                                            "position",
+                                            "config"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "edges": {
+                                        "maxItems": 2000,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            },
+                                            "source": {
+                                              "type": "string"
+                                            },
+                                            "sourceHandle": {
+                                              "type": "string"
+                                            },
+                                            "target": {
+                                              "type": "string"
+                                            },
+                                            "targetHandle": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "source",
+                                            "sourceHandle",
+                                            "target",
+                                            "targetHandle"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "groups": {
+                                        "default": [],
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string"
+                                            },
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "nodeIds": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "name",
+                                            "nodeIds",
+                                            "version"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schemaVersion",
+                                      "id",
+                                      "name",
+                                      "revision",
+                                      "nodes",
+                                      "edges",
+                                      "groups"
+                                    ],
+                                    "additionalProperties": false
+                                  },
+                                  {
+                                    "type": "object",
+                                    "properties": {
+                                      "schemaVersion": {
+                                        "type": "number",
+                                        "const": 2
+                                      },
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 160,
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 1000
+                                      },
+                                      "revision": {
+                                        "type": "integer",
+                                        "minimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "nodes": {
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "kind": {
+                                              "type": "string"
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            },
+                                            "label": {
+                                              "type": "string",
+                                              "maxLength": 1000
+                                            },
+                                            "position": {
+                                              "type": "object",
+                                              "properties": {
+                                                "x": {
+                                                  "type": "number"
+                                                },
+                                                "y": {
+                                                  "type": "number"
+                                                }
+                                              },
+                                              "required": [
+                                                "x",
+                                                "y"
+                                              ],
+                                              "additionalProperties": false
+                                            },
+                                            "config": {
+                                              "type": "object",
+                                              "propertyNames": {
+                                                "type": "string"
+                                              },
+                                              "additionalProperties": {}
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "kind",
+                                            "version",
+                                            "label",
+                                            "position",
+                                            "config"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "edges": {
+                                        "maxItems": 2000,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "source": {
+                                              "type": "string"
+                                            },
+                                            "sourceHandle": {
+                                              "type": "string"
+                                            },
+                                            "target": {
+                                              "type": "string"
+                                            },
+                                            "targetHandle": {
+                                              "type": "string"
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "source",
+                                            "sourceHandle",
+                                            "target",
+                                            "targetHandle"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      },
+                                      "groups": {
+                                        "default": [],
+                                        "maxItems": 500,
+                                        "type": "array",
+                                        "items": {
+                                          "type": "object",
+                                          "properties": {
+                                            "id": {
+                                              "type": "string",
+                                              "minLength": 1,
+                                              "maxLength": 160,
+                                              "pattern": "^[a-zA-Z0-9_-]+$"
+                                            },
+                                            "name": {
+                                              "type": "string"
+                                            },
+                                            "nodeIds": {
+                                              "type": "array",
+                                              "items": {
+                                                "type": "string"
+                                              }
+                                            },
+                                            "version": {
+                                              "type": "integer",
+                                              "exclusiveMinimum": 0,
+                                              "maximum": 9007199254740991
+                                            }
+                                          },
+                                          "required": [
+                                            "id",
+                                            "name",
+                                            "nodeIds",
+                                            "version"
+                                          ],
+                                          "additionalProperties": false
+                                        }
+                                      }
+                                    },
+                                    "required": [
+                                      "schemaVersion",
+                                      "id",
+                                      "name",
+                                      "revision",
+                                      "nodes",
+                                      "edges",
+                                      "groups"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                ]
+                              },
+                              "snapshotHash": {
+                                "type": "string"
+                              },
+                              "semanticHash": {
+                                "type": "string"
+                              },
+                              "contracts": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string"
+                                },
+                                "additionalProperties": {
+                                  "type": "string"
+                                }
+                              },
+                              "states": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string"
+                                },
+                                "additionalProperties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "status": {
+                                      "type": "string"
+                                    },
+                                    "outputs": {
+                                      "type": "object",
+                                      "propertyNames": {
+                                        "type": "string"
+                                      },
+                                      "additionalProperties": {
+                                        "type": "object",
+                                        "properties": {
+                                          "id": {
+                                            "type": "string"
+                                          },
+                                          "familyId": {
+                                            "type": "string"
+                                          },
+                                          "version": {
+                                            "type": "integer",
+                                            "exclusiveMinimum": 0,
+                                            "maximum": 9007199254740991
+                                          },
+                                          "previousId": {
+                                            "type": "string"
+                                          },
+                                          "type": {
+                                            "type": "string",
+                                            "enum": [
+                                              "text",
+                                              "number",
+                                              "boolean",
+                                              "record",
+                                              "image"
+                                            ]
+                                          },
+                                          "schemaRef": {
+                                            "type": "string"
+                                          },
+                                          "value": {},
+                                          "contentHash": {
+                                            "type": "string"
+                                          },
+                                          "parents": {
+                                            "type": "array",
+                                            "items": {
+                                              "type": "object",
+                                              "properties": {
+                                                "artifactId": {
+                                                  "type": "string"
+                                                },
+                                                "role": {
+                                                  "type": "string"
+                                                }
+                                              },
+                                              "required": [
+                                                "artifactId",
+                                                "role"
+                                              ],
+                                              "additionalProperties": false
+                                            }
+                                          },
+                                          "workflowId": {
+                                            "type": "string"
+                                          },
+                                          "revision": {
+                                            "type": "number"
+                                          },
+                                          "runId": {
+                                            "type": "string"
+                                          },
+                                          "attemptId": {
+                                            "type": "string"
+                                          },
+                                          "nodeId": {
+                                            "type": "string"
+                                          },
+                                          "outputPort": {
+                                            "type": "string"
+                                          },
+                                          "snapshotHash": {
+                                            "type": "string"
+                                          },
+                                          "provenance": {
+                                            "type": "string"
+                                          },
+                                          "createdAt": {
+                                            "type": "string"
+                                          },
+                                          "byteLength": {
+                                            "type": "number"
+                                          },
+                                          "mime": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "id",
+                                          "familyId",
+                                          "version",
+                                          "type",
+                                          "value",
+                                          "contentHash",
+                                          "parents",
+                                          "workflowId",
+                                          "revision",
+                                          "runId",
+                                          "attemptId",
+                                          "nodeId",
+                                          "outputPort",
+                                          "snapshotHash",
+                                          "provenance",
+                                          "createdAt"
+                                        ],
+                                        "additionalProperties": {}
+                                      }
+                                    },
+                                    "error": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "status",
+                                    "outputs"
+                                  ],
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "attempts": {
+                                "type": "array",
+                                "items": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "nodeId": {
+                                      "type": "string"
+                                    },
+                                    "status": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "nodeId",
+                                    "status"
+                                  ],
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "createdAt": {
+                                "type": "string"
+                              },
+                              "completedAt": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "workflowId",
+                              "revision",
+                              "status",
+                              "snapshot",
+                              "snapshotHash",
+                              "semanticHash",
+                              "contracts",
+                              "states",
+                              "attempts",
+                              "createdAt"
+                            ],
+                            "additionalProperties": {}
+                          }
+                        ]
+                      },
+                      {
+                        "type": "null"
+                      }
+                    ]
+                  },
+                  "assets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "uri": {
+                          "type": "string",
+                          "pattern": "^(https:\\/\\/|\\/api\\/assets\\/)"
+                        },
+                        "mediaType": {
+                          "type": "string",
+                          "enum": [
+                            "image",
+                            "video",
+                            "audio"
+                          ]
+                        },
+                        "parentIds": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "runId": {
+                          "type": "string"
+                        },
+                        "provenance": {
+                          "type": "string",
+                          "enum": [
+                            "external-reported",
+                            "imported"
+                          ]
+                        },
+                        "predictionId": {
+                          "type": "string"
+                        },
+                        "workflowId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "sourceNodeId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "associatedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "uri",
+                        "mediaType",
+                        "parentIds",
+                        "provenance",
+                        "workflowId",
+                        "sourceNodeId",
+                        "associatedAt"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "workflowId",
+                  "revision",
+                  "url",
+                  "run",
+                  "assets"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "get_assets",
+              "description": "Retrieve durable asset associations and their originating nodes, run IDs and declared provenance.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflowId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "workflowId"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "assets": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "uri": {
+                          "type": "string",
+                          "pattern": "^(https:\\/\\/|\\/api\\/assets\\/)"
+                        },
+                        "mediaType": {
+                          "type": "string",
+                          "enum": [
+                            "image",
+                            "video",
+                            "audio"
+                          ]
+                        },
+                        "parentIds": {
+                          "default": [],
+                          "type": "array",
+                          "items": {
+                            "type": "string"
+                          }
+                        },
+                        "runId": {
+                          "type": "string"
+                        },
+                        "provenance": {
+                          "type": "string",
+                          "enum": [
+                            "external-reported",
+                            "imported"
+                          ]
+                        },
+                        "predictionId": {
+                          "type": "string"
+                        },
+                        "workflowId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "sourceNodeId": {
+                          "type": "string",
+                          "minLength": 1
+                        },
+                        "associatedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "uri",
+                        "mediaType",
+                        "parentIds",
+                        "provenance",
+                        "workflowId",
+                        "sourceNodeId",
+                        "associatedAt"
+                      ],
+                      "additionalProperties": false
+                    }
+                  }
+                },
+                "required": [
+                  "assets"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "universal_catalog",
+              "description": "Discover U1 versioned universal operations, trusted schemas, transform contracts, capability manifests and reusable recipes. External plans cannot execute.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {},
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "catalog": {
+                    "type": "object",
+                    "properties": {
+                      "schemaVersion": {
+                        "type": "number",
+                        "const": 2
+                      },
+                      "configSchemas": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string"
+                        },
+                        "additionalProperties": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        }
+                      },
+                      "portContract": {
+                        "type": "object",
+                        "properties": {
+                          "role": {
+                            "type": "string",
+                            "const": "value"
+                          },
+                          "cardinality": {
+                            "type": "string",
+                            "const": "single"
+                          },
+                          "output": {
+                            "type": "string",
+                            "const": "value"
+                          },
+                          "input": {
+                            "type": "string",
+                            "const": "input"
+                          },
+                          "resolution": {
+                            "type": "string"
+                          }
+                        },
+                        "required": [
+                          "role",
+                          "cardinality",
+                          "output",
+                          "input",
+                          "resolution"
+                        ],
+                        "additionalProperties": false
+                      },
+                      "operations": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "kind": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "defaults": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string"
+                              },
+                              "additionalProperties": {}
+                            },
+                            "configSchema": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string"
+                              },
+                              "additionalProperties": {}
+                            }
+                          },
+                          "required": [
+                            "kind",
+                            "version",
+                            "defaults"
+                          ],
+                          "additionalProperties": {}
+                        }
+                      },
+                      "transforms": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "input": {
+                              "type": "string",
+                              "enum": [
+                                "text",
+                                "number",
+                                "boolean",
+                                "record",
+                                "image"
+                              ]
+                            },
+                            "output": {
+                              "type": "string",
+                              "enum": [
+                                "text",
+                                "number",
+                                "boolean",
+                                "record",
+                                "image"
+                              ]
+                            },
+                            "inputSchema": {
+                              "type": "string"
+                            },
+                            "outputSchema": {
+                              "type": "string"
+                            },
+                            "settingsSchema": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string"
+                              },
+                              "additionalProperties": {}
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "input",
+                            "output",
+                            "settingsSchema"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "manifests": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "input": {
+                              "type": "string",
+                              "enum": [
+                                "text",
+                                "number",
+                                "boolean",
+                                "record",
+                                "image"
+                              ]
+                            },
+                            "output": {
+                              "type": "string",
+                              "enum": [
+                                "text",
+                                "number",
+                                "boolean",
+                                "record",
+                                "image"
+                              ]
+                            },
+                            "inputSchema": {
+                              "type": "string"
+                            },
+                            "outputSchema": {
+                              "type": "string"
+                            },
+                            "settingsSchema": {
+                              "type": "object",
+                              "propertyNames": {
+                                "type": "string"
+                              },
+                              "additionalProperties": {}
+                            },
+                            "adapter": {
+                              "type": "string"
+                            },
+                            "status": {
+                              "type": "string",
+                              "enum": [
+                                "implemented-local",
+                                "external-dependent"
+                              ]
+                            },
+                            "effects": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            },
+                            "discoveredAt": {
+                              "type": "string"
+                            },
+                            "expiresAt": {
+                              "type": "string"
+                            },
+                            "hash": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "input",
+                            "output",
+                            "settingsSchema",
+                            "adapter",
+                            "status",
+                            "effects",
+                            "discoveredAt",
+                            "hash"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "schemas": {
+                        "type": "object",
+                        "propertyNames": {
+                          "type": "string"
+                        },
+                        "additionalProperties": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {}
+                        }
+                      },
+                      "recipes": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "id": {
+                              "type": "string"
+                            },
+                            "version": {
+                              "type": "integer",
+                              "exclusiveMinimum": 0,
+                              "maximum": 9007199254740991
+                            },
+                            "operations": {
+                              "type": "array",
+                              "items": {
+                                "type": "string"
+                              }
+                            }
+                          },
+                          "required": [
+                            "id",
+                            "version",
+                            "operations"
+                          ],
+                          "additionalProperties": false
+                        }
+                      }
+                    },
+                    "required": [
+                      "schemaVersion",
+                      "configSchemas",
+                      "portContract",
+                      "operations",
+                      "transforms",
+                      "manifests",
+                      "schemas",
+                      "recipes"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "allowLocalExecution": {
+                    "type": "boolean"
+                  }
+                },
+                "required": [
+                  "catalog",
+                  "allowLocalExecution"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "list_universal_runs",
+              "description": "Read durable universal run snapshots, attempts and versioned artifact outputs; no replay.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "workflowId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "workflowId"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "runs": {
+                    "type": "array",
+                    "items": {
+                      "type": "object",
+                      "properties": {
+                        "id": {
+                          "type": "string"
+                        },
+                        "workflowId": {
+                          "type": "string"
+                        },
+                        "revision": {
+                          "type": "number"
+                        },
+                        "status": {
+                          "type": "string"
+                        },
+                        "snapshot": {
+                          "anyOf": [
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schemaVersion": {
+                                  "type": "number",
+                                  "const": 1
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1
+                                },
+                                "revision": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "nodes": {
+                                  "maxItems": 500,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1
+                                      },
+                                      "kind": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "integer",
+                                        "exclusiveMinimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "label": {
+                                        "type": "string"
+                                      },
+                                      "position": {
+                                        "type": "object",
+                                        "properties": {
+                                          "x": {
+                                            "type": "number"
+                                          },
+                                          "y": {
+                                            "type": "number"
+                                          }
+                                        },
+                                        "required": [
+                                          "x",
+                                          "y"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      "config": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string"
+                                        },
+                                        "additionalProperties": {}
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "kind",
+                                      "version",
+                                      "label",
+                                      "position",
+                                      "config"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "edges": {
+                                  "maxItems": 2000,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "source": {
+                                        "type": "string"
+                                      },
+                                      "sourceHandle": {
+                                        "type": "string"
+                                      },
+                                      "target": {
+                                        "type": "string"
+                                      },
+                                      "targetHandle": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "source",
+                                      "sourceHandle",
+                                      "target",
+                                      "targetHandle"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "groups": {
+                                  "default": [],
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "nodeIds": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "version": {
+                                        "type": "integer",
+                                        "exclusiveMinimum": 0,
+                                        "maximum": 9007199254740991
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "name",
+                                      "nodeIds",
+                                      "version"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schemaVersion",
+                                "id",
+                                "name",
+                                "revision",
+                                "nodes",
+                                "edges",
+                                "groups"
+                              ],
+                              "additionalProperties": false
+                            },
+                            {
+                              "type": "object",
+                              "properties": {
+                                "schemaVersion": {
+                                  "type": "number",
+                                  "const": 2
+                                },
+                                "id": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 160,
+                                  "pattern": "^[a-zA-Z0-9_-]+$"
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "minLength": 1,
+                                  "maxLength": 1000
+                                },
+                                "revision": {
+                                  "type": "integer",
+                                  "minimum": 0,
+                                  "maximum": 9007199254740991
+                                },
+                                "nodes": {
+                                  "maxItems": 500,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 160,
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "kind": {
+                                        "type": "string"
+                                      },
+                                      "version": {
+                                        "type": "integer",
+                                        "exclusiveMinimum": 0,
+                                        "maximum": 9007199254740991
+                                      },
+                                      "label": {
+                                        "type": "string",
+                                        "maxLength": 1000
+                                      },
+                                      "position": {
+                                        "type": "object",
+                                        "properties": {
+                                          "x": {
+                                            "type": "number"
+                                          },
+                                          "y": {
+                                            "type": "number"
+                                          }
+                                        },
+                                        "required": [
+                                          "x",
+                                          "y"
+                                        ],
+                                        "additionalProperties": false
+                                      },
+                                      "config": {
+                                        "type": "object",
+                                        "propertyNames": {
+                                          "type": "string"
+                                        },
+                                        "additionalProperties": {}
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "kind",
+                                      "version",
+                                      "label",
+                                      "position",
+                                      "config"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "edges": {
+                                  "maxItems": 2000,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 160,
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "source": {
+                                        "type": "string"
+                                      },
+                                      "sourceHandle": {
+                                        "type": "string"
+                                      },
+                                      "target": {
+                                        "type": "string"
+                                      },
+                                      "targetHandle": {
+                                        "type": "string"
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "source",
+                                      "sourceHandle",
+                                      "target",
+                                      "targetHandle"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                },
+                                "groups": {
+                                  "default": [],
+                                  "maxItems": 500,
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "id": {
+                                        "type": "string",
+                                        "minLength": 1,
+                                        "maxLength": 160,
+                                        "pattern": "^[a-zA-Z0-9_-]+$"
+                                      },
+                                      "name": {
+                                        "type": "string"
+                                      },
+                                      "nodeIds": {
+                                        "type": "array",
+                                        "items": {
+                                          "type": "string"
+                                        }
+                                      },
+                                      "version": {
+                                        "type": "integer",
+                                        "exclusiveMinimum": 0,
+                                        "maximum": 9007199254740991
+                                      }
+                                    },
+                                    "required": [
+                                      "id",
+                                      "name",
+                                      "nodeIds",
+                                      "version"
+                                    ],
+                                    "additionalProperties": false
+                                  }
+                                }
+                              },
+                              "required": [
+                                "schemaVersion",
+                                "id",
+                                "name",
+                                "revision",
+                                "nodes",
+                                "edges",
+                                "groups"
+                              ],
+                              "additionalProperties": false
+                            }
+                          ]
+                        },
+                        "snapshotHash": {
+                          "type": "string"
+                        },
+                        "semanticHash": {
+                          "type": "string"
+                        },
+                        "contracts": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {
+                            "type": "string"
+                          }
+                        },
+                        "states": {
+                          "type": "object",
+                          "propertyNames": {
+                            "type": "string"
+                          },
+                          "additionalProperties": {
+                            "type": "object",
+                            "properties": {
+                              "status": {
+                                "type": "string"
+                              },
+                              "outputs": {
+                                "type": "object",
+                                "propertyNames": {
+                                  "type": "string"
+                                },
+                                "additionalProperties": {
+                                  "type": "object",
+                                  "properties": {
+                                    "id": {
+                                      "type": "string"
+                                    },
+                                    "familyId": {
+                                      "type": "string"
+                                    },
+                                    "version": {
+                                      "type": "integer",
+                                      "exclusiveMinimum": 0,
+                                      "maximum": 9007199254740991
+                                    },
+                                    "previousId": {
+                                      "type": "string"
+                                    },
+                                    "type": {
+                                      "type": "string",
+                                      "enum": [
+                                        "text",
+                                        "number",
+                                        "boolean",
+                                        "record",
+                                        "image"
+                                      ]
+                                    },
+                                    "schemaRef": {
+                                      "type": "string"
+                                    },
+                                    "value": {},
+                                    "contentHash": {
+                                      "type": "string"
+                                    },
+                                    "parents": {
+                                      "type": "array",
+                                      "items": {
+                                        "type": "object",
+                                        "properties": {
+                                          "artifactId": {
+                                            "type": "string"
+                                          },
+                                          "role": {
+                                            "type": "string"
+                                          }
+                                        },
+                                        "required": [
+                                          "artifactId",
+                                          "role"
+                                        ],
+                                        "additionalProperties": false
+                                      }
+                                    },
+                                    "workflowId": {
+                                      "type": "string"
+                                    },
+                                    "revision": {
+                                      "type": "number"
+                                    },
+                                    "runId": {
+                                      "type": "string"
+                                    },
+                                    "attemptId": {
+                                      "type": "string"
+                                    },
+                                    "nodeId": {
+                                      "type": "string"
+                                    },
+                                    "outputPort": {
+                                      "type": "string"
+                                    },
+                                    "snapshotHash": {
+                                      "type": "string"
+                                    },
+                                    "provenance": {
+                                      "type": "string"
+                                    },
+                                    "createdAt": {
+                                      "type": "string"
+                                    },
+                                    "byteLength": {
+                                      "type": "number"
+                                    },
+                                    "mime": {
+                                      "type": "string"
+                                    }
+                                  },
+                                  "required": [
+                                    "id",
+                                    "familyId",
+                                    "version",
+                                    "type",
+                                    "value",
+                                    "contentHash",
+                                    "parents",
+                                    "workflowId",
+                                    "revision",
+                                    "runId",
+                                    "attemptId",
+                                    "nodeId",
+                                    "outputPort",
+                                    "snapshotHash",
+                                    "provenance",
+                                    "createdAt"
+                                  ],
+                                  "additionalProperties": {}
+                                }
+                              },
+                              "error": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "status",
+                              "outputs"
+                            ],
+                            "additionalProperties": {}
+                          }
+                        },
+                        "attempts": {
+                          "type": "array",
+                          "items": {
+                            "type": "object",
+                            "properties": {
+                              "id": {
+                                "type": "string"
+                              },
+                              "nodeId": {
+                                "type": "string"
+                              },
+                              "status": {
+                                "type": "string"
+                              }
+                            },
+                            "required": [
+                              "id",
+                              "nodeId",
+                              "status"
+                            ],
+                            "additionalProperties": {}
+                          }
+                        },
+                        "createdAt": {
+                          "type": "string"
+                        },
+                        "completedAt": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "id",
+                        "workflowId",
+                        "revision",
+                        "status",
+                        "snapshot",
+                        "snapshotHash",
+                        "semanticHash",
+                        "contracts",
+                        "states",
+                        "attempts",
+                        "createdAt"
+                      ],
+                      "additionalProperties": {}
+                    }
+                  }
+                },
+                "required": [
+                  "runs"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            },
+            {
+              "name": "get_artifact",
+              "description": "Read and verify an immutable artifact version and its lineage. Corrupt or missing bytes fail visibly.",
+              "inputSchema": {
+                "type": "object",
+                "properties": {
+                  "artifactId": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "artifactId"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#"
+              },
+              "outputSchema": {
+                "type": "object",
+                "properties": {
+                  "artifact": {
+                    "type": "object",
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "familyId": {
+                        "type": "string"
+                      },
+                      "version": {
+                        "type": "integer",
+                        "exclusiveMinimum": 0,
+                        "maximum": 9007199254740991
+                      },
+                      "previousId": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string",
+                        "enum": [
+                          "text",
+                          "number",
+                          "boolean",
+                          "record",
+                          "image"
+                        ]
+                      },
+                      "schemaRef": {
+                        "type": "string"
+                      },
+                      "value": {},
+                      "contentHash": {
+                        "type": "string"
+                      },
+                      "parents": {
+                        "type": "array",
+                        "items": {
+                          "type": "object",
+                          "properties": {
+                            "artifactId": {
+                              "type": "string"
+                            },
+                            "role": {
+                              "type": "string"
+                            }
+                          },
+                          "required": [
+                            "artifactId",
+                            "role"
+                          ],
+                          "additionalProperties": false
+                        }
+                      },
+                      "workflowId": {
+                        "type": "string"
+                      },
+                      "revision": {
+                        "type": "number"
+                      },
+                      "runId": {
+                        "type": "string"
+                      },
+                      "attemptId": {
+                        "type": "string"
+                      },
+                      "nodeId": {
+                        "type": "string"
+                      },
+                      "outputPort": {
+                        "type": "string"
+                      },
+                      "snapshotHash": {
+                        "type": "string"
+                      },
+                      "provenance": {
+                        "type": "string"
+                      },
+                      "createdAt": {
+                        "type": "string"
+                      },
+                      "byteLength": {
+                        "type": "number"
+                      },
+                      "mime": {
+                        "type": "string"
+                      }
+                    },
+                    "required": [
+                      "id",
+                      "familyId",
+                      "version",
+                      "type",
+                      "value",
+                      "contentHash",
+                      "parents",
+                      "workflowId",
+                      "revision",
+                      "runId",
+                      "attemptId",
+                      "nodeId",
+                      "outputPort",
+                      "snapshotHash",
+                      "provenance",
+                      "createdAt"
+                    ],
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "artifact"
+                ],
+                "$schema": "http://json-schema.org/draft-07/schema#",
+                "additionalProperties": false
+              },
+              "annotations": {
+                "readOnlyHint": true,
+                "destructiveHint": false,
+                "idempotentHint": true,
+                "openWorldHint": false
+              },
+              "execution": {
+                "taskSupport": "forbidden"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "profile": "read",
+      "method": "tools/call",
+      "tool": "create_universal",
+      "args": {
+        "name": "denied"
+      },
+      "code": 5,
+      "stdout": "",
+      "stderr": "(node:24472) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_universal' not found on server.\"}}\n",
+      "result": {
+        "raw": "",
+        "error": "(node:24472) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_universal' not found on server.\"}}\n"
+      }
+    },
+    {
+      "profile": "author",
+      "method": "tools/call",
+      "tool": "create_universal",
+      "args": {
+        "id": "independent-author",
+        "name": "Independent author grant"
+      },
+      "code": 0,
+      "stdout": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"workflow\\\":{\\\"schemaVersion\\\":2,\\\"id\\\":\\\"independent-author\\\",\\\"name\\\":\\\"Independent author grant\\\",\\\"revision\\\":1,\\\"nodes\\\":[],\\\"edges\\\":[],\\\"groups\\\":[]},\\\"url\\\":\\\"http://127.0.0.1:5177/?workflow=independent-author\\\"}\"}],\"structuredContent\":{\"workflow\":{\"schemaVersion\":2,\"id\":\"independent-author\",\"name\":\"Independent author grant\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5177/?workflow=independent-author\"}}}\n",
+      "stderr": "(node:20180) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n",
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"workflow\":{\"schemaVersion\":2,\"id\":\"independent-author\",\"name\":\"Independent author grant\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5177/?workflow=independent-author\"}"
+            }
+          ],
+          "structuredContent": {
+            "workflow": {
+              "schemaVersion": 2,
+              "id": "independent-author",
+              "name": "Independent author grant",
+              "revision": 1,
+              "nodes": [],
+              "edges": [],
+              "groups": []
+            },
+            "url": "http://127.0.0.1:5177/?workflow=independent-author"
+          }
+        }
+      }
+    },
+    {
+      "profile": "author",
+      "method": "tools/call",
+      "tool": "execute_universal",
+      "args": {
+        "workflowId": "independent-author",
+        "expectedRevision": 1,
+        "idempotencyKey": "denied"
+      },
+      "code": 5,
+      "stdout": "{\"result\":{\"content\":[{\"type\":\"text\",\"text\":\"{\\\"code\\\":\\\"FORBIDDEN\\\",\\\"message\\\":\\\"Managed-local execution policy is disabled\\\"}\"}],\"isError\":true}}\n",
+      "stderr": "(node:25320) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_is_error\",\"message\":\"Tool 'execute_universal' returned isError:true.\"}}\n",
+      "result": {
+        "result": {
+          "content": [
+            {
+              "type": "text",
+              "text": "{\"code\":\"FORBIDDEN\",\"message\":\"Managed-local execution policy is disabled\"}"
+            }
+          ],
+          "isError": true
+        }
+      }
+    }
+  ]
+}

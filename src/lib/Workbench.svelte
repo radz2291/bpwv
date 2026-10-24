@@ -69,13 +69,17 @@
   }
   function semantic(g: any) {
     return canonicalize({
-      nodes: g?.nodes?.map((n: any) => ({
-        id: n.id,
-        kind: n.kind,
-        version: n.version,
-        config: n.config
-      })),
-      edges: g?.edges
+      nodes: g?.nodes
+        ?.map((n: any) => ({
+          id: n.id,
+          kind: n.kind,
+          version: n.version,
+          config: n.config
+        }))
+        .sort((a: any, b: any) => (a.id < b.id ? -1 : a.id > b.id ? 1 : 0)),
+      edges: [...(g?.edges ?? [])].sort((a: any, b: any) =>
+        a.id < b.id ? -1 : a.id > b.id ? 1 : 0
+      )
     });
   }
   function contractChanged() {
