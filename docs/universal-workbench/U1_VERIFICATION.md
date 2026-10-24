@@ -1,5 +1,11 @@
 # U1 verification and delivery record
 
+## Current closure — 25 October 2026
+
+**Open owner product finding: the dual-editor experience is confusing and must be consolidated.** The owner requires one universal workbench, closure of the legacy editor, and permits removal of existing old/demo/test workflows because there are no real production workflows to migrate. See [owner direction](../decisions/2026-10-25-single-workbench-owner-direction.md). This is recorded feedback, not an implemented repair. Technical gate passage below does not imply owner acceptance of the current interface.
+
+**G8 PASS. All nine U1 verification gates now pass for the declared local subset; owner acceptance and merge remain pending.** The actual ChatGPT-side result supplied by the owner was corroborated through read-only service/artifact retrieval and actual editor reopen. Exact workflow/run/artifact IDs, statistics, provenance, preservation caveat and screenshot are recorded in [G8_CLOSURE_2026-10-25.md](G8_CLOSURE_2026-10-25.md). No execution was repeated. The HELD assessments below are retained as historical pre-closure evidence. The owner authorized publication of this documentation/evidence follow-up to the existing U1 review branch on 25 October 2026; runtime code and merge authorization are unchanged.
+
 Baseline: `d3296549676e942ae402fcee7ea570d8fc51a16e`. Branch: `dev/u1-universal-execution`. Owner authorized U1 only; no paid generation, main merge or U2.
 
 ## Gate assessment before independent challenge
