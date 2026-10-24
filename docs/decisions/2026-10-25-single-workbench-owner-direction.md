@@ -1,6 +1,6 @@
 # Owner direction: one workbench — 25 October 2026
 
-Status: owner direction recorded; interface consolidation and workflow cleanup are not yet implemented.
+Status: consolidation implemented on PR #5 and focused verification passed; final owner product acceptance pending. See the [closure report](../universal-workbench/SINGLE_WORKBENCH_CLOSURE_2026-10-25.md). Historical direction and pre-implementation statements below are retained as the original decision record.
 
 ## Owner finding
 

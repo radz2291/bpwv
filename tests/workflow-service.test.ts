@@ -13,7 +13,11 @@ test('service discovers contracts and atomically creates/configures/connects/reo
   const { db, service } = setup();
   assert.equal(service.catalog().length, 7);
   assert.ok(service.catalog().every((n) => n.configSchema));
-  const created = service.create({ id: 'test', name: 'MCP graph' });
+  const created = service.create({
+    id: 'test',
+    name: 'MCP graph',
+    schemaVersion: 1
+  });
   const graph = demo();
   const result = service.apply({
     workflowId: created.id,

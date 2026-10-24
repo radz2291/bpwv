@@ -147,6 +147,7 @@ export class WorkflowService {
           id: g.id,
           name: g.name,
           revision: g.revision,
+          schemaVersion: g.schemaVersion,
           url: this.url(g.id)
         };
       });
@@ -266,9 +267,9 @@ export class WorkflowService {
       );
     return next;
   }
-  create(input: { id?: string; name: string }) {
+  create(input: { id?: string; name: string; schemaVersion?: 1 | 2 }) {
     const graph = this.validate({
-      schemaVersion: 1,
+      schemaVersion: input.schemaVersion ?? 2,
       id: input.id ?? randomUUID(),
       name: input.name,
       revision: 0,
@@ -284,6 +285,39 @@ export class WorkflowService {
       )
         throw new ServiceError('CONFLICT', 'Workflow already exists');
       return this.persist(graph, false);
+    });
+  }
+  /** Trusted maintenance only, after a verified full backup. History is retained. */
+  archiveWorkflows(entries: { id: string; expectedRevision: number }[]) {
+    const selected = z
+      .array(
+        z
+          .object({
+            id: z.string().min(1),
+            expectedRevision: z.number().int().positive()
+          })
+          .strict()
+      )
+      .min(1)
+      .max(500)
+      .parse(entries);
+    if (new Set(selected.map((e) => e.id)).size !== selected.length)
+      throw new ServiceError('INVALID', 'Duplicate archive identity');
+    return this.atomic(() => {
+      const graphs = selected.map((e) => {
+        const graph = this.get(e.id);
+        if (graph.revision !== e.expectedRevision)
+          throw new ServiceError(
+            'CONFLICT',
+            'Archive revision changed; inventory again'
+          );
+        return graph;
+      });
+      for (const graph of graphs)
+        this.connection
+          .prepare('DELETE FROM workflows WHERE id=? AND revision=?')
+          .run(graph.id, graph.revision);
+      return graphs;
     });
   }
   save(raw: unknown) {

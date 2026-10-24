@@ -1,6 +1,8 @@
 import { spawn } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
+import { loadLocalRuntime } from './local-runtime.mjs';
+loadLocalRuntime();
 const root = fileURLToPath(new URL('..', import.meta.url));
 const child = spawn(
   process.execPath,

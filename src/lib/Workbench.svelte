@@ -239,7 +239,9 @@
     });
   }
   async function refreshList() {
-    saved = await api('/api/workflows');
+    saved = (await api('/api/workflows')).filter(
+      (g: any) => g.schemaVersion === 2
+    );
   }
   async function history() {
     if (!workflow) return;
@@ -281,7 +283,16 @@
     try {
       const g = await api(`/api/workflows/${id}`);
       if (g.schemaVersion !== 2) {
-        window.location.href = `/?workflow=${encodeURIComponent(id)}`;
+        workflow = null;
+        nodes = [];
+        edges = [];
+        runs = [];
+        artifacts = {};
+        selectedRun = '';
+        selected = '';
+        message =
+          'This legacy workflow is retired. Create or select a universal workflow.';
+        window.history.replaceState({}, '', '/');
         return;
       }
       sync(g);
@@ -293,7 +304,16 @@
       await history();
       message = `Reopened · revision ${g.revision}`;
     } catch (e) {
-      message = String(e);
+      workflow = null;
+      nodes = [];
+      edges = [];
+      runs = [];
+      artifacts = {};
+      selectedRun = '';
+      selected = '';
+      window.history.replaceState({}, '', '/');
+      message =
+        'Workflow unavailable or archived. Create or select a universal workflow.';
     }
   }
   async function save() {
@@ -542,7 +562,8 @@
           sync(initialWorkflow);
           await history();
         } else if (id) await open(id);
-        message = 'Universal workbench · local results only';
+        if (!id && !initialWorkflow)
+          message = 'Ready · create or select a workflow';
       })
       .catch((e) => (message = String(e)));
   });
@@ -552,7 +573,7 @@
   <header>
     <a href="/">cf·</a><strong>Universal workbench</strong><span
       >Input · Transform · Invoke · Output</span
-    ><a href="/">Legacy workflow studio ↗</a>
+    ><span class="workspace-label">Creative Flow · Local workspace</span>
   </header>
   <div class="toolbar">
     <input

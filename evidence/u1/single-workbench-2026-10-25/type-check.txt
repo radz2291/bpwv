@@ -1,0 +1,8 @@
+
+> creative-flow@1.0.0 check
+> svelte-kit sync && svelte-check --tsconfig ./tsconfig.json
+
+Loading svelte-check in workspace: c:\Users\RZ1\Desktop\RZ\261024-Borderpoint
+Getting Svelte diagnostics...
+
+svelte-check found 0 errors and 0 warnings

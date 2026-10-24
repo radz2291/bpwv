@@ -1,0 +1,26 @@
+{
+  "status": "PASS",
+  "primaryBackup": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\backups\\primary-before-single-workbench-2026-10-25",
+  "activeBackup": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\backups\\single-workbench-1792861053359",
+  "originalTablesUnchanged": [
+    "requests",
+    "runs",
+    "wb_artifacts",
+    "wb_attempts",
+    "wb_execution_locks",
+    "wb_migrations",
+    "wb_run_owners",
+    "wb_runs",
+    "workflow_assets",
+    "workflow_revisions",
+    "workflows"
+  ],
+  "originalWorkflowCount": 20,
+  "activeWorkflowCount": 1,
+  "archivedKnownFixtures": 9,
+  "preservedFileDigests": 31,
+  "managedBackupBytesVerified": true,
+  "tunnelProfileUnchanged": true,
+  "unidentifiedDraft": "borderpoint-original-b-v2-draft retained in inactive original database",
+  "historyTablesUnchanged": true
+}

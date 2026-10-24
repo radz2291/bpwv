@@ -1,4 +1,12 @@
-# Current U1 status — 25 October 2026
+# Current U1 product closure — 25 October 2026
+
+Single Universal Workbench consolidation is implemented and verified on PR #5, branch `dev/u1-universal-execution`. **Ready for final owner product review; acceptance and merge pending.** The sole editor is http://127.0.0.1:5173/; new UI/MCP workflows default to schema 2. Port 5175 is stopped. App/dev/MCP share the selected verified U1 store through ignored machine-local configuration. The original primary database remains unchanged and inactive. Nine known fixtures were archived with verified full backups and retained history/media; the actual ChatGPT G8 workflow remains as the saved review example. The newer unidentified original draft is retained, not deleted.
+
+Focused verification passes: 15 regressions, zero type errors/warnings, build, official Inspector discovery, MCP default-create/save/local-execute, HTTP read/write protections, same-shell fresh/saved/ChatGPT workflow checks, actual text/PNG previews and restart, all original tables and 31 file digests preserved. Connected tunnel reads verify the original G8 artifact and new 5173 URL. Risk-based verification and development velocity policy are recorded in AGENTS.md and docs/DEVELOPMENT_GUIDELINES.md. No U2, paid calls, deployment or merge. See [single-workbench closure](docs/universal-workbench/SINGLE_WORKBENCH_CLOSURE_2026-10-25.md) and its dated evidence for inventory, recovery, exact scope and remaining limitations.
+
+# Historical G8 closure snapshot — 25 October 2026
+
+
 
 **Open owner product finding: one editor is required.** The owner finds workflow-triggered switching between the legacy editor and universal workbench confusing. Retain the universal workbench as the sole user-facing interface and retire the old editor. Existing old/demo/test workflows may be removed; the owner states there are no real production workflows requiring migration. This direction supersedes preserving those disposable graphs as active product content, but does not authorize erasing historical evidence, source/media files or credentials. See `docs/decisions/2026-10-25-single-workbench-owner-direction.md`. This update records the requested report finding only; no workflow deletion, server shutdown or UI implementation has occurred. Technical G1–G9 passage remains distinct from the unresolved product-experience finding and pending owner acceptance.
 

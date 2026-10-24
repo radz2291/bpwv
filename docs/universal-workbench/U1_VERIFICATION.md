@@ -1,6 +1,10 @@
 # U1 verification and delivery record
 
-## Current closure — 25 October 2026
+## Current product closure — 25 October 2026
+
+The Single Universal Workbench follow-up is implemented and focused verification passes. Normal entry 5173, fresh/saved/MCP workflows and actual results use one editor; default creation is universal. Nine demos are recoverably archived, history/media/credentials retained, and the original database remains inactive and unchanged. Final owner product acceptance is pending. See [dated closure and evidence](SINGLE_WORKBENCH_CLOSURE_2026-10-25.md). No merge or U2.
+
+## Historical G8 closure — 25 October 2026
 
 **Open owner product finding: the dual-editor experience is confusing and must be consolidated.** The owner requires one universal workbench, closure of the legacy editor, and permits removal of existing old/demo/test workflows because there are no real production workflows to migrate. See [owner direction](../decisions/2026-10-25-single-workbench-owner-direction.md). This is recorded feedback, not an implemented repair. Technical gate passage below does not imply owner acceptance of the current interface.
 

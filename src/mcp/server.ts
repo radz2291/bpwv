@@ -159,7 +159,7 @@ export function createAuthoringServer(
     { name: 'creative-flow-authoring', version: '1.2.0' },
     {
       instructions:
-        'Author Creative Flow graphs directly. Discover node_types for legacy documents or universal_catalog for schemaVersion 2 first. Universal local execution additionally requires an explicit process effect policy. Reuse stable IDs and current revisions. apply_changes atomically persists a batch. Never overwrite a conflict: retrieve and reconcile. Authoring needs no Codex, browser, model credentials or model calls. Asset association records provenance metadata, never proves generation. Weave generation remains a separate approved provider process. execute_local refuses any generative node.'
+        'Author Creative Flow graphs directly. Discover universal_catalog first. New workflows default to schemaVersion 2 in the single universal workbench. node_types is retained for legacy contract inspection. Universal local execution additionally requires an explicit process effect policy. Reuse stable IDs and current revisions. apply_changes atomically persists a batch. Never overwrite a conflict: retrieve and reconcile. Authoring needs no Codex, browser, model credentials or model calls. Asset association records provenance metadata, never proves generation. Weave generation remains a separate approved provider process. execute_local refuses any generative node.'
     }
   );
   function tool<I extends z.ZodRawShape, O extends z.ZodRawShape>(
@@ -302,10 +302,11 @@ export function createAuthoringServer(
   );
   tool(
     'create_workflow',
-    'Create and save an empty workflow with a new ID. Existing IDs fail; never overwrites.',
+    'Create and save a universal schemaVersion 2 workflow by default. Explicit schemaVersion 1 is reserved for legacy compatibility tests/imports; the legacy editor is retired. Existing IDs fail.',
     z.object({
       id: id.regex(/^[a-zA-Z0-9_-]+$/).optional(),
-      name: z.string().min(1)
+      name: z.string().min(1),
+      schemaVersion: z.union([z.literal(1), z.literal(2)]).default(2)
     }),
     workflowOutput,
     true,

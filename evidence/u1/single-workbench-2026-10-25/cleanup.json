@@ -1,0 +1,199 @@
+{
+  "backup": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\backups\\single-workbench-1792861053359",
+  "root": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\proof\\1792855102726",
+  "workflows": [
+    {
+      "id": "u1-inspector-1792855108452",
+      "revision": 5,
+      "name": "U1 A · actual local text analysis · cosmetic browser edit · cosmetic browser edit",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "u1-inspector-1792855108452-image",
+      "revision": 2,
+      "name": "U1 B · managed image return",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+      "revision": 5,
+      "name": "Document statistics recipe · concurrent writer",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "03565f7b-c840-4775-a9b1-0541ffdf3584",
+      "revision": 2,
+      "name": "Local image recipe",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "agent-proof",
+      "revision": 5,
+      "name": "Agent proof · first light",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "browser-interactions",
+      "revision": 2,
+      "name": "Browser interaction proof",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "mcp-proof-1792855233509",
+      "revision": 7,
+      "name": "MCP Inspector · authored without browser",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "e98bd629-3266-46de-a337-ea8b8fd1c39c",
+      "revision": 5,
+      "name": "Document statistics recipe · concurrent writer",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "ae12df21-e2b8-4172-ac84-d92e094b1be9",
+      "revision": 2,
+      "name": "Local image recipe",
+      "action": "archive disposable fixture"
+    },
+    {
+      "id": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+      "revision": 2,
+      "name": "Mediterranean harbor — local text statistics",
+      "action": "retain"
+    }
+  ],
+  "archived": [
+    {
+      "id": "03565f7b-c840-4775-a9b1-0541ffdf3584",
+      "revision": 2
+    },
+    {
+      "id": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+      "revision": 5
+    },
+    {
+      "id": "ae12df21-e2b8-4172-ac84-d92e094b1be9",
+      "revision": 2
+    },
+    {
+      "id": "agent-proof",
+      "revision": 5
+    },
+    {
+      "id": "browser-interactions",
+      "revision": 2
+    },
+    {
+      "id": "e98bd629-3266-46de-a337-ea8b8fd1c39c",
+      "revision": 5
+    },
+    {
+      "id": "mcp-proof-1792855233509",
+      "revision": 7
+    },
+    {
+      "id": "u1-inspector-1792855108452",
+      "revision": 5
+    },
+    {
+      "id": "u1-inspector-1792855108452-image",
+      "revision": 2
+    }
+  ],
+  "before": {
+    "requests": {
+      "count": 2,
+      "hash": "6e44bbab8c2c03e40884a08c917ba7a48fce7b6f85ef324f83e08ea769c31ec4"
+    },
+    "runs": {
+      "count": 5,
+      "hash": "b50c996e681ff98d59c084e8aec8493113f889f8250c87db170f63c4ec5dbdfd"
+    },
+    "wb_artifacts": {
+      "count": 27,
+      "hash": "6c63e4f22018235e2cb7fa1f4e0d41344420ba6c8419edc645e09cd6416f0e40"
+    },
+    "wb_attempts": {
+      "count": 33,
+      "hash": "e3f1c0cb4b05098d350f84a3db09b953c2f81f5a41a5cca9acd315f6d0efaec2"
+    },
+    "wb_execution_locks": {
+      "count": 0,
+      "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "wb_migrations": {
+      "count": 1,
+      "hash": "182826464d98a36ff72ef80d3669f343e12c1d1ae965c0fa2a374eb2c62ea309"
+    },
+    "wb_run_owners": {
+      "count": 9,
+      "hash": "79706c99cc624864c3162efc85cca51ace9c50d8c57ce1b7ad96a5cbd53b24c2"
+    },
+    "wb_runs": {
+      "count": 9,
+      "hash": "ac8b0e74088c1ab7456af4c1c94085b9e894da28dbc6a668f6264b606fae9718"
+    },
+    "workflow_assets": {
+      "count": 1,
+      "hash": "007c0ce89956c05a69c3df3e11910b476ed8bd7a29a169c234c5a840b59b3cb8"
+    },
+    "workflow_revisions": {
+      "count": 37,
+      "hash": "f55d0c06b8bb31ab652e90aaad7c63112b8dd48fa80a69b5ed8596f494e9059e"
+    },
+    "workflows": {
+      "count": 10,
+      "hash": "cdc9c6440e7548701bd9d4405053a0e223a184f5efd8dadbb31eae9a2ce9a04e"
+    }
+  },
+  "after": {
+    "requests": {
+      "count": 2,
+      "hash": "6e44bbab8c2c03e40884a08c917ba7a48fce7b6f85ef324f83e08ea769c31ec4"
+    },
+    "runs": {
+      "count": 5,
+      "hash": "b50c996e681ff98d59c084e8aec8493113f889f8250c87db170f63c4ec5dbdfd"
+    },
+    "wb_artifacts": {
+      "count": 27,
+      "hash": "6c63e4f22018235e2cb7fa1f4e0d41344420ba6c8419edc645e09cd6416f0e40"
+    },
+    "wb_attempts": {
+      "count": 33,
+      "hash": "e3f1c0cb4b05098d350f84a3db09b953c2f81f5a41a5cca9acd315f6d0efaec2"
+    },
+    "wb_execution_locks": {
+      "count": 0,
+      "hash": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945"
+    },
+    "wb_migrations": {
+      "count": 1,
+      "hash": "182826464d98a36ff72ef80d3669f343e12c1d1ae965c0fa2a374eb2c62ea309"
+    },
+    "wb_run_owners": {
+      "count": 9,
+      "hash": "79706c99cc624864c3162efc85cca51ace9c50d8c57ce1b7ad96a5cbd53b24c2"
+    },
+    "wb_runs": {
+      "count": 9,
+      "hash": "ac8b0e74088c1ab7456af4c1c94085b9e894da28dbc6a668f6264b606fae9718"
+    },
+    "workflow_assets": {
+      "count": 1,
+      "hash": "007c0ce89956c05a69c3df3e11910b476ed8bd7a29a169c234c5a840b59b3cb8"
+    },
+    "workflow_revisions": {
+      "count": 37,
+      "hash": "f55d0c06b8bb31ab652e90aaad7c63112b8dd48fa80a69b5ed8596f494e9059e"
+    },
+    "workflows": {
+      "count": 1,
+      "hash": "4d0d663d05838264ddf8901a88a5a76c3291f182457db21cffd4e05e6aeccd19"
+    }
+  },
+  "integrity": {
+    "integrity_check": "ok"
+  }
+}

@@ -8,6 +8,10 @@ Run npx tsx scripts/u1-proof.ts and npx tsx scripts/u1-http-proof.ts for isolate
 
 Creative Flow exposes a real MCP server for direct agent authoring. It does not need Codex, an LLM API key, browser automation, the visual editor process, or Weave credentials to discover/create/edit/save/reopen workflows. Its shared SQLite service is also used by the editor's HTTP routes. Node, installed dependencies and filesystem access to this workspace are required. The proof scripts use the editor's media upload endpoint only to obtain an actual imported screenshot; workflow authoring itself does not depend on that endpoint.
 
+## Current U1 single-workbench behavior
+
+New `create_workflow` calls default to schema 2; discover `universal_catalog` before adding universal operations. Explicit schema 1 is retained only for compatibility/import inspection, with no legacy editor. All workflow links use the same application shell at port 5173. There are 22 write tools and 9 read tools. The optional ignored `data/local-runtime.json` selects the same active store for the editor, stdio and HTTP launchers; explicit data-directory environments override it. Managed-local execution still requires an explicit grant plus write access. No paid call is authorized by this configuration. See the dated single-workbench closure report for the current local selection and recovery.
+
 ## Local stdio
 
 From this directory, run `npm ci`, then configure an MCP host with:
@@ -37,7 +41,7 @@ npm run mcp:setup
 npm run mcp:http
 ```
 
-Endpoint: `http://127.0.0.1:5174/mcp`. Setup generates independent random read/write bearer credentials in ignored `data/mcp-auth.json` without printing them and retains existing credentials on rerun. Protect that file using the computer's user/file permissions; rotate it by replacing the tokens and restarting the MCP process. Requests must send `Authorization: Bearer <readToken-or-writeToken>`. The server validates authorization independently on every request, binds only to loopback, rejects unexpected Host/Origin headers, and limits JSON bodies to 2 MiB. It uses stateless Streamable HTTP JSON responses. Read credentials cannot list or invoke write tools. Tokens are never returned as MCP tool results or stored in committed test evidence.
+Endpoint: `http://127.0.0.1:5174/mcp`. Setup generates independent random read/write bearer credentials in ignored `data/mcp-auth.json` without printing them and retains existing credentials on rerun. Protect that file using the computer's user/file permissions; rotate it by replacing the tokens and restarting the MCP process. Requests must send `Authorization: Bearer <readToken-or-writeToken>`. The server validates authorization independently on every request, binds only to loopback, rejects unexpected Host/Origin headers, and limits JSON bodies to 12 MiB. It uses stateless Streamable HTTP JSON responses. Read credentials cannot list or invoke write tools. Tokens are never returned as MCP tool results or stored in committed test evidence.
 
 This is a local shared-secret transport profile, **not** a hosted OAuth server. Do not expose the editor's port 5173 or this HTTP process publicly. The HTTP facade is deliberately separate from the unauthenticated single-user visual editor and its local REST routes. A future public HTTPS deployment must add TLS and a proper MCP OAuth resource-server boundary, scoped identity/ownership, credential rotation, rate limiting, deployment hardening and audit policy before becoming reachable. The current private OpenAI tunnel connects the stdio launcher, not these local HTTP ports; the user completed ChatGPT plugin registration. No public endpoint or hosted deployment has been created.
 
