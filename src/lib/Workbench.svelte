@@ -615,6 +615,8 @@
         bind:nodes
         bind:edges
         {nodeTypes}
+        minZoom={0.1}
+        fitViewOptions={{ padding: 0.15, minZoom: 0.1, maxZoom: 1 }}
         fitView
         onconnect={connect}
         onnodeclick={({ node }) => select(node.id)}
@@ -749,7 +751,7 @@
 
 <style>
   .workbench {
-    height: 100vh;
+    height: 100dvh;
     background: #141c17;
     color: #e5eee7;
     font: 13px system-ui;
@@ -771,7 +773,7 @@
     color: #c0d9c6;
     text-decoration: none;
   }
-  header > a:last-child {
+  .workspace-label {
     margin-left: auto;
   }
   header span {
@@ -865,6 +867,7 @@
     position: absolute;
     top: 35%;
     left: 12%;
+    right: 8%;
     pointer-events: none;
   }
   h1 {
@@ -915,7 +918,7 @@
   footer span {
     color: #8ca895;
   }
-  @media (max-width: 1000px) {
+  @media (max-width: 1100px) {
     main {
       grid-template-columns: 160px 1fr 260px;
     }
@@ -925,5 +928,8 @@
     header span {
       display: none;
     }
+  }
+  :global(body) {
+    margin: 0;
   }
 </style>

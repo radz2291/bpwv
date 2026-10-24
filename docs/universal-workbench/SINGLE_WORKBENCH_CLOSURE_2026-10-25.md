@@ -41,6 +41,12 @@ Two initial smoke attempts used an overly strict exact-text selector against a f
 
 Risk-based verification follows the owner's new policy in `AGENTS.md` and `docs/DEVELOPMENT_GUIDELINES.md`. No repeated full suite or additional architectural review was needed for this bounded consolidation; existing deep execution/authorization evidence remains authoritative for unchanged runtime internals.
 
+## Actual owner-screen follow-up
+
+The owner requested verification of the actual visible in-app browser after delivery. That tab still held the old Milestone 01 JavaScript until refreshed. Refresh loaded the current universal editor and retained G8 workflow correctly. At the real 1011 × 884 viewport, however, the fixed side panels and minimum zoom clipped cards even after Fit View. The earlier 1800-pixel smoke did not cover this defect.
+
+A focused UI correction lowers the canvas/fit zoom floor, applies compact panel widths at 1100 pixels, constrains welcome copy and removes the browser default body margin. Production rebuild passes. Actual visible-tab recheck after refresh and Fit View confirms all four cards fully within the canvas, all four completed, and no outer horizontal or vertical page overflow. Existing exact local statistics remain 28 / 4 / 1. No graph save, execution, migration or permission change was performed. Evidence: `evidence/u1/screen-review-2026-10-25/actual-screen.json` and `actual-screen.jpg`. The verified workflow remains open for owner review. No repeated full suite was run for this UI-only fix.
+
 ## Remaining owner review
 
 Review the single editor, create a workflow, select the retained G8 example and inspect its results. U1's existing declared local-subset limitations remain: no production Branch/Iterate/Approve/Subflow or external paid Invoke, advanced layout/UX and hosted multi-user authorization. The original unidentified draft remains recoverable pending a later scope decision. Final U1 product acceptance and any main merge are owner decisions. **Stop here; do not start U2.**

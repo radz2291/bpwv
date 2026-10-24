@@ -8,7 +8,7 @@
   // cards once; ordinary dragging and cosmetic edits retain the user's view.
   onMount(() => {
     const timer = setTimeout(
-      () => void fitView({ padding: 0.15, maxZoom: 1 }),
+      () => void fitView({ padding: 0.15, minZoom: 0.1, maxZoom: 1 }),
       300
     );
     return () => clearTimeout(timer);
