@@ -1,0 +1,186 @@
+{
+  "discoveredAt": "2026-10-24",
+  "source": "official Figma MCP weave_find_model",
+  "response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "That name matches 2 models. Ask the user which one they meant, then call weave_run_model with its id — every candidate's `contract` is in this response already, so do not call weave_find_model again.\n- Flux 2 Dev LoRA — ~4 credits, id \"742a41fe-e181-43e4-9860-29f1fe1e0587\"\n- Flux 2 Pro — ~5 credits, id \"e1c97d9d-2911-484f-a557-1436c5c9341f\""
+      }
+    ],
+    "structuredContent": {
+      "outcome": "ambiguous",
+      "candidates": [
+        {
+          "id": "742a41fe-e181-43e4-9860-29f1fe1e0587",
+          "label": "Flux 2 Dev LoRA",
+          "modelId": "fal_flux_2_dev_lora",
+          "contract": {
+            "inputs": {
+              "lora": {
+                "type": "lora",
+                "required": false,
+                "label": "loRA",
+                "description": "LoRA model for image generation",
+                "order": 1,
+                "format": "uri"
+              },
+              "prompt": {
+                "type": "text",
+                "required": true,
+                "label": "prompt",
+                "description": "The prompt to generate an image from.",
+                "order": 0,
+                "format": "text"
+              },
+              "image_1": {
+                "type": "image",
+                "required": false,
+                "label": "image_1",
+                "description": "The image you want to edit",
+                "order": 3,
+                "format": "uri"
+              },
+              "lora_scale": {
+                "type": "number",
+                "required": false,
+                "label": "loRA_weight",
+                "description": "Weight for LoRA model",
+                "order": 2,
+                "format": "number"
+              }
+            },
+            "params": {
+              "seed": {
+                "required": false,
+                "type": "seed",
+                "title": "Seed",
+                "description": "Seed value for random number generator. Uncheck for reproducible results.",
+                "order": 3
+              },
+              "strength": {
+                "required": false,
+                "type": "number",
+                "title": "Image Strength",
+                "description": "The strength to use for image-to-image",
+                "order": 2,
+                "default": 0.85,
+                "min": 0.01,
+                "max": 1
+              },
+              "image_size": {
+                "required": false,
+                "type": "fal_image_size",
+                "title": "Image Size",
+                "description": "The size of the generated image. If `auto`, the size will be determined by the model.",
+                "options": [
+                  "Default",
+                  "square_hd",
+                  "square",
+                  "portrait_4_3",
+                  "portrait_16_9",
+                  "landscape_4_3",
+                  "landscape_16_9"
+                ]
+              },
+              "output_format": {
+                "required": false,
+                "type": "enum",
+                "title": "Output Format",
+                "description": "Format of the output images",
+                "order": 4,
+                "default": "png",
+                "options": [
+                  "jpeg",
+                  "png"
+                ]
+              },
+              "guidance_scale": {
+                "required": false,
+                "type": "number",
+                "title": "Guidance Scale",
+                "description": "Guidance for generated image.",
+                "order": 6,
+                "default": 3.5,
+                "min": 0,
+                "max": 10
+              },
+              "num_inference_steps": {
+                "required": false,
+                "type": "integer",
+                "title": "Inference Steps",
+                "description": "The number of inference steps to perform",
+                "order": 8,
+                "default": "28",
+                "min": 1,
+                "max": 50
+              }
+            },
+            "outputs": {
+              "result": {
+                "type": "image"
+              }
+            }
+          },
+          "costEstimate": 4
+        },
+        {
+          "id": "e1c97d9d-2911-484f-a557-1436c5c9341f",
+          "label": "Flux 2 Pro",
+          "modelId": "fal-ai/flux-2-pro",
+          "contract": {
+            "inputs": {
+              "prompt": {
+                "type": "text",
+                "required": true,
+                "label": "prompt",
+                "description": "The prompt to generate an image from.",
+                "format": "text"
+              },
+              "images": {
+                "type": "image",
+                "required": false,
+                "description": "The image you want to edit",
+                "order": 1,
+                "format": "uri",
+                "maxItems": 8
+              }
+            },
+            "params": {
+              "seed": {
+                "required": false,
+                "type": "seed",
+                "title": "Seed",
+                "description": "Seed value for random number generator. Uncheck for reproducible results."
+              },
+              "image_size": {
+                "required": false,
+                "type": "fal_image_size",
+                "title": "Image Size",
+                "description": "The size of the generated image. If `auto`, the size will be determined by the model.",
+                "options": [
+                  "Default",
+                  "auto",
+                  "square_hd",
+                  "square",
+                  "portrait_4_3",
+                  "portrait_16_9",
+                  "landscape_4_3",
+                  "landscape_16_9"
+                ]
+              }
+            },
+            "outputs": {
+              "result": {
+                "type": "image"
+              }
+            }
+          },
+          "costEstimate": 5
+        }
+      ],
+      "guidance": "That name matches 2 models. Ask the user which one they meant, then call weave_run_model with its id — every candidate's `contract` is in this response already, so do not call weave_find_model again.\n- Flux 2 Dev LoRA — ~4 credits, id \"742a41fe-e181-43e4-9860-29f1fe1e0587\"\n- Flux 2 Pro — ~5 credits, id \"e1c97d9d-2911-484f-a557-1436c5c9341f\""
+    },
+    "isError": false
+  }
+}

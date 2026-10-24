@@ -1,0 +1,38 @@
+{
+  "verifiedAt": "2026-10-24T10:51:48.180Z",
+  "workflowId": "agent-proof",
+  "revision": 19,
+  "server": "built production Node adapter, loopback",
+  "exactGraphSurvivedRestart": true,
+  "persistedRunId": "430efce1-ffbd-4616-a416-2366a12cf662",
+  "states": {
+    "scene": {
+      "status": "completed",
+      "outputs": {
+        "text": "A quiet mountain observatory at sunrise, with one illuminated window."
+      }
+    },
+    "style": {
+      "status": "completed",
+      "outputs": {
+        "text": "Soft natural light, restrained colors, editorial photography."
+      }
+    },
+    "combine": {
+      "status": "completed",
+      "outputs": {
+        "text": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography."
+      }
+    },
+    "model": {
+      "status": "pending",
+      "outputs": {},
+      "requestId": "bfc9604d-41bf-45df-86a6-850fc76bfc27"
+    },
+    "preview": {
+      "status": "blocked",
+      "outputs": {},
+      "error": "Waiting for model"
+    }
+  }
+}

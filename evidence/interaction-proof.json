@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-24T10:51:22.508Z",
+  "checks": [
+    "stale revision conflict rejected",
+    "canvas dragging persists coordinates",
+    "disconnect and reconnect typed handles",
+    "capture and insert reusable group with fresh ID",
+    "workflow JSON download and reimport",
+    "actual local upload, byte serving, deterministic Preview completion",
+    "unconfigured generation fails visibly without model call",
+    "completed provider result without actual assets rejected; no result inserted"
+  ],
+  "pageErrors": [],
+  "creditsSpent": 0,
+  "externalResultsSubmitted": 0
+}

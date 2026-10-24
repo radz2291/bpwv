@@ -1,0 +1,42 @@
+{
+  "verifiedAt": "2026-10-24T10:52:25.871Z",
+  "url": "http://127.0.0.1:5173",
+  "server": "production build, hidden local Node process",
+  "typecheck": "0 errors, 0 warnings",
+  "unitTests": {
+    "passed": 7,
+    "failed": 0
+  },
+  "productionBuild": "passed",
+  "agentProof": "evidence/agent-proof.json",
+  "browserProof": "evidence/browser-proof.json",
+  "interactionProof": "evidence/interaction-proof.json",
+  "restartProof": "evidence/restart-proof.json",
+  "productionBrowserSmoke": "passed; no page errors",
+  "screenshots": [
+    "evidence/editor.png",
+    "evidence/execution.png",
+    "evidence/production.png"
+  ],
+  "originalArchive": {
+    "path": "BorderPoint_Weave_Setup_v1.zip",
+    "bytes": 3922291,
+    "sha256": "807eca7fd5ec03929195f6422e0d02b2ae2c78f5bff61b49b237897ea97ec906",
+    "modifiedByAgent": false
+  },
+  "weave": {
+    "discovery": "official Figma MCP, current session",
+    "paidRuns": 0,
+    "creditsSpent": 0,
+    "externalResultSubmitted": false,
+    "endToEndGenerationVerified": false
+  },
+  "dependencyAudit": {
+    "low": 3,
+    "moderate": 0,
+    "high": 0,
+    "critical": 0
+  },
+  "externalPush": false,
+  "externalDeploy": false
+}

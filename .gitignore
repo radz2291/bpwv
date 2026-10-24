@@ -1,0 +1,8 @@
+node_modules/
+.svelte-kit/
+build/
+data/
+test-results/
+*.log
+# Supplied reference archive stays local and untouched.
+BorderPoint_Weave_Setup_v1.zip
