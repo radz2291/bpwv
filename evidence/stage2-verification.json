@@ -1,0 +1,92 @@
+{
+  "verifiedAt": "2026-10-24T12:24:07.387Z",
+  "baseline": "b673887bd5555fca9a2ce67391254aa073f100ed",
+  "workflowUrl": "http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt",
+  "checks": {
+    "typecheck": "0 errors, 0 warnings",
+    "unitTests": {
+      "passed": 22,
+      "failed": 0
+    },
+    "productionBuild": "passed",
+    "engineAuthoringRegression": "passed",
+    "browserAndInteractionRegression": "passed",
+    "officialInspectorStdioHTTPAndEditorParity": "passed",
+    "officialInspectorEditorOffline": "passed",
+    "newReferenceSetConnectedMcpAuthoringExecutionAndReopen": "passed",
+    "realBrowserAndReplacementLightbox": "passed",
+    "saveRefreshReopenAndProcessRestart": "passed",
+    "originalGraphConfigsEdgesAndRevisionPreserved": "passed",
+    "independentReview": "PASS after stale-state repair; evidence/stage2-independent-review.md"
+  },
+  "scope": {
+    "nodeKinds": 7,
+    "mcpTools": 16,
+    "automatedTestModelCalls": 0,
+    "authorizedPaidRuns": 1,
+    "authorizedSpend": 3.5,
+    "refinement": "idle; not approved",
+    "pushPerformed": false,
+    "deploymentPerformed": false,
+    "publicPorts": []
+  },
+  "screenshots": [
+    "stage2-before-1440.png",
+    "stage2-before-wide.png",
+    "stage2-1440.png",
+    "stage2-wide.png",
+    "stage2-lightbox.png",
+    "stage2-generated-lightbox.png"
+  ],
+  "reports": {
+    "stage2-browser-proof": {
+      "path": "evidence/stage2-browser-proof.json",
+      "verifiedAt": "2026-10-24T12:23:24.276Z"
+    },
+    "stage2-connected-mcp": {
+      "path": "evidence/stage2-connected-mcp.json",
+      "verifiedAt": "2026-10-24T12:20:29.412Z"
+    },
+    "stage2-preservation": {
+      "path": "evidence/stage2-preservation.json",
+      "verifiedAt": "2026-10-24T12:22:01.638Z"
+    },
+    "stage2-request-proof": {
+      "path": "evidence/stage2-request-proof.json",
+      "verifiedAt": "2026-10-24T12:12:14.286Z"
+    },
+    "mcp-inspector-proof": {
+      "path": "evidence/mcp-inspector-proof.json",
+      "verifiedAt": "2026-10-24T12:11:50.792Z"
+    },
+    "mcp-http-proof": {
+      "path": "evidence/mcp-http-proof.json",
+      "verifiedAt": "2026-10-24T12:13:45.431Z"
+    },
+    "mcp-browser-proof": {
+      "path": "evidence/mcp-browser-proof.json",
+      "verifiedAt": "2026-10-24T12:13:57.913Z"
+    },
+    "mcp-offline-proof": {
+      "path": "evidence/mcp-offline-proof.json",
+      "verifiedAt": "2026-10-24T12:21:58.197Z"
+    },
+    "browser-proof": {
+      "path": "evidence/browser-proof.json",
+      "verifiedAt": "2026-10-24T12:12:17.246Z"
+    },
+    "interaction-proof": {
+      "path": "evidence/interaction-proof.json",
+      "verifiedAt": "2026-10-24T12:12:21.332Z"
+    },
+    "agent-proof": {
+      "path": "evidence/agent-proof.json",
+      "verifiedAt": "2026-10-24T12:11:24.503Z"
+    }
+  },
+  "limitations": [
+    "Generated output uses actual provider HTTPS URL and depends on its availability.",
+    "Trusted local bridge reports uploads, quotations, human decisions and results; it does not independently authenticate external results.",
+    "No rerun/refinement approval; advanced nodes remain planned."
+  ]
+}

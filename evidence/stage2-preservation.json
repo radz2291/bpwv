@@ -1,0 +1,61 @@
+{
+  "verifiedAt": "2026-10-24T12:24:12.071Z",
+  "workflowId": "borderpoint-image-first-chatgpt",
+  "originalRevision": 2,
+  "currentRevision": 10,
+  "originalNodesAndEdgesPreserved": true,
+  "originalPromptAndRefinementConfigsPreserved": true,
+  "originalRevisionDocumentExactlyRetained": true,
+  "managedImageBytesPersistAfterRestart": true,
+  "completedRunPersistAfterRestart": true,
+  "inventory": [
+    {
+      "id": "agent-proof",
+      "present": true,
+      "unchanged": false,
+      "reason": "existing regression fixture rerun"
+    },
+    {
+      "id": "browser-interactions",
+      "present": true,
+      "unchanged": false,
+      "reason": "existing regression fixture rerun"
+    },
+    {
+      "id": "mcp-proof-1792839808122",
+      "present": true,
+      "unchanged": true,
+      "reason": "preserved"
+    },
+    {
+      "id": "mcp-proof-1792839862247",
+      "present": true,
+      "unchanged": true,
+      "reason": "preserved"
+    },
+    {
+      "id": "mcp-http-1792839906124",
+      "present": true,
+      "unchanged": true,
+      "reason": "preserved"
+    },
+    {
+      "id": "mcp-proof-1792839945926",
+      "present": true,
+      "unchanged": true,
+      "reason": "preserved"
+    },
+    {
+      "id": "mcp-http-1792840314685",
+      "present": true,
+      "unchanged": true,
+      "reason": "preserved"
+    },
+    {
+      "id": "borderpoint-image-first-chatgpt",
+      "present": true,
+      "unchanged": false,
+      "reason": "authorized Stage2 changes"
+    }
+  ]
+}

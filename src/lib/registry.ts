@@ -8,6 +8,21 @@ const text = (v: unknown) => {
   if (typeof v !== 'string') throw Error('Expected text');
   return v;
 };
+const importedAsset = (node: import('./contract').FlowNode): Asset => ({
+  id: String(node.config.assetId || node.config.id || node.id),
+  uri: String(node.config.uri),
+  mediaType: node.config.mediaType as Asset['mediaType'],
+  sourceNodeId: node.id,
+  parentIds: [],
+  name: String(node.config.name || node.config.assetId || node.id),
+  provenance: 'imported'
+});
+const referenceOutputs = (inputs: Record<string, unknown>) => ({
+  references: [
+    ...((inputs.existing as Asset[] | undefined) ?? []),
+    inputs.asset as Asset
+  ]
+});
 export const registry = new NodeRegistry();
 const definitions: NodeDefinition[] = [
   {
@@ -55,6 +70,8 @@ const definitions: NodeDefinition[] = [
     inputs: [],
     outputs: [{ id: 'asset', type: 'asset' }],
     defaults: { uri: '', mediaType: 'image' },
+    project: ({ node }) =>
+      node.config.uri ? { asset: importedAsset(node) } : {},
     validate: (c) => {
       if (!['image', 'video', 'audio'].includes(String(c.mediaType)))
         throw Error('Invalid media type');
@@ -64,16 +81,23 @@ const definitions: NodeDefinition[] = [
       )
         throw Error('Upload a local asset or provide an HTTPS URL');
     },
-    execute: async ({ node }) =>
-      complete({
-        asset: {
-          id: String(node.config.assetId || node.config.id || node.id),
-          uri: node.config.uri,
-          mediaType: node.config.mediaType,
-          sourceNodeId: node.id,
-          parentIds: []
-        } as Asset
-      })
+    execute: async ({ node }) => complete({ asset: importedAsset(node) })
+  },
+  {
+    kind: 'reference_set',
+    version: 1,
+    label: 'Reference Set',
+    category: 'Import & export',
+    provider: 'local',
+    inputs: [
+      { id: 'asset', type: 'asset', required: true },
+      { id: 'existing', type: 'assets' }
+    ],
+    outputs: [{ id: 'references', type: 'assets' }],
+    defaults: {},
+    validate: () => {},
+    project: ({ inputs }) => (inputs.asset ? referenceOutputs(inputs) : {}),
+    execute: async ({ inputs }) => complete(referenceOutputs(inputs))
   },
   {
     kind: 'weave',
@@ -102,6 +126,7 @@ const definitions: NodeDefinition[] = [
     outputs: [{ id: 'asset', type: 'asset' }],
     defaults: {},
     validate: () => {},
+    project: ({ inputs }) => (inputs.asset ? { asset: inputs.asset } : {}),
     execute: async ({ inputs }) => complete({ asset: inputs.asset })
   },
   {
@@ -138,6 +163,7 @@ const configSchemas: Record<string, z.ZodType> = {
     .object({ modelId: z.string(), params: z.record(z.string(), z.unknown()) })
     .passthrough(),
   preview: z.object({}).passthrough(),
+  reference_set: z.object({}).passthrough(),
   refinement: z.object({ notes: z.string() }).passthrough()
 };
 definitions.forEach((d) =>

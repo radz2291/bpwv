@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-24T11:12:13.365Z",
+  "verifiedAt": "2026-10-24T12:11:24.503Z",
   "workflowId": "agent-proof",
-  "revision": 21,
+  "revision": 26,
   "nodes": 5,
   "edges": 4,
   "persistence": "exact roundtrip verified",
   "programmaticModification": "verified",
-  "runId": "fdc8c618-5aab-4850-abd6-6f78a9e3d25f",
+  "runId": "c3d9bba5-db01-4d0d-8be4-fa6b32b97f2c",
   "states": {
     "scene": {
       "status": "completed",
@@ -29,7 +29,7 @@
     "model": {
       "status": "pending",
       "outputs": {},
-      "requestId": "f41fdf18-93e4-4824-808d-4a1bc79101e3"
+      "requestId": "75f5cb31-8f34-475b-863b-80c5b42f8a12"
     },
     "preview": {
       "status": "blocked",
@@ -39,9 +39,11 @@
   },
   "request": {
     "schemaVersion": 1,
-    "id": "f41fdf18-93e4-4824-808d-4a1bc79101e3",
+    "id": "75f5cb31-8f34-475b-863b-80c5b42f8a12",
     "workflowId": "agent-proof",
-    "runId": "fdc8c618-5aab-4850-abd6-6f78a9e3d25f",
+    "runId": "c3d9bba5-db01-4d0d-8be4-fa6b32b97f2c",
+    "workflowRevision": 26,
+    "workflowHash": "d66e66b2da29426954da7f4d5c36fe95c00d1e4e7ad60b72a04db6a064107236",
     "nodeId": "model",
     "status": "pending",
     "provider": "weave-codex",
@@ -105,14 +107,45 @@
     "promptSnapshot": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography.",
     "inputHash": "62081b34c443b373dc79cc0cb9a3b554eeaa9840b259041497fe1ebfd5cb620a",
     "discoveredAt": "2026-10-24",
-    "createdAt": "2026-10-24T11:12:13.351Z",
+    "discoverySource": "official Figma MCP weave_find_model",
+    "discoverySnapshot": "weave-discovery.json",
+    "createdAt": "2026-10-24T12:11:24.491Z",
     "cost": {
       "estimate": 5,
       "quoted": null,
       "approved": false
     },
     "assetLineage": [],
-    "instructions": "Codex must refresh discovery before spending, obtain actual quote without acknowledgedCost, then structured Approve/Cancel. Never infer approval from this request."
+    "providerInput": {
+      "image_size": "landscape_16_9",
+      "prompt": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography."
+    },
+    "mediaResolution": {
+      "status": "ready",
+      "mappings": []
+    },
+    "costPolicy": {
+      "stopAtOrAbove": 5,
+      "requiresFreshQuote": true,
+      "requiresStructuredUserApproval": true
+    },
+    "nodeSnapshot": {
+      "id": "model",
+      "kind": "weave",
+      "version": 1,
+      "label": "Weave model",
+      "position": {
+        "x": 700,
+        "y": 170
+      },
+      "config": {
+        "modelId": "e1c97d9d-2911-484f-a557-1436c5c9341f",
+        "params": {
+          "image_size": "landscape_16_9"
+        }
+      }
+    },
+    "instructions": "Resolve/upload local media through the official Figma Weave upload mechanism before quoting. Never pass /api/assets paths as Weave URLs. Refresh discovery, quote without acknowledgedCost, stop if actual quote >= 5 credits, then obtain structured Approve/Cancel before ONE submitted run. Refinement is separate. Never infer approval from this request."
   },
   "creditsSpent": 0
 }

@@ -1,0 +1,48 @@
+{
+  "importedAt": "2026-10-24T12:10:57.506Z",
+  "workflowId": "borderpoint-image-first-chatgpt",
+  "beforeRevision": 2,
+  "afterRevision": 3,
+  "originalNodesPreserved": [
+    "scene_intent",
+    "style_canon",
+    "established_prompt",
+    "image_initial",
+    "preview_initial",
+    "refinement_notes",
+    "image_refined",
+    "preview_refined"
+  ],
+  "originalEdgesPreserved": [
+    "scene-to-prompt",
+    "canon-to-prompt",
+    "prompt-to-initial",
+    "initial-to-preview",
+    "prompt-to-refinement",
+    "refinement-to-image",
+    "refined-to-preview"
+  ],
+  "sourceArchive": "BorderPoint_Weave_Setup_v1.zip",
+  "sourceEntry": "BorderPoint_Weave_Setup_v1/references/approved_B.png",
+  "assetId": "4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+  "uri": "/api/assets/4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+  "sha256": "8096a34d6380023ebc59f8b4d60ce28adba66d6ab8bc9d9239f9c4208adeb622",
+  "originalArchiveSha256": "807eca7fd5ec03929195f6422e0d02b2ae2c78f5bff61b49b237897ea97ec906",
+  "sourceMatchesImportedBytes": true,
+  "supportingReference": "tabriz_historical_reference.jpg retained locally; not conditioned or uploaded",
+  "model": {
+    "id": "bebebed5-50c1-4701-98b3-86929db21585",
+    "label": "Nano Banana 2.1",
+    "providerModel": "fal-ai/nano-banana-2/edit",
+    "params": {
+      "model": "Nano Banana 2.1",
+      "resolution": "1K",
+      "aspect_ratio": "9:16",
+      "thinking_level": "Minimal",
+      "output_format": "png",
+      "enable_web_search": false
+    }
+  },
+  "generationSubmitted": false,
+  "creditsSpent": 0
+}

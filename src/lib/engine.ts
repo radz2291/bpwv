@@ -84,7 +84,8 @@ export async function execute(
   generate: (
     node: FlowNode,
     inputs: Record<string, unknown>
-  ) => Promise<NodeState>
+  ) => Promise<NodeState>,
+  targetNodeIds?: string[]
 ) {
   validateGraph(graph, registry);
   const states: Record<string, NodeState> = {};
@@ -123,6 +124,11 @@ export async function execute(
       });
     }
   }
-  for (const n of graph.nodes) await run(n.id);
+  const targets = targetNodeIds ?? graph.nodes.map((n) => n.id);
+  if (targets.some((id) => !graph.nodes.some((n) => n.id === id)))
+    throw Error('Unknown execution target');
+  for (const id of targets) await run(id);
+  for (const node of graph.nodes)
+    if (!states[node.id]) states[node.id] = { status: 'idle', outputs: {} };
   return states;
 }

@@ -1,5 +1,5 @@
 import { randomUUID, createHash } from 'node:crypto';
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { readFileSync, writeFileSync, mkdirSync, existsSync } from 'node:fs';
 import { db } from './store';
 import type { FlowNode, NodeState } from '../contract';
 export interface ModelField {
@@ -16,23 +16,47 @@ export interface DiscoveredModel {
   label: string;
   modelId: string;
   costEstimate: number;
+  discoveredAt?: string;
+  discoverySource?: string;
+  snapshotFile?: string;
   contract: {
     inputs: Record<string, ModelField>;
     params: Record<string, ModelField>;
     outputs: Record<string, ModelField>;
   };
 }
-const discovery = JSON.parse(
-  readFileSync('evidence/weave-discovery.json', 'utf8')
-);
-export const models: DiscoveredModel[] =
-  discovery.response.structuredContent.candidates;
+const snapshots: string[] = existsSync('evidence/weave-model-catalog.json')
+  ? JSON.parse(readFileSync('evidence/weave-model-catalog.json', 'utf8'))
+      .snapshots
+  : ['weave-discovery.json'];
+const catalog = new Map<string, DiscoveredModel>();
+for (const file of snapshots) {
+  if (!/^[a-zA-Z0-9_.-]+\.json$/.test(file))
+    throw Error('Invalid discovery snapshot path');
+  const snapshot = JSON.parse(readFileSync(`evidence/${file}`, 'utf8'));
+  const content = snapshot.response.structuredContent;
+  for (const model of content.model
+    ? [content.model]
+    : (content.candidates ?? []))
+    catalog.set(model.id, {
+      ...model,
+      discoveredAt: snapshot.discoveredAt,
+      discoverySource: snapshot.source,
+      snapshotFile: file
+    });
+}
+export const models = [...catalog.values()];
 export interface ProviderAdapter {
   id: string;
   prepare: (
     node: FlowNode,
     inputs: Record<string, unknown>,
-    context: { workflowId: string; runId: string }
+    context: {
+      workflowId: string;
+      runId: string;
+      workflowRevision?: number;
+      workflowHash?: string;
+    }
   ) => Promise<NodeState>;
 }
 export function validateModelInput(
@@ -96,6 +120,12 @@ export const weaveBridge: ProviderAdapter = {
         ([, f]) => f.type === 'image'
       );
       if (!field) throw Error('Model does not accept image references');
+      if (
+        (inputs.references as import('../contract').Asset[]).some(
+          (a) => a.mediaType !== 'image'
+        )
+      )
+        throw Error('This model reference input accepts images only');
       input[field[0]] = field[1].maxItems
         ? inputs.references
         : (inputs.references as unknown[])[0];
@@ -118,12 +148,49 @@ export const weaveBridge: ProviderAdapter = {
       inputHash: createHash('sha256')
         .update(JSON.stringify(input))
         .digest('hex'),
-      discoveredAt: discovery.discoveredAt,
+      discoveredAt: model.discoveredAt,
+      discoverySource: model.discoverySource,
+      discoverySnapshot: model.snapshotFile,
       createdAt: new Date().toISOString(),
       cost: { estimate: model.costEstimate, quoted: null, approved: false },
       assetLineage: inputs.references ?? [],
+      providerInput: (
+        inputs.references as import('../contract').Asset[] | undefined
+      )?.some((a) => a.uri.startsWith('/api/assets/'))
+        ? null
+        : Object.fromEntries(
+            Object.entries(input).map(([k, v]) => [
+              k,
+              k in model.contract.inputs &&
+              model.contract.inputs[k].type === 'image'
+                ? Array.isArray(v)
+                  ? v.map((a) =>
+                      typeof a === 'object' && a !== null && 'uri' in a
+                        ? a.uri
+                        : a
+                    )
+                  : typeof v === 'object' && v !== null && 'uri' in v
+                    ? v.uri
+                    : v
+                : v
+            ])
+          ),
+      mediaResolution: {
+        status: (
+          inputs.references as import('../contract').Asset[] | undefined
+        )?.some((a) => a.uri.startsWith('/api/assets/'))
+          ? 'upload_required'
+          : 'ready',
+        mappings: []
+      },
+      costPolicy: {
+        stopAtOrAbove: 5,
+        requiresFreshQuote: true,
+        requiresStructuredUserApproval: true
+      },
+      nodeSnapshot: node,
       instructions:
-        'Codex must refresh discovery before spending, obtain actual quote without acknowledgedCost, then structured Approve/Cancel. Never infer approval from this request.'
+        'Resolve/upload local media through the official Figma Weave upload mechanism before quoting. Never pass /api/assets paths as Weave URLs. Refresh discovery, quote without acknowledgedCost, stop if actual quote >= 5 credits, then obtain structured Approve/Cancel before ONE submitted run. Refinement is separate. Never infer approval from this request.'
     };
     db.prepare('INSERT INTO requests VALUES(?,?)').run(
       id,

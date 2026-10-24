@@ -1,7 +1,7 @@
 {
-  "verifiedAt": "2026-10-24T11:07:56.124Z",
-  "workflowId": "mcp-proof-1792839945926",
-  "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926",
+  "verifiedAt": "2026-10-24T12:13:57.913Z",
+  "workflowId": "mcp-proof-1792843889796",
+  "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796",
   "revision": 7,
   "checks": [
     "MCP-authored graph opens by returned URL",

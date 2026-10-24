@@ -1,4 +1,22 @@
-# State — 24 October 2026
+# State — Stage 2, 24 October 2026
+
+Current milestone: visual references and on-canvas image previews, built on `b673887bd5555fca9a2ce67391254aa073f100ed`. Changes are committed locally only. No push or deployment is authorized.
+
+The existing ChatGPT-authored `borderpoint-image-first-chatgpt` retains its identity, eight original nodes, original prompts/configuration except the requested initial model selection, and seven original edges. Three local media nodes and three reference/preview connections were added. Saved revisions now have additive SQLite history, including original revision 2; the ignored pre-stage database backup is `data/stage2/before.sqlite`.
+
+Implemented: seventh production node Reference Set v1 (`asset` + optional `existing:assets` → ordered `references:assets`), with registry-driven typed execution and MCP discovery. Asset, Reference Set and Preview show actual imported media before execution. Cards include primary reference/count, model name, estimated cost and truthful states; enlargement/inspector preserve aspect ratio. Input/wiring edits clear stale images and badges; cosmetic saves retain compatible run results on reopen. Batch iteration remains separate and planned.
+
+`approved_B.png` was imported byte-for-byte from the supplied archive (actual 941×1672 image). Originals are preserved; historical Tabriz remains an unused optional local reference. Import hashes/provenance: `evidence/stage2-reference-import.json`. The official authorized Weave upload returned the real provider asset object; local paths are never submitted as remote URLs.
+
+Nano Banana 2.1 was genuinely rediscovered: `fal-ai/nano-banana-2/edit`, `images` up to 14, model-specific settings and provenance in `evidence/weave-discovery-nano-banana-2_1.json`. Initial settings: 1K, 9:16, Minimal, PNG, web search off. Requests preserve full established prompt, reference lineage, local IDs, immutable input/workflow hashes and revision. Actual upload resolution and quote/decision audits are separate from authoring and cannot invoke a model.
+
+The fresh reference-conditioned quotation was **3.5 Weave credits**. The user selected structured **Approve — run once for 3.5 credits**. Exactly one official run, `871a6b1c-f8a3-48fe-b6b4-2fcb45577eeb`, completed with an actual 768×1376 image. Initial generation and Preview are completed; refinement remains idle. Actual spend **3.5 credits**; automated tests spend zero. No rerun/refinement is approved. This verifies the media path, not owner acceptance of the artwork. Evidence: `evidence/stage2-request-proof.json`.
+
+WorkflowService remains the sole UI/MCP authoring service; all sixteen tools and read/write grants remain. The existing private tunnel was reloaded, and live connected `node_types` discovers Reference Set v1. No ports are public. Codex is optional for authoring; each paid Weave run still needs fresh quotation and structured approval.
+
+Stage verification/review: `evidence/stage2-verification.json`, `evidence/stage2-independent-review.md`, normal/wide/lightbox screenshots. Before-generation screenshots retain truthful empty states; final screenshots show actual output. `npm start` now defaults to loopback with multipart overhead above the API's enforced 25 MiB file limit. Data, media, credentials, profiles and logs remain ignored/local. Unauthenticated single-user visual API and trusted local result reporting remain limitations; hosted authentication, advanced nodes and nested execution are future work.
+
+## Previous milestone record (superseded by Stage 2 above)
 
 Current milestone: direct external-agent MCP authoring on the same workflow service as the visual editor. This supersedes the initial JSON-only authoring baseline. The original BorderPoint ZIP remains untouched.
 

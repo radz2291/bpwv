@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-24T11:06:06.923Z",
+  "verifiedAt": "2026-10-24T12:11:50.792Z",
   "inspectorVersion": "2.12.0",
   "sdkVersion": "1.32.2",
   "initialized": {
@@ -15,8 +15,8 @@
     },
     "instructions": "Author Creative Flow graphs directly. Discover node_types first. Reuse stable IDs and current revisions. apply_changes atomically persists a batch. Never overwrite a conflict: retrieve and reconcile. Authoring needs no Codex, browser, model credentials or model calls. Asset association records provenance metadata, never proves generation. Weave generation remains a separate approved provider process. execute_local refuses any generative node."
   },
-  "workflowId": "mcp-proof-1792839945926",
-  "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926",
+  "workflowId": "mcp-proof-1792843889796",
+  "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796",
   "revision": 5,
   "checks": [
     "typed contract discovery",
@@ -53,7 +53,7 @@
           "instructions": "Author Creative Flow graphs directly. Discover node_types first. Reuse stable IDs and current revisions. apply_changes atomically persists a batch. Never overwrite a conflict: retrieve and reconcile. Authoring needs no Codex, browser, model credentials or model calls. Asset association records provenance metadata, never proves generation. Weave generation remains a separate approved provider process. execute_local refuses any generative node."
         }
       },
-      "diagnostics": "(node:16100) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:18552) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "tools/list",
@@ -3803,7 +3803,7 @@
           ]
         }
       },
-      "diagnostics": "(node:16148) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nSchema portability: 0 errors, 23 warnings across 14 tools. Re-run with --strict for details.\n"
+      "diagnostics": "(node:15700) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nSchema portability: 0 errors, 23 warnings across 14 tools. Re-run with --strict for details.\n"
     },
     {
       "step": "node_types",
@@ -3813,7 +3813,7 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"nodes\":[{\"kind\":\"text\",\"version\":1,\"label\":\"Text\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"text\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}},\"required\":[\"text\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"combine\",\"version\":1,\"label\":\"Combine\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"scene\",\"type\":\"text\",\"required\":true},{\"id\":\"style\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"separator\":\"\\n\\n\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"separator\":{\"type\":\"string\"}},\"required\":[\"separator\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"asset\",\"version\":1,\"label\":\"Asset Input\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"uri\":\"\",\"mediaType\":\"image\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"uri\":{\"type\":\"string\"},\"mediaType\":{\"type\":\"string\",\"enum\":[\"image\",\"video\",\"audio\"]},\"assetId\":{\"type\":\"string\"}},\"required\":[\"uri\",\"mediaType\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"weave\",\"version\":1,\"label\":\"Weave Model\",\"category\":\"AI generation\",\"provider\":\"generative\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true},{\"id\":\"references\",\"type\":\"assets\"}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"modelId\":\"\",\"params\":{}},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"modelId\":{\"type\":\"string\"},\"params\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"modelId\",\"params\"],\"additionalProperties\":{}},\"capability\":\"external-dependent\"},{\"kind\":\"preview\",\"version\":1,\"label\":\"Preview\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[{\"id\":\"asset\",\"type\":\"asset\",\"required\":true}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{},\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"refinement\",\"version\":1,\"label\":\"Refinement\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"notes\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"notes\":{\"type\":\"string\"}},\"required\":[\"notes\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"}],\"workflowSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}}"
+              "text": "{\"nodes\":[{\"kind\":\"text\",\"version\":1,\"label\":\"Text\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"text\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}},\"required\":[\"text\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"combine\",\"version\":1,\"label\":\"Combine\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"scene\",\"type\":\"text\",\"required\":true},{\"id\":\"style\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"separator\":\"\\n\\n\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"separator\":{\"type\":\"string\"}},\"required\":[\"separator\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"asset\",\"version\":1,\"label\":\"Asset Input\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"uri\":\"\",\"mediaType\":\"image\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"uri\":{\"type\":\"string\"},\"mediaType\":{\"type\":\"string\",\"enum\":[\"image\",\"video\",\"audio\"]},\"assetId\":{\"type\":\"string\"}},\"required\":[\"uri\",\"mediaType\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"reference_set\",\"version\":1,\"label\":\"Reference Set\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[{\"id\":\"asset\",\"type\":\"asset\",\"required\":true},{\"id\":\"existing\",\"type\":\"assets\"}],\"outputs\":[{\"id\":\"references\",\"type\":\"assets\"}],\"defaults\":{},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{},\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"weave\",\"version\":1,\"label\":\"Weave Model\",\"category\":\"AI generation\",\"provider\":\"generative\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true},{\"id\":\"references\",\"type\":\"assets\"}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"modelId\":\"\",\"params\":{}},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"modelId\":{\"type\":\"string\"},\"params\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"modelId\",\"params\"],\"additionalProperties\":{}},\"capability\":\"external-dependent\"},{\"kind\":\"preview\",\"version\":1,\"label\":\"Preview\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[{\"id\":\"asset\",\"type\":\"asset\",\"required\":true}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{},\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"refinement\",\"version\":1,\"label\":\"Refinement\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"notes\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"notes\":{\"type\":\"string\"}},\"required\":[\"notes\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"}],\"workflowSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}}"
             }
           ],
           "structuredContent": {
@@ -3931,6 +3931,38 @@
                     "uri",
                     "mediaType"
                   ],
+                  "additionalProperties": {}
+                },
+                "capability": "implemented-local"
+              },
+              {
+                "kind": "reference_set",
+                "version": 1,
+                "label": "Reference Set",
+                "category": "Import & export",
+                "provider": "local",
+                "inputs": [
+                  {
+                    "id": "asset",
+                    "type": "asset",
+                    "required": true
+                  },
+                  {
+                    "id": "existing",
+                    "type": "assets"
+                  }
+                ],
+                "outputs": [
+                  {
+                    "id": "references",
+                    "type": "assets"
+                  }
+                ],
+                "defaults": {},
+                "configSchema": {
+                  "$schema": "https://json-schema.org/draft/2020-12/schema",
+                  "type": "object",
+                  "properties": {},
                   "additionalProperties": {}
                 },
                 "capability": "implemented-local"
@@ -4208,7 +4240,7 @@
           }
         }
       },
-      "diagnostics": "(node:2424) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:348) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "create_workflow",
@@ -4218,24 +4250,24 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 1,
               "nodes": [],
               "edges": [],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:18652) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:16312) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "apply_changes",
@@ -4245,13 +4277,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":2,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at dawn.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":2,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at dawn.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 2,
               "nodes": [
@@ -4313,11 +4345,11 @@
               ],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:13876) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:20788) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "apply_changes",
@@ -4333,7 +4365,7 @@
           "isError": true
         }
       },
-      "diagnostics": "(node:19220) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_is_error\",\"message\":\"Tool 'apply_changes' returned isError:true.\"}}\n"
+      "diagnostics": "(node:16204) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_is_error\",\"message\":\"Tool 'apply_changes' returned isError:true.\"}}\n"
     },
     {
       "step": "get_workflow",
@@ -4343,13 +4375,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":2,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at dawn.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":2,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at dawn.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 2,
               "nodes": [
@@ -4411,11 +4443,11 @@
               ],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:6528) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:15648) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "configure_node",
@@ -4431,7 +4463,7 @@
           "isError": true
         }
       },
-      "diagnostics": "(node:18152) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_is_error\",\"message\":\"Tool 'configure_node' returned isError:true.\"}}\n"
+      "diagnostics": "(node:12916) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_is_error\",\"message\":\"Tool 'configure_node' returned isError:true.\"}}\n"
     },
     {
       "step": "configure_node",
@@ -4441,13 +4473,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":3,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":3,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 3,
               "nodes": [
@@ -4509,11 +4541,11 @@
               ],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:16664) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:14904) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "save_workflow",
@@ -4523,13 +4555,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 4,
               "nodes": [
@@ -4591,11 +4623,11 @@
               ],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:3096) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:18396) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "execute_local",
@@ -4605,17 +4637,17 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"run\":{\"id\":\"463ab9d1-ee23-4063-b98f-5f667882ca6d\",\"workflowId\":\"mcp-proof-1792839945926\",\"workflowRevision\":4,\"graphSnapshot\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"states\":{\"scene\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},\"style\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Soft light and restrained colors.\"}},\"combine\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\\n\\nSoft light and restrained colors.\"}}},\"createdAt\":\"2026-10-24T11:05:57.202Z\"}}"
+              "text": "{\"run\":{\"id\":\"cc76cc32-560e-43ba-9b78-7cf56a078502\",\"workflowId\":\"mcp-proof-1792843889796\",\"workflowRevision\":4,\"graphSnapshot\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"states\":{\"scene\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},\"style\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Soft light and restrained colors.\"}},\"combine\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\\n\\nSoft light and restrained colors.\"}}},\"createdAt\":\"2026-10-24T12:11:41.046Z\"}}"
             }
           ],
           "structuredContent": {
             "run": {
-              "id": "463ab9d1-ee23-4063-b98f-5f667882ca6d",
-              "workflowId": "mcp-proof-1792839945926",
+              "id": "cc76cc32-560e-43ba-9b78-7cf56a078502",
+              "workflowId": "mcp-proof-1792843889796",
               "workflowRevision": 4,
               "graphSnapshot": {
                 "schemaVersion": 1,
-                "id": "mcp-proof-1792839945926",
+                "id": "mcp-proof-1792843889796",
                 "name": "MCP Inspector · authored without browser",
                 "revision": 4,
                 "nodes": [
@@ -4697,12 +4729,12 @@
                   }
                 }
               },
-              "createdAt": "2026-10-24T11:05:57.202Z"
+              "createdAt": "2026-10-24T12:11:41.046Z"
             }
           }
         }
       },
-      "diagnostics": "(node:312) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:13752) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "validate_workflow",
@@ -4722,7 +4754,7 @@
           }
         }
       },
-      "diagnostics": "(node:15472) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:17464) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "associate_asset",
@@ -4732,13 +4764,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"asset\":{\"id\":\"570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"uri\":\"/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"463ab9d1-ee23-4063-b98f-5f667882ca6d\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792839945926\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T11:06:00.073Z\"}}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"asset\":{\"id\":\"d8501477-cb06-4613-9142-6720ee264ec3\",\"uri\":\"/api/assets/d8501477-cb06-4613-9142-6720ee264ec3\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"cc76cc32-560e-43ba-9b78-7cf56a078502\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792843889796\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T12:11:43.919Z\"}}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 5,
               "nodes": [
@@ -4801,20 +4833,20 @@
               "groups": []
             },
             "asset": {
-              "id": "570a94ef-0fc8-4cba-bad3-fe5396998cec",
-              "uri": "/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec",
+              "id": "d8501477-cb06-4613-9142-6720ee264ec3",
+              "uri": "/api/assets/d8501477-cb06-4613-9142-6720ee264ec3",
               "mediaType": "image",
               "parentIds": [],
-              "runId": "463ab9d1-ee23-4063-b98f-5f667882ca6d",
+              "runId": "cc76cc32-560e-43ba-9b78-7cf56a078502",
               "provenance": "imported",
-              "workflowId": "mcp-proof-1792839945926",
+              "workflowId": "mcp-proof-1792843889796",
               "sourceNodeId": "scene",
-              "associatedAt": "2026-10-24T11:06:00.073Z"
+              "associatedAt": "2026-10-24T12:11:43.919Z"
             }
           }
         }
       },
-      "diagnostics": "(node:18860) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:8096) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "get_assets",
@@ -4824,27 +4856,27 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"assets\":[{\"id\":\"570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"uri\":\"/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"463ab9d1-ee23-4063-b98f-5f667882ca6d\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792839945926\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T11:06:00.073Z\"}]}"
+              "text": "{\"assets\":[{\"id\":\"d8501477-cb06-4613-9142-6720ee264ec3\",\"uri\":\"/api/assets/d8501477-cb06-4613-9142-6720ee264ec3\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"cc76cc32-560e-43ba-9b78-7cf56a078502\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792843889796\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T12:11:43.919Z\"}]}"
             }
           ],
           "structuredContent": {
             "assets": [
               {
-                "id": "570a94ef-0fc8-4cba-bad3-fe5396998cec",
-                "uri": "/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec",
+                "id": "d8501477-cb06-4613-9142-6720ee264ec3",
+                "uri": "/api/assets/d8501477-cb06-4613-9142-6720ee264ec3",
                 "mediaType": "image",
                 "parentIds": [],
-                "runId": "463ab9d1-ee23-4063-b98f-5f667882ca6d",
+                "runId": "cc76cc32-560e-43ba-9b78-7cf56a078502",
                 "provenance": "imported",
-                "workflowId": "mcp-proof-1792839945926",
+                "workflowId": "mcp-proof-1792843889796",
                 "sourceNodeId": "scene",
-                "associatedAt": "2026-10-24T11:06:00.073Z"
+                "associatedAt": "2026-10-24T12:11:43.919Z"
               }
             ]
           }
         }
       },
-      "diagnostics": "(node:18648) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:18480) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "get_execution",
@@ -4854,20 +4886,20 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflowId\":\"mcp-proof-1792839945926\",\"revision\":5,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\",\"run\":{\"id\":\"463ab9d1-ee23-4063-b98f-5f667882ca6d\",\"workflowId\":\"mcp-proof-1792839945926\",\"workflowRevision\":4,\"graphSnapshot\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"states\":{\"scene\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},\"style\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Soft light and restrained colors.\"}},\"combine\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\\n\\nSoft light and restrained colors.\"}}},\"createdAt\":\"2026-10-24T11:05:57.202Z\"},\"assets\":[{\"id\":\"570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"uri\":\"/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"463ab9d1-ee23-4063-b98f-5f667882ca6d\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792839945926\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T11:06:00.073Z\"}]}"
+              "text": "{\"workflowId\":\"mcp-proof-1792843889796\",\"revision\":5,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\",\"run\":{\"id\":\"cc76cc32-560e-43ba-9b78-7cf56a078502\",\"workflowId\":\"mcp-proof-1792843889796\",\"workflowRevision\":4,\"graphSnapshot\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"states\":{\"scene\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},\"style\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Soft light and restrained colors.\"}},\"combine\":{\"status\":\"completed\",\"outputs\":{\"text\":\"A quiet mountain observatory at sunrise.\\n\\nSoft light and restrained colors.\"}}},\"createdAt\":\"2026-10-24T12:11:41.046Z\"},\"assets\":[{\"id\":\"d8501477-cb06-4613-9142-6720ee264ec3\",\"uri\":\"/api/assets/d8501477-cb06-4613-9142-6720ee264ec3\",\"mediaType\":\"image\",\"parentIds\":[],\"runId\":\"cc76cc32-560e-43ba-9b78-7cf56a078502\",\"provenance\":\"imported\",\"workflowId\":\"mcp-proof-1792843889796\",\"sourceNodeId\":\"scene\",\"associatedAt\":\"2026-10-24T12:11:43.919Z\"}]}"
             }
           ],
           "structuredContent": {
-            "workflowId": "mcp-proof-1792839945926",
+            "workflowId": "mcp-proof-1792843889796",
             "revision": 5,
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926",
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796",
             "run": {
-              "id": "463ab9d1-ee23-4063-b98f-5f667882ca6d",
-              "workflowId": "mcp-proof-1792839945926",
+              "id": "cc76cc32-560e-43ba-9b78-7cf56a078502",
+              "workflowId": "mcp-proof-1792843889796",
               "workflowRevision": 4,
               "graphSnapshot": {
                 "schemaVersion": 1,
-                "id": "mcp-proof-1792839945926",
+                "id": "mcp-proof-1792843889796",
                 "name": "MCP Inspector · authored without browser",
                 "revision": 4,
                 "nodes": [
@@ -4949,25 +4981,25 @@
                   }
                 }
               },
-              "createdAt": "2026-10-24T11:05:57.202Z"
+              "createdAt": "2026-10-24T12:11:41.046Z"
             },
             "assets": [
               {
-                "id": "570a94ef-0fc8-4cba-bad3-fe5396998cec",
-                "uri": "/api/assets/570a94ef-0fc8-4cba-bad3-fe5396998cec",
+                "id": "d8501477-cb06-4613-9142-6720ee264ec3",
+                "uri": "/api/assets/d8501477-cb06-4613-9142-6720ee264ec3",
                 "mediaType": "image",
                 "parentIds": [],
-                "runId": "463ab9d1-ee23-4063-b98f-5f667882ca6d",
+                "runId": "cc76cc32-560e-43ba-9b78-7cf56a078502",
                 "provenance": "imported",
-                "workflowId": "mcp-proof-1792839945926",
+                "workflowId": "mcp-proof-1792843889796",
                 "sourceNodeId": "scene",
-                "associatedAt": "2026-10-24T11:06:00.073Z"
+                "associatedAt": "2026-10-24T12:11:43.919Z"
               }
             ]
           }
         }
       },
-      "diagnostics": "(node:19072) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:12520) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     },
     {
       "step": "tools/list",
@@ -6031,15 +6063,15 @@
           ]
         }
       },
-      "diagnostics": "(node:16580) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nSchema portability: 0 errors, 7 warnings across 4 tools. Re-run with --strict for details.\n"
+      "diagnostics": "(node:4196) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\nSchema portability: 0 errors, 7 warnings across 4 tools. Re-run with --strict for details.\n"
     },
     {
       "step": "create_workflow",
       "exitCode": 5,
       "result": {
-        "error": "(node:11288) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_workflow' not found on server.\"}}\n"
+        "error": "(node:20072) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_workflow' not found on server.\"}}\n"
       },
-      "diagnostics": "(node:11288) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_workflow' not found on server.\"}}\n"
+      "diagnostics": "(node:20072) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n{\"error\":{\"code\":\"tool_not_found\",\"message\":\"Tool 'create_workflow' not found on server.\"}}\n"
     },
     {
       "step": "get_workflow",
@@ -6049,13 +6081,13 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"A quiet mountain observatory at sunrise.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Soft light and restrained colors.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-proof-1792839945926",
+              "id": "mcp-proof-1792843889796",
               "name": "MCP Inspector · authored without browser",
               "revision": 5,
               "nodes": [
@@ -6117,11 +6149,11 @@
               ],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
           }
         }
       },
-      "diagnostics": "(node:3096) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
+      "diagnostics": "(node:16116) ExperimentalWarning: SQLite is an experimental feature and might change at any time\n(Use `node --trace-warnings ...` to show where the warning was created)\n"
     }
   ]
 }

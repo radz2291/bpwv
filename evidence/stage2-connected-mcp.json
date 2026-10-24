@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-10-24T12:20:29.412Z",
+  "transport": "live connected Creative Flow plugin through existing private Secure MCP Tunnel",
+  "nodeTypes": 7,
+  "mcpToolCount": 16,
+  "newKind": "reference_set@1",
+  "workflowId": "stage2-reference-proof-1792844373922",
+  "revision": 2,
+  "checks": [
+    "connected registry discovery",
+    "atomic Asset+Reference Set creation and typed connect",
+    "local execution without model request",
+    "separate connected tool call reopen exact graph"
+  ],
+  "referenceState": "completed",
+  "referenceCount": 1,
+  "creditsSpent": 0
+}

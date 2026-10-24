@@ -1,0 +1,20 @@
+{
+  "verifiedAt": "2026-10-24T12:23:24.276Z",
+  "url": "http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt",
+  "checks": [
+    "actual approved B pixels in Asset, Reference Set and imported Preview",
+    "typed handles intact",
+    "configured Nano Banana 2.1",
+    "real authorized provider result in generation and Preview; refinement idle",
+    "lightbox open and keyboard Escape",
+    "save and refresh retain managed reference and compatible execution outputs",
+    "unsaved setting edit clears output and all state badges; reload restores saved result",
+    "actual generated-image lightbox",
+    "inspector replacement uploads full approved PNG, reprojects references and clears old output; unsaved replacement discarded on reopen",
+    "1440x900 and 1920x1080 screenshots"
+  ],
+  "pageErrors": [],
+  "creditsSpent": 0,
+  "generationAlreadyAuthorized": true,
+  "automatedTestModelCalls": 0
+}

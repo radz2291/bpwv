@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { onMount } from 'svelte';
+  import { onMount, setContext } from 'svelte';
   import {
     SvelteFlow,
     Background,
@@ -12,6 +12,11 @@
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
   import FlowCard from '$lib/FlowCard.svelte';
+  import MediaFrame from '$lib/MediaFrame.svelte';
+  import CanvasNavigation from '$lib/CanvasNavigation.svelte';
+  import { projectMedia, mediaFocusIds } from '$lib/media-view';
+  import { executionSignature } from '$lib/workflow-fingerprint';
+  import type { MediaContext } from '$lib/media-context';
   import { registry } from '$lib/registry';
   import { demo } from '$lib/demo';
   import { validateGraph } from '$lib/engine';
@@ -37,8 +42,39 @@
     tab = $state('configure'),
     groupName = $state('Reusable study'),
     dirty = $state(false);
+  let lightbox = $state<Asset | null>(null),
+    dialog: HTMLDialogElement;
+  let runSignature = $state('');
+  let editableSignature = $derived(executionSignature(document()));
+  $effect(() => {
+    if (runSignature && runSignature !== editableSignature) {
+      states = {};
+      nodes = nodes.map((node) => ({
+        ...node,
+        data: { ...node.data, state: undefined }
+      }));
+      runId = '';
+      runSignature = '';
+    }
+  });
+  $effect(() => {
+    if (dialog) {
+      if (lightbox && !dialog.open) dialog.showModal();
+      else if (!lightbox && dialog.open) dialog.close();
+    }
+  });
+  let mediaViews = $derived(projectMedia(document(), registry, states, models));
+  let imagePathIds = $derived(mediaFocusIds(document(), registry));
+  setContext<MediaContext>('creative-flow-media', {
+    view: (id) => mediaViews[id],
+    enlarge: (asset, id) => {
+      selected = id;
+      lightbox = asset;
+    }
+  });
   const nodeTypes = { creative: FlowCard };
   let current = $derived(nodes.find((n) => n.id === selected));
+  let currentMedia = $derived(current ? mediaViews[current.id] : undefined);
   let model = $derived(
     models.find((m) => m.id === current?.data.config.modelId)
   );
@@ -122,7 +158,10 @@
       const previous = await api(
         `/api/runs?workflowId=${encodeURIComponent(id)}`
       );
-      if (previous && previous.workflowRevision === graph.revision) {
+      if (
+        previous &&
+        executionSignature(previous.graphSnapshot) === executionSignature(graph)
+      ) {
         runId = previous.id;
         applyStates(previous.states);
       }
@@ -131,11 +170,27 @@
       message = String(e);
     }
   }
-  async function run() {
+  async function run(targetId?: string) {
     busy = true;
     try {
       if (!(await save())) return;
-      const result = await api('/api/run', document());
+      const first = targetId ?? nodes.find((n) => n.data.kind === 'weave')?.id;
+      const targets = first
+        ? [
+            first,
+            ...edges
+              .filter(
+                (e) =>
+                  e.source === first &&
+                  nodes.find((n) => n.id === e.target)?.data.kind === 'preview'
+              )
+              .map((e) => e.target)
+          ]
+        : undefined;
+      const result = await api('/api/run', {
+        ...document(),
+        targetNodeIds: targets
+      });
       runId = result.id;
       applyStates(result.states);
       message =
@@ -148,6 +203,7 @@
     }
   }
   function applyStates(next: Record<string, NodeState>) {
+    runSignature = editableSignature;
     states = next;
     nodes = nodes.map((n) => ({
       ...n,
@@ -254,6 +310,7 @@
       change('uri', a.uri);
       change('assetId', a.id);
       change('mediaType', a.mediaType);
+      change('name', file.name);
       message = 'Asset stored locally';
     } catch (e) {
       message = String(e);
@@ -284,7 +341,11 @@
         id: map.get(n.id)!,
         selected: false,
         position: { x: n.position.x + 80, y: n.position.y + 420 },
-        data: { ...structuredClone(n.data), state: undefined }
+        data: {
+          ...structuredClone(n.data),
+          id: map.get(n.id)!,
+          state: undefined
+        }
       }));
     const links = edges
       .filter((e) => map.has(e.source) && map.has(e.target))
@@ -350,14 +411,18 @@
       <div class="actions">
         <button onclick={exportGraph}>Export ↗</button><button onclick={save}
           >Save workflow</button
-        ><button class="primary" onclick={run} disabled={busy}
+        ><button class="primary" onclick={() => run()} disabled={busy}
           >{busy ? 'Preparing…' : '▶ Run local steps'}</button
         >
       </div>
     </div>
     <main>
       <nav class="library">
-        <div class="section-label">NODE LIBRARY <span>06</span></div>
+        <div class="section-label">
+          NODE LIBRARY <span
+            >{String(registry.list().length).padStart(2, '0')}</span
+          >
+        </div>
         <p class="muted">Build with a few good blocks.</p>
         {#each registry.list() as def}<button
             class="library-item"
@@ -435,11 +500,12 @@
           maxZoom={1.7}
           colorMode="dark"
           deleteKey={['Backspace', 'Delete']}
+          fitViewOptions={{ padding: 0.12 }}
           ><Background gap={22} /><Controls /><MiniMap
             pannable
             zoomable
             nodeColor="#8b9f8f"
-          /></SvelteFlow
+          /><CanvasNavigation imageIds={imagePathIds} /></SvelteFlow
         >
         <div class="canvas-hint">
           Drag to arrange <span>·</span> Connect matching ports <span>·</span> Select
@@ -467,6 +533,17 @@
             ).category}
           </div>
           <h2>{current.data.label}</h2>
+          {#if currentMedia?.assets.length}<div class="inspector-media">
+              <MediaFrame
+                asset={currentMedia.assets[0]}
+                label="Selected image"
+                onEnlarge={(a) => (lightbox = a)}
+              />
+              <p class="help">
+                {currentMedia.caption}<br />{currentMedia.assets[0].name ??
+                  currentMedia.assets[0].id}
+              </p>
+            </div>{/if}
           <label
             >Node name<input
               value={String(current.data.label)}
@@ -530,7 +607,17 @@
                       ><option value="" disabled>Provider default</option
                       >{#each f.options as opt}<option value={opt}>{opt}</option
                         >{/each}</select
-                    >{:else}<input
+                    >{:else if f.type === 'boolean'}<input
+                      type="checkbox"
+                      checked={Boolean(
+                        current.data.config.params?.[key] ?? f.default ?? false
+                      )}
+                      onchange={(e) =>
+                        change('params', {
+                          ...current?.data.config.params,
+                          [key]: e.currentTarget.checked
+                        })}
+                    />{:else}<input
                       type="number"
                       min={f.min}
                       max={f.max}
@@ -547,6 +634,20 @@
                 Reference conditioning uses this model’s input contract. Batch
                 iteration is a separate planned operation.
               </div>{/if}
+            <button
+              class="primary"
+              disabled={busy}
+              onclick={() => run(current?.id)}>Prepare this generation</button
+            >
+            <p class="help">
+              Prepares this node and its preview only. No model call or charge.
+              Refinement requires its own explicit action.
+            </p>
+          {:else if current.data.kind === 'reference_set'}<p class="help">
+              One generation, {currentMedia?.assets.length ?? 0} references. Existing
+              references stay first; the new asset is appended. The first image is
+              the primary style anchor. This is not a batch iterator.
+            </p>
           {:else if current.data.kind === 'asset'}<label
               >Upload local media<input
                 type="file"
@@ -652,7 +753,62 @@
   </div>
 </div>
 
+<dialog
+  bind:this={dialog}
+  class="image-dialog"
+  oncancel={() => (lightbox = null)}
+  aria-label="Enlarged image"
+>
+  {#if lightbox}<header>
+      <span>{lightbox.name ?? lightbox.id}</span><button
+        onclick={() => (lightbox = null)}
+        aria-label="Close enlarged image">Close ×</button
+      >
+    </header>
+    <img src={lightbox.uri} alt="Enlarged artwork" />
+    <p>
+      {lightbox.provenance === 'imported'
+        ? 'Imported reference'
+        : 'Actual run output'} · {lightbox.id}
+    </p>{/if}
+</dialog>
+
 <style>
+  .image-dialog {
+    background: #141c12;
+    color: #e5efdc;
+    border: 1px solid #7d916a;
+    border-radius: 12px;
+    max-width: 94vw;
+    max-height: 94vh;
+    width: 950px;
+    padding: 18px;
+  }
+  .image-dialog::backdrop {
+    background: #080d08dc;
+  }
+  .image-dialog header {
+    height: auto;
+    padding: 0 0 14px;
+    gap: 20px;
+    display: flex;
+    justify-content: space-between;
+  }
+  .image-dialog img {
+    display: block;
+    width: 100%;
+    height: 74vh;
+    object-fit: contain;
+    margin: 0;
+  }
+  .image-dialog p {
+    font-size: 11px;
+    color: #a3b594;
+    overflow-wrap: anywhere;
+  }
+  .inspector-media {
+    margin: 0 0 20px;
+  }
   :global(*) {
     box-sizing: border-box;
   }

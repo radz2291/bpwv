@@ -111,7 +111,7 @@ assert.ok(
   )
 );
 const catalog = await invoke('tools/call', 'node_types');
-assert.equal(catalog.nodes.length, 6);
+assert.equal(catalog.nodes.length, 7);
 const id = `mcp-proof-${Date.now()}`;
 let result = await invoke('tools/call', 'create_workflow', {
   id,

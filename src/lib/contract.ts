@@ -47,6 +47,8 @@ export type Asset = {
   mediaType: 'image' | 'video' | 'audio';
   sourceNodeId?: string;
   parentIds?: string[];
+  name?: string;
+  provenance?: 'imported' | 'external-reported';
 };
 export type NodeState = {
   status: 'idle' | 'running' | 'completed' | 'pending' | 'failed' | 'blocked';
@@ -64,6 +66,10 @@ export interface NodeDefinition {
   outputs: Port[];
   defaults: Record<string, unknown>;
   configSchema?: z.ZodType;
+  project?: (ctx: {
+    node: FlowNode;
+    inputs: Record<string, unknown>;
+  }) => Record<string, unknown>;
   validate: (config: Record<string, unknown>) => void;
   execute: (ctx: {
     node: FlowNode;

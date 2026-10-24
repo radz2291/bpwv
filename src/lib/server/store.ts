@@ -10,7 +10,7 @@ export const db = new DatabaseSync(
 );
 export function initializeDatabase(connection: DatabaseSync) {
   connection.exec(
-    `PRAGMA busy_timeout=5000; PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS workflows (id TEXT PRIMARY KEY, revision INTEGER NOT NULL, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS runs (id TEXT PRIMARY KEY, workflowId TEXT, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS requests (id TEXT PRIMARY KEY, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS workflow_assets (workflowId TEXT NOT NULL,nodeId TEXT NOT NULL,assetId TEXT NOT NULL,document TEXT NOT NULL,PRIMARY KEY(workflowId,nodeId,assetId));`
+    `PRAGMA busy_timeout=5000; CREATE TABLE IF NOT EXISTS workflow_revisions (workflowId TEXT NOT NULL,revision INTEGER NOT NULL,document TEXT NOT NULL,createdAt TEXT NOT NULL,PRIMARY KEY(workflowId,revision)); PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS workflows (id TEXT PRIMARY KEY, revision INTEGER NOT NULL, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS runs (id TEXT PRIMARY KEY, workflowId TEXT, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS requests (id TEXT PRIMARY KEY, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS workflow_assets (workflowId TEXT NOT NULL,nodeId TEXT NOT NULL,assetId TEXT NOT NULL,document TEXT NOT NULL,PRIMARY KEY(workflowId,nodeId,assetId));`
   );
 }
 initializeDatabase(db);

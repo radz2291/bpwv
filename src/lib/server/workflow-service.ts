@@ -75,23 +75,21 @@ export class WorkflowService {
       });
   }
   catalog() {
-    return this.nodes
-      .list()
-      .map((d) => ({
-        kind: d.kind,
-        version: d.version,
-        label: d.label,
-        category: d.category,
-        provider: d.provider,
-        inputs: d.inputs,
-        outputs: d.outputs,
-        defaults: d.defaults,
-        configSchema: d.configSchema
-          ? z.toJSONSchema(d.configSchema)
-          : { type: 'object' },
-        capability:
-          d.provider === 'local' ? 'implemented-local' : 'external-dependent'
-      }));
+    return this.nodes.list().map((d) => ({
+      kind: d.kind,
+      version: d.version,
+      label: d.label,
+      category: d.category,
+      provider: d.provider,
+      inputs: d.inputs,
+      outputs: d.outputs,
+      defaults: d.defaults,
+      configSchema: d.configSchema
+        ? z.toJSONSchema(d.configSchema)
+        : { type: 'object' },
+      capability:
+        d.provider === 'local' ? 'implemented-local' : 'external-dependent'
+    }));
   }
   get(id: string): Workflow {
     const row = this.connection
@@ -145,6 +143,11 @@ export class WorkflowService {
     const next = { ...graph, revision: graph.revision + 1 };
     if (exists) {
       this.connection
+        .prepare(
+          'INSERT OR IGNORE INTO workflow_revisions SELECT id,revision,document,? FROM workflows WHERE id=?'
+        )
+        .run(new Date().toISOString(), graph.id);
+      this.connection
         .prepare('UPDATE workflows SET revision=?,document=? WHERE id=?')
         .run(next.revision, JSON.stringify(next), next.id);
       const ids = new Set(graph.nodes.map((n) => n.id));
@@ -163,6 +166,14 @@ export class WorkflowService {
       this.connection
         .prepare('INSERT INTO workflows VALUES(?,?,?)')
         .run(next.id, next.revision, JSON.stringify(next));
+    this.connection
+      .prepare('INSERT OR IGNORE INTO workflow_revisions VALUES(?,?,?,?)')
+      .run(
+        next.id,
+        next.revision,
+        JSON.stringify(next),
+        new Date().toISOString()
+      );
     return next;
   }
   create(input: { id?: string; name: string }) {
@@ -278,23 +289,34 @@ export class WorkflowService {
     if (!row) throw new ServiceError('NOT_FOUND', 'Run not found');
     return JSON.parse(String(row.document));
   }
-  async executeDocument(raw: unknown) {
+  async executeDocument(raw: unknown, options?: { targetNodeIds?: string[] }) {
     const graph = this.validate(raw),
       id = randomUUID();
-    const states = await execute(graph, this.nodes, async (node, inputs) => {
-      const { weaveBridge } = await import('./provider');
-      return weaveBridge.prepare(node, inputs, {
-        workflowId: graph.id,
-        runId: id
-      });
-    });
+    const states = await execute(
+      graph,
+      this.nodes,
+      async (node, inputs) => {
+        const { weaveBridge } = await import('./provider');
+        return weaveBridge.prepare(node, inputs, {
+          workflowId: graph.id,
+          runId: id,
+          workflowRevision: graph.revision,
+          workflowHash: (await import('node:crypto'))
+            .createHash('sha256')
+            .update(JSON.stringify(graph))
+            .digest('hex')
+        });
+      },
+      options?.targetNodeIds
+    );
     const run = {
       id,
       workflowId: graph.id,
       workflowRevision: graph.revision,
       graphSnapshot: graph,
       states,
-      createdAt: new Date().toISOString()
+      createdAt: new Date().toISOString(),
+      targetNodeIds: options?.targetNodeIds ?? graph.nodes.map((n) => n.id)
     };
     this.connection
       .prepare('INSERT INTO runs VALUES(?,?,?)')
