@@ -2,6 +2,8 @@
 
 **Decision status:** Architectural direction approved by the owner on 24 October 2026. **Implementation status:** Proposed; these documents do not claim that the universal engine, new UI, or all eight primitives are implemented.
 
+**Milestone update:** U0's isolated foundation audit/contracts/proof is owner-accepted as **PASS WITH NON-BLOCKING FINDINGS**. The production universal engine remains unimplemented; U1 handoff preparation does not authorize U1 execution. See the acceptance record and integration plan below. Historical design and verification documents retain their original dated status.
+
 ## Product intention
 
 Creative Flow should accommodate new projects by composing existing operations, rather than requiring application changes whenever a project introduces a new role, style, medium, or task.
@@ -36,6 +38,10 @@ These are a **starting vocabulary to validate**, not a mandate to force every fu
 Images, prompts, video, audio, scene specifications, review reports and other outputs are typed artifacts with source references, immutable run lineage, versions and previews. Preview is an artifact presentation capability, not a necessary execution node. Content, style reference and image-edit target are separate input roles even when all are images.
 
 ## Documents
+
+- [U0 owner acceptance](../decisions/2026-10-24-u0-owner-acceptance.md) — accepted isolated milestone, exact lineage and preserved limitations.
+- [INTEGRATION_PLAN.md](INTEGRATION_PLAN.md) — focused PR stack and proposed merge sequence; no merge authorization.
+- [U1_IMPLEMENTATION_HANDOFF.md](U1_IMPLEMENTATION_HANDOFF.md) — next-milestone preparation only; execution requires a separate owner decision.
 
 - [U0_ASSESSMENT.md](U0_ASSESSMENT.md) — source-grounded architecture audit, cross-domain challenges and safe migration plan.
 - [U0_CONTRACTS.md](U0_CONTRACTS.md) — isolated proof boundary, contract proposal and deferred decisions.

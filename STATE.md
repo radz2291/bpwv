@@ -1,6 +1,8 @@
-# State — U0 candidate, 24 October 2026
+# State — U0 owner-accepted; U1 preparation only, 24 October 2026
 
-U0 — Foundation Contract and Reality Audit is implemented as an **isolated non-paid spike**, ready for owner review after independent verification. Dedicated branch: `dev/u0-universal-workbench`. Approved design commit `a939cbe8e82657fdd2782f8131b97813a37d5b70` was merged explicitly over clean Stage 2 baseline `45c9096780df1e43c32f5a15a5bafb2ce2170728`; PR #1 was open/unmerged when inspected. The owner authorized pushing this U0 branch, with no merge into main or deployment.
+The owner accepted U0: **PASS WITH NON-BLOCKING FINDINGS**, after reviewing the report and independent verification. Exact accepted candidate: `5e70993033ca2f093a2f1e7e7b63813c7e8ea8b1`. The eight primitives remain the approved foundation. The distinct acceptance record is `docs/decisions/2026-10-24-u0-owner-acceptance.md`; it retains the held candidate, repaired candidate and final exact-SHA lineage. Acceptance applies to the **isolated non-paid spike**, not a production universal engine.
+
+Integration is prepared as a review stack: PR #3 Stage 2 → PR #1 architecture documents → PR #2 accepted U0 → documentation-only acceptance/U1-handoff branch. See `docs/universal-workbench/INTEGRATION_PLAN.md`. The architecture branch was fast-forwarded to existing merge `a4832d2` and PR bases retargeted to narrow diffs; no shared commit was rewritten. Accepted U0 head remains unchanged. Nothing has merged into main, and no U1 implementation is authorized or begun.
 
 See `docs/universal-workbench/U0_ASSESSMENT.md` for reuse/migration and four domain challenges; `U0_CONTRACTS.md` and generated `U0_SCHEMAS.json` for the concrete contract proposal and limits. Source under `src/lib/universal/` is not imported by the production registry, WorkflowService, HTTP/MCP transports or editor. No production graph/schema conversion, paid provider executor, new production node kind or UI redesign is introduced.
 
@@ -8,7 +10,7 @@ Implemented proof: typed Input → registered pure Transform → Output(return),
 
 Fresh verification: 35 tests, zero type errors/warnings, production build, isolated legacy agent/browser/official MCP Inspector proofs, and read-only original BorderPoint editor proof. The original actual reference and generated output still decode at 941×1672 and 768×1376. SQLite baseline snapshot is local ignored `data/u0/before.sqlite`; every baseline workflow/revision/run/request/association remains byte-for-byte. An initial Inspector harness attempt filtered inherited environment and added harmless `mcp-proof-1792848649864` fixture data to the original database; the explicit-config environment repair isolates subsequent proofs. No original row was modified. All U0 calls/credits: **0**. Existing Weave quote/approval process is unchanged.
 
-Evidence: `evidence/u0/`; independent exact-candidate assessment is recorded there. Owner acceptance and authorization for U1 are pending. Recommendation: a separately scoped Input/Transform/Invoke-boundary/Output slice through the existing WorkflowService with additive artifact persistence and explicit legacy dispatch; no automatic graph migration or paid replay.
+Evidence: `evidence/u0/`; historical exact-candidate reports and earlier pending-acceptance statements are preserved as dated evidence. U0 owner acceptance is now recorded separately. `docs/universal-workbench/U1_IMPLEMENTATION_HANDOFF.md` prepares Input/Transform/Invoke/Output integration through the existing WorkflowService, additive durable artifacts, typed provider capabilities, MCP/editor parity and restart proofs. **U1 execution and all merges into main still require separate owner authorization.** No automatic graph migration or paid replay is proposed.
 
 ## Stage 2 historical record (superseded status, retained evidence)
 
