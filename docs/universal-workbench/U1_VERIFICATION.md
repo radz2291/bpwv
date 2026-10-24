@@ -47,4 +47,6 @@ Final builder browser recheck includes the independent reorder regression and un
 
 For review, the isolated local demo root is `C:\Users\RZ1\Desktop\RZ\261024-Borderpoint\data\u1\proof\1792855102726`, served at `http://127.0.0.1:5175`. The original application remains at port 5173 with its original data and default-denied U1 execution policy. Do not point writable acceptance tests at original data.
 
+The owned proof server was stopped after verification. An optional persistent review-server launch was subsequently rejected by automatic approval review with only “blocked by policy”; it was not retried. **Port 5175 is not left running.** Screenshots/reports and the isolated data remain available. Starting that isolated application process is therefore also required before the manual ChatGPT reopen test. The original port 5173 process remains running.
+
 To close G8 safely, configure the **test** tunnel server process with that explicit `CREATIVE_FLOW_DATA_DIR`, `CREATIVE_FLOW_APP_URL=http://127.0.0.1:5175` and `CREATIVE_FLOW_ALLOW_LOCAL_EXECUTION=1`, plus the existing explicit `--write` grant, then perform the actual ChatGPT sequence above. Reuse existing account/tunnel credentials securely; none were changed for this task. A manual connection confirmation or account restriction must remain visible rather than counted as success.

@@ -4,6 +4,8 @@
 
 G1–G7 and G9 pass for the declared local subset. G8 requires an actual ChatGPT-side U1 author/save/execute/artifact-read and editor reopen; local Inspector and Codex-connected reads are not substituted. No main merge, U2 work or paid generation occurred. Original rows/media/auth/archive remain exact; all 56 tests, build, type checks, official Inspector transports, actual editor/restart and repaired independent verification pass. Isolated review app uses port 5175; original port 5173/data/MCP connection remain preserved.
 
+The isolated proof process is stopped. Automatic approval review blocked the optional persistent demo launch (“blocked by policy”), so port 5175 is not running at handoff. Retained screenshots and data support review; manual G8 completion must first launch the isolated app with the documented environment. Original port 5173 remains running.
+
 The owner authorized the full U1 cycle from main d3296549676e942ae402fcee7ea570d8fc51a16e. Work is on dev/u1-universal-execution: Input, Transform, local Invoke and Output integrated through WorkflowService, additive immutable artifacts/attempts, explicit separate local effect policy and minimal universal editor. This supersedes historical preparation-only statements below; it does not authorize U2 or a main merge. See docs/universal-workbench/U1_IMPLEMENTATION.md and the U1 verification record for actual gate outcomes. G8 requires a real ChatGPT-side U1 call and must remain HELD without that evidence. No paid generation is authorized or performed.
 
 # State — U0 owner-accepted; U1 preparation only, 24 October 2026
