@@ -1,0 +1,625 @@
+{
+  "origin": "Official Inspector fresh read-only stdio after final browser authoring; not ChatGPT",
+  "outputs": [
+    {
+      "name": "get_workflow",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workflow\":{\"schemaVersion\":2,\"id\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"name\":\"Document statistics recipe · concurrent writer\",\"revision\":5,\"nodes\":[{\"id\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"kind\":\"u.input\",\"version\":1,\"label\":\"input\",\"position\":{\"x\":80,\"y\":120},\"config\":{\"type\":\"text\",\"value\":\"Semantic update has five words.\"}},{\"id\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"kind\":\"u.transform\",\"version\":1,\"label\":\"transform\",\"position\":{\"x\":385,\"y\":120},\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1}},{\"id\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"kind\":\"u.invoke\",\"version\":1,\"label\":\"invoke\",\"position\":{\"x\":690,\"y\":120},\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"settings\":{},\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\"}},{\"id\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"kind\":\"u.output\",\"version\":1,\"label\":\"output\",\"position\":{\"x\":995,\"y\":120},\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"}}],\"edges\":[{\"id\":\"24a83487-1e19-4dce-aa0c-89fb9eca13b8\",\"source\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"sourceHandle\":\"value\",\"target\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"targetHandle\":\"input\"},{\"id\":\"71342d33-787f-48ac-9694-90d1c94a77b9\",\"source\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"sourceHandle\":\"value\",\"target\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"targetHandle\":\"input\"},{\"id\":\"29222441-83bc-46a4-8cb0-a7c1383e71ce\",\"source\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"sourceHandle\":\"value\",\"target\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"targetHandle\":\"input\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5175/?workflow=4409c144-d9f8-4d84-8f73-96a678ad1f64\"}"
+          }
+        ],
+        "structuredContent": {
+          "workflow": {
+            "schemaVersion": 2,
+            "id": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+            "name": "Document statistics recipe · concurrent writer",
+            "revision": 5,
+            "nodes": [
+              {
+                "id": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                "kind": "u.input",
+                "version": 1,
+                "label": "input",
+                "position": {
+                  "x": 80,
+                  "y": 120
+                },
+                "config": {
+                  "type": "text",
+                  "value": "Semantic update has five words."
+                }
+              },
+              {
+                "id": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                "kind": "u.transform",
+                "version": 1,
+                "label": "transform",
+                "position": {
+                  "x": 385,
+                  "y": 120
+                },
+                "config": {
+                  "transformId": "text.normalize",
+                  "transformVersion": 1
+                }
+              },
+              {
+                "id": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                "kind": "u.invoke",
+                "version": 1,
+                "label": "invoke",
+                "position": {
+                  "x": 690,
+                  "y": 120
+                },
+                "config": {
+                  "capabilityId": "local.text-statistics",
+                  "capabilityVersion": 1,
+                  "settings": {},
+                  "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3"
+                }
+              },
+              {
+                "id": "76de09f7-3466-4668-9d6e-86f43563e998",
+                "kind": "u.output",
+                "version": 1,
+                "label": "output",
+                "position": {
+                  "x": 995,
+                  "y": 120
+                },
+                "config": {
+                  "mode": "return",
+                  "type": "record",
+                  "schemaRef": "cf.document-statistics@1"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "24a83487-1e19-4dce-aa0c-89fb9eca13b8",
+                "source": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                "sourceHandle": "value",
+                "target": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                "targetHandle": "input"
+              },
+              {
+                "id": "71342d33-787f-48ac-9694-90d1c94a77b9",
+                "source": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                "sourceHandle": "value",
+                "target": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                "targetHandle": "input"
+              },
+              {
+                "id": "29222441-83bc-46a4-8cb0-a7c1383e71ce",
+                "source": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                "sourceHandle": "value",
+                "target": "76de09f7-3466-4668-9d6e-86f43563e998",
+                "targetHandle": "input"
+              }
+            ],
+            "groups": []
+          },
+          "url": "http://127.0.0.1:5175/?workflow=4409c144-d9f8-4d84-8f73-96a678ad1f64"
+        }
+      }
+    },
+    {
+      "name": "list_universal_runs",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"runs\":[{\"id\":\"856749ce-0f79-4979-ad3a-07ee1d8487fe\",\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":4,\"status\":\"completed\",\"snapshot\":{\"schemaVersion\":2,\"id\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"name\":\"Document statistics recipe\",\"revision\":4,\"nodes\":[{\"id\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"kind\":\"u.input\",\"version\":1,\"label\":\"input\",\"position\":{\"x\":80,\"y\":120},\"config\":{\"type\":\"text\",\"value\":\"Semantic update has five words.\"}},{\"id\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"kind\":\"u.transform\",\"version\":1,\"label\":\"transform\",\"position\":{\"x\":385,\"y\":120},\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1}},{\"id\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"kind\":\"u.invoke\",\"version\":1,\"label\":\"invoke\",\"position\":{\"x\":690,\"y\":120},\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"settings\":{},\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\"}},{\"id\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"kind\":\"u.output\",\"version\":1,\"label\":\"output\",\"position\":{\"x\":995,\"y\":120},\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"}}],\"edges\":[{\"id\":\"24a83487-1e19-4dce-aa0c-89fb9eca13b8\",\"source\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"sourceHandle\":\"value\",\"target\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"targetHandle\":\"input\"},{\"id\":\"71342d33-787f-48ac-9694-90d1c94a77b9\",\"source\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"sourceHandle\":\"value\",\"target\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"targetHandle\":\"input\"},{\"id\":\"29222441-83bc-46a4-8cb0-a7c1383e71ce\",\"source\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"sourceHandle\":\"value\",\"target\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"targetHandle\":\"input\"}],\"groups\":[]},\"snapshotHash\":\"67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae\",\"semanticHash\":\"20b3419cbbd1653d55c6188c5865ffefcacd493d8f75da107778cec91ee14225\",\"contracts\":{\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\":\"{\\\"inputs\\\":[],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"type\\\":\\\"text\\\",\\\"value\\\":\\\"Semantic update has five words.\\\"},\\\"settings\\\":{}}\",\"96b17259-1e17-48a2-87ad-70891ec2e9a3\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"transformId\\\":\\\"text.normalize\\\",\\\"transformVersion\\\":1},\\\"settings\\\":{}}\",\"c454e47f-12f9-444a-bbe7-5f64b303adc2\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"manifestHash\\\":\\\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\\\",\\\"config\\\":{\\\"capabilityId\\\":\\\"local.text-statistics\\\",\\\"capabilityVersion\\\":1,\\\"settings\\\":{},\\\"manifestHash\\\":\\\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\\\"},\\\"settings\\\":{}}\",\"76de09f7-3466-4668-9d6e-86f43563e998\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"mode\\\":\\\"return\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\"},\\\"settings\\\":{}}\"},\"states\":{\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"eca7b48a-d05b-4270-ab51-8b5bd6dfd7bf\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:b3c8817c-cdc2-47ee-a41b-786bf3b09acb:value\",\"version\":2,\"previousId\":\"c757ec06-8025-43b4-a89d-20c25ca1f22f\",\"type\":\"text\",\"value\":\"Semantic update has five words.\",\"contentHash\":\"388eee8561092bc4f8c0691eaec276cf2793a2a7a97e85d480b3d2d6e1022853\",\"parents\":[],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":4,\"runId\":\"856749ce-0f79-4979-ad3a-07ee1d8487fe\",\"attemptId\":\"4989f8c1-282c-47d7-8703-a4f7d12f30ce\",\"nodeId\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"outputPort\":\"value\",\"snapshotHash\":\"67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:11.006Z\"}}},\"96b17259-1e17-48a2-87ad-70891ec2e9a3\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"c754a433-0d4e-446a-9730-f2c1f7a9baba\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:96b17259-1e17-48a2-87ad-70891ec2e9a3:value\",\"version\":2,\"previousId\":\"793c17b4-02db-4cb7-af09-9cb273f1774a\",\"type\":\"text\",\"value\":\"Semantic update has five words.\",\"contentHash\":\"388eee8561092bc4f8c0691eaec276cf2793a2a7a97e85d480b3d2d6e1022853\",\"parents\":[{\"artifactId\":\"eca7b48a-d05b-4270-ab51-8b5bd6dfd7bf\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":4,\"runId\":\"856749ce-0f79-4979-ad3a-07ee1d8487fe\",\"attemptId\":\"ba642354-4273-465a-961d-2167d70eeaa3\",\"nodeId\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"outputPort\":\"value\",\"snapshotHash\":\"67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:11.011Z\"}}},\"c454e47f-12f9-444a-bbe7-5f64b303adc2\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"6e3ec099-aa7b-4ef5-b2fa-d685e9aa5573\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value\",\"version\":2,\"previousId\":\"0050a814-31c2-4253-b2d4-0485f791c15c\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"value\":{\"characters\":31,\"words\":5,\"lines\":1},\"contentHash\":\"dbd3d6048393f0cd3526510cd20cf0410c17e24a76a3117b285784443dba26e4\",\"parents\":[{\"artifactId\":\"c754a433-0d4e-446a-9730-f2c1f7a9baba\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":4,\"runId\":\"856749ce-0f79-4979-ad3a-07ee1d8487fe\",\"attemptId\":\"4a19eeb8-801c-4174-93a7-a71186628e7c\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"outputPort\":\"value\",\"snapshotHash\":\"67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:11.019Z\"}}},\"76de09f7-3466-4668-9d6e-86f43563e998\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"6e3ec099-aa7b-4ef5-b2fa-d685e9aa5573\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value\",\"version\":2,\"previousId\":\"0050a814-31c2-4253-b2d4-0485f791c15c\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"value\":{\"characters\":31,\"words\":5,\"lines\":1},\"contentHash\":\"dbd3d6048393f0cd3526510cd20cf0410c17e24a76a3117b285784443dba26e4\",\"parents\":[{\"artifactId\":\"c754a433-0d4e-446a-9730-f2c1f7a9baba\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":4,\"runId\":\"856749ce-0f79-4979-ad3a-07ee1d8487fe\",\"attemptId\":\"4a19eeb8-801c-4174-93a7-a71186628e7c\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"outputPort\":\"value\",\"snapshotHash\":\"67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:11.019Z\"}}}},\"attempts\":[{\"id\":\"4989f8c1-282c-47d7-8703-a4f7d12f30ce\",\"nodeId\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"status\":\"completed\"},{\"id\":\"ba642354-4273-465a-961d-2167d70eeaa3\",\"nodeId\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"status\":\"completed\"},{\"id\":\"4a19eeb8-801c-4174-93a7-a71186628e7c\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"status\":\"completed\"},{\"id\":\"14c22a35-61e7-4e1b-a71d-84d7ee2242e8\",\"nodeId\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"status\":\"completed\"}],\"createdAt\":\"2026-10-24T15:20:11.003Z\",\"completedAt\":\"2026-10-24T15:20:11.026Z\"},{\"id\":\"a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756\",\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":3,\"status\":\"completed\",\"snapshot\":{\"schemaVersion\":2,\"id\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"name\":\"Document statistics recipe\",\"revision\":3,\"nodes\":[{\"id\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"kind\":\"u.input\",\"version\":1,\"label\":\"input\",\"position\":{\"x\":80,\"y\":120},\"config\":{\"type\":\"text\",\"value\":\"  Browser authored   reusable document.  \"}},{\"id\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"kind\":\"u.transform\",\"version\":1,\"label\":\"transform\",\"position\":{\"x\":385,\"y\":120},\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1}},{\"id\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"kind\":\"u.invoke\",\"version\":1,\"label\":\"invoke\",\"position\":{\"x\":690,\"y\":120},\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"settings\":{},\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\"}},{\"id\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"kind\":\"u.output\",\"version\":1,\"label\":\"output\",\"position\":{\"x\":995,\"y\":120},\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"}}],\"edges\":[{\"id\":\"24a83487-1e19-4dce-aa0c-89fb9eca13b8\",\"source\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"sourceHandle\":\"value\",\"target\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"targetHandle\":\"input\"},{\"id\":\"71342d33-787f-48ac-9694-90d1c94a77b9\",\"source\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"sourceHandle\":\"value\",\"target\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"targetHandle\":\"input\"},{\"id\":\"29222441-83bc-46a4-8cb0-a7c1383e71ce\",\"source\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"sourceHandle\":\"value\",\"target\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"targetHandle\":\"input\"}],\"groups\":[]},\"snapshotHash\":\"e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f\",\"semanticHash\":\"c6b1c712851f18acf44c607ba941bb2538a0dbd448a1584d574c6d313eda71dc\",\"contracts\":{\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\":\"{\\\"inputs\\\":[],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"type\\\":\\\"text\\\",\\\"value\\\":\\\"  Browser authored   reusable document.  \\\"},\\\"settings\\\":{}}\",\"96b17259-1e17-48a2-87ad-70891ec2e9a3\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"transformId\\\":\\\"text.normalize\\\",\\\"transformVersion\\\":1},\\\"settings\\\":{}}\",\"c454e47f-12f9-444a-bbe7-5f64b303adc2\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"text\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"manifestHash\\\":\\\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\\\",\\\"config\\\":{\\\"capabilityId\\\":\\\"local.text-statistics\\\",\\\"capabilityVersion\\\":1,\\\"settings\\\":{},\\\"manifestHash\\\":\\\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\\\"},\\\"settings\\\":{}}\",\"76de09f7-3466-4668-9d6e-86f43563e998\":\"{\\\"inputs\\\":[{\\\"id\\\":\\\"input\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"outputs\\\":[{\\\"id\\\":\\\"value\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\",\\\"role\\\":\\\"value\\\",\\\"cardinality\\\":\\\"single\\\",\\\"required\\\":true}],\\\"config\\\":{\\\"mode\\\":\\\"return\\\",\\\"type\\\":\\\"record\\\",\\\"schemaRef\\\":\\\"cf.document-statistics@1\\\"},\\\"settings\\\":{}}\"},\"states\":{\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"c757ec06-8025-43b4-a89d-20c25ca1f22f\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:b3c8817c-cdc2-47ee-a41b-786bf3b09acb:value\",\"version\":1,\"type\":\"text\",\"value\":\"  Browser authored   reusable document.  \",\"contentHash\":\"8b7987c87ab120117a7632047e2637068d34628fe7ae4eae8beb5390b8be81dc\",\"parents\":[],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":3,\"runId\":\"a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756\",\"attemptId\":\"c50ca725-3eb0-4bbb-bb3d-cd12382539f4\",\"nodeId\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"outputPort\":\"value\",\"snapshotHash\":\"e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:10.576Z\"}}},\"96b17259-1e17-48a2-87ad-70891ec2e9a3\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"793c17b4-02db-4cb7-af09-9cb273f1774a\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:96b17259-1e17-48a2-87ad-70891ec2e9a3:value\",\"version\":1,\"type\":\"text\",\"value\":\"Browser authored reusable document.\",\"contentHash\":\"c09063f0ca44c328827abb31b98cd2cbbbcdc470fe2530399782484d9611c92c\",\"parents\":[{\"artifactId\":\"c757ec06-8025-43b4-a89d-20c25ca1f22f\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":3,\"runId\":\"a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756\",\"attemptId\":\"05cd7a8b-6c1f-4f5a-8de3-e3b093ac88bc\",\"nodeId\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"outputPort\":\"value\",\"snapshotHash\":\"e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:10.583Z\"}}},\"c454e47f-12f9-444a-bbe7-5f64b303adc2\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"0050a814-31c2-4253-b2d4-0485f791c15c\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value\",\"version\":1,\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"value\":{\"characters\":35,\"words\":4,\"lines\":1},\"contentHash\":\"cff7f73a529ed6c5651339778ebe3bab2a042ce1bdc61c31ef6dc911c90f3a15\",\"parents\":[{\"artifactId\":\"793c17b4-02db-4cb7-af09-9cb273f1774a\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":3,\"runId\":\"a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756\",\"attemptId\":\"70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"outputPort\":\"value\",\"snapshotHash\":\"e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:10.590Z\"}}},\"76de09f7-3466-4668-9d6e-86f43563e998\":{\"status\":\"completed\",\"outputs\":{\"value\":{\"id\":\"0050a814-31c2-4253-b2d4-0485f791c15c\",\"familyId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value\",\"version\":1,\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"value\":{\"characters\":35,\"words\":4,\"lines\":1},\"contentHash\":\"cff7f73a529ed6c5651339778ebe3bab2a042ce1bdc61c31ef6dc911c90f3a15\",\"parents\":[{\"artifactId\":\"793c17b4-02db-4cb7-af09-9cb273f1774a\",\"role\":\"value\"}],\"workflowId\":\"4409c144-d9f8-4d84-8f73-96a678ad1f64\",\"revision\":3,\"runId\":\"a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756\",\"attemptId\":\"70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"outputPort\":\"value\",\"snapshotHash\":\"e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f\",\"provenance\":\"local\",\"createdAt\":\"2026-10-24T15:20:10.590Z\"}}}},\"attempts\":[{\"id\":\"c50ca725-3eb0-4bbb-bb3d-cd12382539f4\",\"nodeId\":\"b3c8817c-cdc2-47ee-a41b-786bf3b09acb\",\"status\":\"completed\"},{\"id\":\"05cd7a8b-6c1f-4f5a-8de3-e3b093ac88bc\",\"nodeId\":\"96b17259-1e17-48a2-87ad-70891ec2e9a3\",\"status\":\"completed\"},{\"id\":\"70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf\",\"nodeId\":\"c454e47f-12f9-444a-bbe7-5f64b303adc2\",\"status\":\"completed\"},{\"id\":\"ba65d8df-a2de-417a-98ee-6ce551d5be96\",\"nodeId\":\"76de09f7-3466-4668-9d6e-86f43563e998\",\"status\":\"completed\"}],\"createdAt\":\"2026-10-24T15:20:10.573Z\",\"completedAt\":\"2026-10-24T15:20:10.597Z\"}]}"
+          }
+        ],
+        "structuredContent": {
+          "runs": [
+            {
+              "id": "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+              "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+              "revision": 4,
+              "status": "completed",
+              "snapshot": {
+                "schemaVersion": 2,
+                "id": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                "name": "Document statistics recipe",
+                "revision": 4,
+                "nodes": [
+                  {
+                    "id": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                    "kind": "u.input",
+                    "version": 1,
+                    "label": "input",
+                    "position": {
+                      "x": 80,
+                      "y": 120
+                    },
+                    "config": {
+                      "type": "text",
+                      "value": "Semantic update has five words."
+                    }
+                  },
+                  {
+                    "id": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "kind": "u.transform",
+                    "version": 1,
+                    "label": "transform",
+                    "position": {
+                      "x": 385,
+                      "y": 120
+                    },
+                    "config": {
+                      "transformId": "text.normalize",
+                      "transformVersion": 1
+                    }
+                  },
+                  {
+                    "id": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "kind": "u.invoke",
+                    "version": 1,
+                    "label": "invoke",
+                    "position": {
+                      "x": 690,
+                      "y": 120
+                    },
+                    "config": {
+                      "capabilityId": "local.text-statistics",
+                      "capabilityVersion": 1,
+                      "settings": {},
+                      "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3"
+                    }
+                  },
+                  {
+                    "id": "76de09f7-3466-4668-9d6e-86f43563e998",
+                    "kind": "u.output",
+                    "version": 1,
+                    "label": "output",
+                    "position": {
+                      "x": 995,
+                      "y": 120
+                    },
+                    "config": {
+                      "mode": "return",
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1"
+                    }
+                  }
+                ],
+                "edges": [
+                  {
+                    "id": "24a83487-1e19-4dce-aa0c-89fb9eca13b8",
+                    "source": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                    "sourceHandle": "value",
+                    "target": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "targetHandle": "input"
+                  },
+                  {
+                    "id": "71342d33-787f-48ac-9694-90d1c94a77b9",
+                    "source": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "sourceHandle": "value",
+                    "target": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "targetHandle": "input"
+                  },
+                  {
+                    "id": "29222441-83bc-46a4-8cb0-a7c1383e71ce",
+                    "source": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "sourceHandle": "value",
+                    "target": "76de09f7-3466-4668-9d6e-86f43563e998",
+                    "targetHandle": "input"
+                  }
+                ],
+                "groups": []
+              },
+              "snapshotHash": "67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae",
+              "semanticHash": "20b3419cbbd1653d55c6188c5865ffefcacd493d8f75da107778cec91ee14225",
+              "contracts": {
+                "b3c8817c-cdc2-47ee-a41b-786bf3b09acb": "{\"inputs\":[],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"type\":\"text\",\"value\":\"Semantic update has five words.\"},\"settings\":{}}",
+                "96b17259-1e17-48a2-87ad-70891ec2e9a3": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1},\"settings\":{}}",
+                "c454e47f-12f9-444a-bbe7-5f64b303adc2": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\",\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"settings\":{},\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\"},\"settings\":{}}",
+                "76de09f7-3466-4668-9d6e-86f43563e998": "{\"inputs\":[{\"id\":\"input\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"},\"settings\":{}}"
+              },
+              "states": {
+                "b3c8817c-cdc2-47ee-a41b-786bf3b09acb": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "eca7b48a-d05b-4270-ab51-8b5bd6dfd7bf",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:b3c8817c-cdc2-47ee-a41b-786bf3b09acb:value",
+                      "version": 2,
+                      "previousId": "c757ec06-8025-43b4-a89d-20c25ca1f22f",
+                      "type": "text",
+                      "value": "Semantic update has five words.",
+                      "contentHash": "388eee8561092bc4f8c0691eaec276cf2793a2a7a97e85d480b3d2d6e1022853",
+                      "parents": [],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 4,
+                      "runId": "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+                      "attemptId": "4989f8c1-282c-47d7-8703-a4f7d12f30ce",
+                      "nodeId": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                      "outputPort": "value",
+                      "snapshotHash": "67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:11.006Z"
+                    }
+                  }
+                },
+                "96b17259-1e17-48a2-87ad-70891ec2e9a3": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "c754a433-0d4e-446a-9730-f2c1f7a9baba",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:96b17259-1e17-48a2-87ad-70891ec2e9a3:value",
+                      "version": 2,
+                      "previousId": "793c17b4-02db-4cb7-af09-9cb273f1774a",
+                      "type": "text",
+                      "value": "Semantic update has five words.",
+                      "contentHash": "388eee8561092bc4f8c0691eaec276cf2793a2a7a97e85d480b3d2d6e1022853",
+                      "parents": [
+                        {
+                          "artifactId": "eca7b48a-d05b-4270-ab51-8b5bd6dfd7bf",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 4,
+                      "runId": "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+                      "attemptId": "ba642354-4273-465a-961d-2167d70eeaa3",
+                      "nodeId": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                      "outputPort": "value",
+                      "snapshotHash": "67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:11.011Z"
+                    }
+                  }
+                },
+                "c454e47f-12f9-444a-bbe7-5f64b303adc2": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "6e3ec099-aa7b-4ef5-b2fa-d685e9aa5573",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value",
+                      "version": 2,
+                      "previousId": "0050a814-31c2-4253-b2d4-0485f791c15c",
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1",
+                      "value": {
+                        "characters": 31,
+                        "words": 5,
+                        "lines": 1
+                      },
+                      "contentHash": "dbd3d6048393f0cd3526510cd20cf0410c17e24a76a3117b285784443dba26e4",
+                      "parents": [
+                        {
+                          "artifactId": "c754a433-0d4e-446a-9730-f2c1f7a9baba",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 4,
+                      "runId": "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+                      "attemptId": "4a19eeb8-801c-4174-93a7-a71186628e7c",
+                      "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                      "outputPort": "value",
+                      "snapshotHash": "67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:11.019Z"
+                    }
+                  }
+                },
+                "76de09f7-3466-4668-9d6e-86f43563e998": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "6e3ec099-aa7b-4ef5-b2fa-d685e9aa5573",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value",
+                      "version": 2,
+                      "previousId": "0050a814-31c2-4253-b2d4-0485f791c15c",
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1",
+                      "value": {
+                        "characters": 31,
+                        "words": 5,
+                        "lines": 1
+                      },
+                      "contentHash": "dbd3d6048393f0cd3526510cd20cf0410c17e24a76a3117b285784443dba26e4",
+                      "parents": [
+                        {
+                          "artifactId": "c754a433-0d4e-446a-9730-f2c1f7a9baba",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 4,
+                      "runId": "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+                      "attemptId": "4a19eeb8-801c-4174-93a7-a71186628e7c",
+                      "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                      "outputPort": "value",
+                      "snapshotHash": "67b25d2ba9b590355a6e0d28d9dab3c6695fced1c265344dc3f92e0c879e27ae",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:11.019Z"
+                    }
+                  }
+                }
+              },
+              "attempts": [
+                {
+                  "id": "4989f8c1-282c-47d7-8703-a4f7d12f30ce",
+                  "nodeId": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                  "status": "completed"
+                },
+                {
+                  "id": "ba642354-4273-465a-961d-2167d70eeaa3",
+                  "nodeId": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                  "status": "completed"
+                },
+                {
+                  "id": "4a19eeb8-801c-4174-93a7-a71186628e7c",
+                  "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                  "status": "completed"
+                },
+                {
+                  "id": "14c22a35-61e7-4e1b-a71d-84d7ee2242e8",
+                  "nodeId": "76de09f7-3466-4668-9d6e-86f43563e998",
+                  "status": "completed"
+                }
+              ],
+              "createdAt": "2026-10-24T15:20:11.003Z",
+              "completedAt": "2026-10-24T15:20:11.026Z"
+            },
+            {
+              "id": "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756",
+              "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+              "revision": 3,
+              "status": "completed",
+              "snapshot": {
+                "schemaVersion": 2,
+                "id": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                "name": "Document statistics recipe",
+                "revision": 3,
+                "nodes": [
+                  {
+                    "id": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                    "kind": "u.input",
+                    "version": 1,
+                    "label": "input",
+                    "position": {
+                      "x": 80,
+                      "y": 120
+                    },
+                    "config": {
+                      "type": "text",
+                      "value": "  Browser authored   reusable document.  "
+                    }
+                  },
+                  {
+                    "id": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "kind": "u.transform",
+                    "version": 1,
+                    "label": "transform",
+                    "position": {
+                      "x": 385,
+                      "y": 120
+                    },
+                    "config": {
+                      "transformId": "text.normalize",
+                      "transformVersion": 1
+                    }
+                  },
+                  {
+                    "id": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "kind": "u.invoke",
+                    "version": 1,
+                    "label": "invoke",
+                    "position": {
+                      "x": 690,
+                      "y": 120
+                    },
+                    "config": {
+                      "capabilityId": "local.text-statistics",
+                      "capabilityVersion": 1,
+                      "settings": {},
+                      "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3"
+                    }
+                  },
+                  {
+                    "id": "76de09f7-3466-4668-9d6e-86f43563e998",
+                    "kind": "u.output",
+                    "version": 1,
+                    "label": "output",
+                    "position": {
+                      "x": 995,
+                      "y": 120
+                    },
+                    "config": {
+                      "mode": "return",
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1"
+                    }
+                  }
+                ],
+                "edges": [
+                  {
+                    "id": "24a83487-1e19-4dce-aa0c-89fb9eca13b8",
+                    "source": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                    "sourceHandle": "value",
+                    "target": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "targetHandle": "input"
+                  },
+                  {
+                    "id": "71342d33-787f-48ac-9694-90d1c94a77b9",
+                    "source": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                    "sourceHandle": "value",
+                    "target": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "targetHandle": "input"
+                  },
+                  {
+                    "id": "29222441-83bc-46a4-8cb0-a7c1383e71ce",
+                    "source": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                    "sourceHandle": "value",
+                    "target": "76de09f7-3466-4668-9d6e-86f43563e998",
+                    "targetHandle": "input"
+                  }
+                ],
+                "groups": []
+              },
+              "snapshotHash": "e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f",
+              "semanticHash": "c6b1c712851f18acf44c607ba941bb2538a0dbd448a1584d574c6d313eda71dc",
+              "contracts": {
+                "b3c8817c-cdc2-47ee-a41b-786bf3b09acb": "{\"inputs\":[],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"type\":\"text\",\"value\":\"  Browser authored   reusable document.  \"},\"settings\":{}}",
+                "96b17259-1e17-48a2-87ad-70891ec2e9a3": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1},\"settings\":{}}",
+                "c454e47f-12f9-444a-bbe7-5f64b303adc2": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\",\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"settings\":{},\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\"},\"settings\":{}}",
+                "76de09f7-3466-4668-9d6e-86f43563e998": "{\"inputs\":[{\"id\":\"input\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"},\"settings\":{}}"
+              },
+              "states": {
+                "b3c8817c-cdc2-47ee-a41b-786bf3b09acb": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "c757ec06-8025-43b4-a89d-20c25ca1f22f",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:b3c8817c-cdc2-47ee-a41b-786bf3b09acb:value",
+                      "version": 1,
+                      "type": "text",
+                      "value": "  Browser authored   reusable document.  ",
+                      "contentHash": "8b7987c87ab120117a7632047e2637068d34628fe7ae4eae8beb5390b8be81dc",
+                      "parents": [],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 3,
+                      "runId": "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756",
+                      "attemptId": "c50ca725-3eb0-4bbb-bb3d-cd12382539f4",
+                      "nodeId": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                      "outputPort": "value",
+                      "snapshotHash": "e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:10.576Z"
+                    }
+                  }
+                },
+                "96b17259-1e17-48a2-87ad-70891ec2e9a3": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "793c17b4-02db-4cb7-af09-9cb273f1774a",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:96b17259-1e17-48a2-87ad-70891ec2e9a3:value",
+                      "version": 1,
+                      "type": "text",
+                      "value": "Browser authored reusable document.",
+                      "contentHash": "c09063f0ca44c328827abb31b98cd2cbbbcdc470fe2530399782484d9611c92c",
+                      "parents": [
+                        {
+                          "artifactId": "c757ec06-8025-43b4-a89d-20c25ca1f22f",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 3,
+                      "runId": "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756",
+                      "attemptId": "05cd7a8b-6c1f-4f5a-8de3-e3b093ac88bc",
+                      "nodeId": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                      "outputPort": "value",
+                      "snapshotHash": "e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:10.583Z"
+                    }
+                  }
+                },
+                "c454e47f-12f9-444a-bbe7-5f64b303adc2": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "0050a814-31c2-4253-b2d4-0485f791c15c",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value",
+                      "version": 1,
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1",
+                      "value": {
+                        "characters": 35,
+                        "words": 4,
+                        "lines": 1
+                      },
+                      "contentHash": "cff7f73a529ed6c5651339778ebe3bab2a042ce1bdc61c31ef6dc911c90f3a15",
+                      "parents": [
+                        {
+                          "artifactId": "793c17b4-02db-4cb7-af09-9cb273f1774a",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 3,
+                      "runId": "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756",
+                      "attemptId": "70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf",
+                      "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                      "outputPort": "value",
+                      "snapshotHash": "e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:10.590Z"
+                    }
+                  }
+                },
+                "76de09f7-3466-4668-9d6e-86f43563e998": {
+                  "status": "completed",
+                  "outputs": {
+                    "value": {
+                      "id": "0050a814-31c2-4253-b2d4-0485f791c15c",
+                      "familyId": "4409c144-d9f8-4d84-8f73-96a678ad1f64:c454e47f-12f9-444a-bbe7-5f64b303adc2:value",
+                      "version": 1,
+                      "type": "record",
+                      "schemaRef": "cf.document-statistics@1",
+                      "value": {
+                        "characters": 35,
+                        "words": 4,
+                        "lines": 1
+                      },
+                      "contentHash": "cff7f73a529ed6c5651339778ebe3bab2a042ce1bdc61c31ef6dc911c90f3a15",
+                      "parents": [
+                        {
+                          "artifactId": "793c17b4-02db-4cb7-af09-9cb273f1774a",
+                          "role": "value"
+                        }
+                      ],
+                      "workflowId": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+                      "revision": 3,
+                      "runId": "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756",
+                      "attemptId": "70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf",
+                      "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                      "outputPort": "value",
+                      "snapshotHash": "e54c61dd10a14549651e85739c45f76053d5e1326423dae6646ea7fe61dd7b3f",
+                      "provenance": "local",
+                      "createdAt": "2026-10-24T15:20:10.590Z"
+                    }
+                  }
+                }
+              },
+              "attempts": [
+                {
+                  "id": "c50ca725-3eb0-4bbb-bb3d-cd12382539f4",
+                  "nodeId": "b3c8817c-cdc2-47ee-a41b-786bf3b09acb",
+                  "status": "completed"
+                },
+                {
+                  "id": "05cd7a8b-6c1f-4f5a-8de3-e3b093ac88bc",
+                  "nodeId": "96b17259-1e17-48a2-87ad-70891ec2e9a3",
+                  "status": "completed"
+                },
+                {
+                  "id": "70a26fe8-38b4-4ff5-9f15-f0ed1a7c1dbf",
+                  "nodeId": "c454e47f-12f9-444a-bbe7-5f64b303adc2",
+                  "status": "completed"
+                },
+                {
+                  "id": "ba65d8df-a2de-417a-98ee-6ce551d5be96",
+                  "nodeId": "76de09f7-3466-4668-9d6e-86f43563e998",
+                  "status": "completed"
+                }
+              ],
+              "createdAt": "2026-10-24T15:20:10.573Z",
+              "completedAt": "2026-10-24T15:20:10.597Z"
+            }
+          ]
+        }
+      }
+    }
+  ]
+}

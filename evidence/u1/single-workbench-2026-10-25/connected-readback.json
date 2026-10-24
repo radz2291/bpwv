@@ -1,0 +1,128 @@
+{
+  "source": "Existing private tunnel, connected MCP read from Codex; not a new owner ChatGPT execution",
+  "workflow": {
+    "workflow": {
+      "schemaVersion": 2,
+      "id": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+      "name": "Mediterranean harbor — local text statistics",
+      "revision": 2,
+      "nodes": [
+        {
+          "id": "input",
+          "kind": "u.input",
+          "version": 1,
+          "label": "Harbor text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "config": {
+            "type": "text",
+            "value": "Mediterranean harbor at dawn"
+          }
+        },
+        {
+          "id": "transform",
+          "kind": "u.transform",
+          "version": 1,
+          "label": "Normalize text",
+          "position": {
+            "x": 280,
+            "y": 0
+          },
+          "config": {
+            "transformId": "text.normalize",
+            "transformVersion": 1,
+            "settings": {}
+          }
+        },
+        {
+          "id": "invoke",
+          "kind": "u.invoke",
+          "version": 1,
+          "label": "Local text statistics",
+          "position": {
+            "x": 560,
+            "y": 0
+          },
+          "config": {
+            "capabilityId": "local.text-statistics",
+            "capabilityVersion": 1,
+            "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3",
+            "settings": {}
+          }
+        },
+        {
+          "id": "output",
+          "kind": "u.output",
+          "version": 1,
+          "label": "Return statistics",
+          "position": {
+            "x": 840,
+            "y": 0
+          },
+          "config": {
+            "mode": "return",
+            "type": "record",
+            "schemaRef": "cf.document-statistics@1"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "input-to-transform",
+          "source": "input",
+          "sourceHandle": "value",
+          "target": "transform",
+          "targetHandle": "input"
+        },
+        {
+          "id": "transform-to-invoke",
+          "source": "transform",
+          "sourceHandle": "value",
+          "target": "invoke",
+          "targetHandle": "input"
+        },
+        {
+          "id": "invoke-to-output",
+          "source": "invoke",
+          "sourceHandle": "value",
+          "target": "output",
+          "targetHandle": "input"
+        }
+      ],
+      "groups": []
+    },
+    "url": "http://127.0.0.1:5173/?workflow=8d7c98f7-438a-4282-b74a-52d28fd62b1c"
+  },
+  "artifact": {
+    "artifact": {
+      "id": "35365554-1cc6-4126-8e50-ba174dd7c773",
+      "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:invoke:value",
+      "version": 1,
+      "type": "record",
+      "schemaRef": "cf.document-statistics@1",
+      "value": {
+        "characters": 28,
+        "words": 4,
+        "lines": 1
+      },
+      "contentHash": "14ab61ff51f9a6a9b4c4f750e553b7cfd39e32401e28994c75cc02b2c66599da",
+      "parents": [
+        {
+          "artifactId": "bd35f300-a250-4b2c-a76f-81306068b8e3",
+          "role": "value"
+        }
+      ],
+      "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+      "revision": 2,
+      "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+      "attemptId": "ebbdcf98-5c37-4a05-ad80-f60f3bd4038c",
+      "nodeId": "invoke",
+      "outputPort": "value",
+      "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+      "provenance": "local",
+      "createdAt": "2026-10-24T16:27:38.498Z"
+    }
+  }
+}

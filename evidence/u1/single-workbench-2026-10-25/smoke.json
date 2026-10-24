@@ -1,0 +1,17 @@
+{
+  "status": "PASS",
+  "root": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\single-workbench-smoke\\1792861274086",
+  "checks": [
+    "22 MCP tools; create_workflow defaults to schema 2; saved local four-primitive execution succeeds",
+    "Official MCP Inspector discovers universal tools and schema-2 creation default",
+    "Normal entry, new universal workflow, text recipe and actual deterministic result use one shell",
+    "Saved selection and MCP-authored workflow show four completed cards and verified record preview in the same editor",
+    "Actual PNG previews decode in all three cards and survive application restart",
+    "Legacy and missing deep links remain in the universal shell; legacy drafts are absent from its list",
+    "Original real ChatGPT G8 workflow reopens read-only on normal port 5173 with completed artifacts; no replay"
+  ],
+  "errors": [],
+  "scratchWorkflow": "04587a77-1acc-4e41-b7c6-6a8991a6880f",
+  "scratchRun": "4bf22255-c20d-406d-90e1-f69f2484b8e2",
+  "paidCalls": 0
+}

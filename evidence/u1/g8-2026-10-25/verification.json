@@ -1,0 +1,76 @@
+{
+  "status": "PASS",
+  "gate": "G8",
+  "recordedDate": "2026-10-25",
+  "timezone": "Asia/Kuala_Lumpur",
+  "verifiedAt": "2026-10-24T16:30:31.675Z",
+  "originEvidence": "Owner supplied actual ChatGPT-side tool result and workflow/run/artifact identifiers in this conversation; independently corroborated by read-only service readback and editor reopen. Raw ChatGPT transcript not supplied.",
+  "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+  "revision": 2,
+  "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+  "artifactId": "35365554-1cc6-4126-8e50-ba174dd7c773",
+  "url": "http://127.0.0.1:5175/?workflow=8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+  "expected": {
+    "characters": 28,
+    "words": 4,
+    "lines": 1
+  },
+  "browser": {
+    "fourCompletedCards": true,
+    "exactStatisticsVisible": true,
+    "pageErrors": [],
+    "readOnlyGETsOnly": true,
+    "nonlocalRequestsBlocked": true
+  },
+  "originalPreservation": {
+    "counts": {
+      "workflows": {
+        "baseline": 13,
+        "current": 16,
+        "baselineRowsUnchanged": true,
+        "additionalRows": 3
+      },
+      "workflow_revisions": {
+        "baseline": 37,
+        "current": 41,
+        "baselineRowsUnchanged": true,
+        "additionalRows": 4
+      },
+      "runs": {
+        "baseline": 31,
+        "current": 31,
+        "baselineRowsUnchanged": true,
+        "additionalRows": 0
+      },
+      "requests": {
+        "baseline": 13,
+        "current": 13,
+        "baselineRowsUnchanged": true,
+        "additionalRows": 0
+      },
+      "workflow_assets": {
+        "baseline": 5,
+        "current": 5,
+        "baselineRowsUnchanged": true,
+        "additionalRows": 0
+      }
+    },
+    "fileDigestsUnchanged": 26,
+    "chatGPTFixtureAbsentFromOriginal": true,
+    "additionalRowsObservation": "New draft workflows/revisions are present beyond the historical baseline, their origin is not attributed by this read-only check; no baseline row changed and no run/request/association added. They are preserved."
+  },
+  "callsDuringVerification": {
+    "workflowCreation": 0,
+    "execution": 0,
+    "paid": 0
+  },
+  "ownerReported": {
+    "createdExactlyOneWorkflow": true,
+    "localDeterministic": true,
+    "weaveCalls": 0,
+    "credits": 0
+  },
+  "ownerAcceptance": "not inferred",
+  "mergeAuthorized": false,
+  "u2Authorized": false
+}

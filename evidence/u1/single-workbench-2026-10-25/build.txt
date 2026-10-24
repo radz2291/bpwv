@@ -1,0 +1,80 @@
+
+> creative-flow@1.0.0 build
+> vite build
+
+vite v7.3.7 building ssr environment for production...
+transforming...
+"handleConnectionChange" and "handleAttributionWarning" are imported from external module "@xyflow/system" but never used in "node_modules/@xyflow/svelte/dist/lib/hooks/useNodeConnections.svelte.js", "node_modules/@xyflow/svelte/dist/lib/components/Handle/Handle.svelte" and "node_modules/@xyflow/svelte/dist/lib/components/Attribution/Attribution.svelte".
+✓ 304 modules transformed.
+rendering chunks...
+(node:11484) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+(Use `node --trace-warnings ...` to show where the warning was created)
+vite v7.3.7 building client environment for production...
+transforming...
+✓ 445 modules transformed.
+rendering chunks...
+computing gzip size...
+.svelte-kit/output/client/_app/version.json                         0.03 kB │ gzip:  0.05 kB
+.svelte-kit/output/client/.vite/manifest.json                       3.49 kB │ gzip:  0.67 kB
+.svelte-kit/output/client/_app/immutable/assets/2.DtqbqTJ8.css     20.91 kB │ gzip:  3.91 kB
+.svelte-kit/output/client/_app/immutable/chunks/Dj5habKL.js         0.19 kB │ gzip:  0.17 kB
+.svelte-kit/output/client/_app/immutable/nodes/0.DdlUfo48.js        0.22 kB │ gzip:  0.18 kB
+.svelte-kit/output/client/_app/immutable/chunks/BUkX3Vqo.js         0.30 kB │ gzip:  0.22 kB
+.svelte-kit/output/client/_app/immutable/nodes/1.BE5UGx-7.js        0.47 kB │ gzip:  0.31 kB
+.svelte-kit/output/client/_app/immutable/chunks/wbPk3Yxo.js         1.37 kB │ gzip:  0.66 kB
+.svelte-kit/output/client/_app/immutable/chunks/BvwC4RdW.js         1.50 kB │ gzip:  0.67 kB
+.svelte-kit/output/client/_app/immutable/chunks/BVQ_2nOC.js         1.60 kB │ gzip:  0.83 kB
+.svelte-kit/output/client/_app/immutable/chunks/DtLmS2Z3.js         3.26 kB │ gzip:  1.49 kB
+.svelte-kit/output/client/_app/immutable/entry/app.B7ZqHU5V.js      5.41 kB │ gzip:  2.52 kB
+.svelte-kit/output/client/_app/immutable/chunks/BJxPb9oO.js         6.12 kB │ gzip:  2.84 kB
+.svelte-kit/output/client/_app/immutable/chunks/CI8Ew_MN.js         8.21 kB │ gzip:  3.63 kB
+.svelte-kit/output/client/_app/immutable/entry/start.DSEGczga.js   21.86 kB │ gzip:  8.59 kB
+.svelte-kit/output/client/_app/immutable/chunks/DG7wp3XX.js        27.61 kB │ gzip: 10.58 kB
+.svelte-kit/output/client/_app/immutable/nodes/2.B3-7onIU.js      199.86 kB │ gzip: 66.80 kB
+✓ built in 3.97s
+.svelte-kit/output/server/.vite/manifest.json                                                     8.77 kB
+.svelte-kit/output/server/_app/immutable/assets/_page.DtqbqTJ8.css                               20.91 kB
+.svelte-kit/output/server/entries/pages/_page.ts.js                                               0.04 kB
+.svelte-kit/output/server/entries/endpoints/api/models/_server.ts.js                              0.16 kB
+.svelte-kit/output/server/entries/fallbacks/layout.svelte.js                                      0.17 kB
+.svelte-kit/output/server/entries/endpoints/api/nodes/_server.ts.js                               0.20 kB
+.svelte-kit/output/server/env.js                                                                  0.23 kB
+.svelte-kit/output/server/entries/endpoints/api/requests/_server.ts.js                            0.25 kB
+.svelte-kit/output/server/entries/endpoints/api/runs/_id_/_server.ts.js                           0.30 kB
+.svelte-kit/output/server/entries/endpoints/api/workflows/_id_/_server.ts.js                      0.30 kB
+.svelte-kit/output/server/entries/endpoints/api/requests/_id_/quote/_server.ts.js                 0.35 kB
+.svelte-kit/output/server/internal.js                                                             0.35 kB
+.svelte-kit/output/server/entries/endpoints/api/requests/_id_/media/_server.ts.js                 0.35 kB
+.svelte-kit/output/server/entries/endpoints/api/runs/_server.ts.js                                0.42 kB
+.svelte-kit/output/server/entries/endpoints/api/workflows/_server.ts.js                           0.48 kB
+.svelte-kit/output/server/entries/endpoints/api/workflows/_id_/changes/_server.ts.js              0.49 kB
+.svelte-kit/output/server/entries/endpoints/api/run/_server.ts.js                                 0.50 kB
+.svelte-kit/output/server/entries/endpoints/api/workbench/artifacts/_id_/content/_server.ts.js    0.51 kB
+.svelte-kit/output/server/chunks/server.js                                                        0.62 kB
+.svelte-kit/output/server/entries/endpoints/api/workflows/_id_/assets/_server.ts.js               0.73 kB
+.svelte-kit/output/server/entries/endpoints/api/assets/_id_/_server.ts.js                         0.74 kB
+.svelte-kit/output/server/chunks/utils2.js                                                        1.09 kB
+.svelte-kit/output/server/entries/endpoints/api/assets/_server.ts.js                              1.14 kB
+.svelte-kit/output/server/chunks/store.js                                                         1.19 kB
+.svelte-kit/output/server/entries/fallbacks/error.svelte.js                                       1.22 kB
+.svelte-kit/output/server/entries/endpoints/api/workbench/_server.ts.js                           2.45 kB
+.svelte-kit/output/server/chunks/internal.js                                                      3.22 kB
+.svelte-kit/output/server/entries/endpoints/api/requests/_id_/_server.ts.js                       3.68 kB
+.svelte-kit/output/server/chunks/exports.js                                                       5.59 kB
+.svelte-kit/output/server/chunks/provider.js                                                      5.66 kB
+.svelte-kit/output/server/chunks/request-service.js                                               5.95 kB
+.svelte-kit/output/server/chunks/utils.js                                                        34.22 kB
+.svelte-kit/output/server/remote-entry.js                                                        36.81 kB
+.svelte-kit/output/server/chunks/index.js                                                        45.94 kB
+.svelte-kit/output/server/chunks/workflow-service.js                                             65.61 kB
+.svelte-kit/output/server/chunks/root.js                                                         90.54 kB
+.svelte-kit/output/server/entries/pages/_page.svelte.js                                         126.66 kB
+.svelte-kit/output/server/index.js                                                              132.25 kB
+✓ built in 12.54s
+
+Run npm run preview to preview your production build locally.
+
+> Using @sveltejs/adapter-node
+"node:sqlite" is imported by ".svelte-kit/output/server/chunks/store.js", but could not be resolved – treating it as an external dependency.
+"try_get_request_store" is imported from external module "@sveltejs/kit/internal/server" but never used in ".svelte-kit/output/server/index.js".
+  ✔ done

@@ -1,0 +1,371 @@
+{
+  "workflow": {
+    "schemaVersion": 2,
+    "id": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+    "name": "Mediterranean harbor — local text statistics",
+    "revision": 2,
+    "nodes": [
+      {
+        "id": "input",
+        "kind": "u.input",
+        "version": 1,
+        "label": "Harbor text",
+        "position": {
+          "x": 0,
+          "y": 0
+        },
+        "config": {
+          "type": "text",
+          "value": "Mediterranean harbor at dawn"
+        }
+      },
+      {
+        "id": "transform",
+        "kind": "u.transform",
+        "version": 1,
+        "label": "Normalize text",
+        "position": {
+          "x": 280,
+          "y": 0
+        },
+        "config": {
+          "transformId": "text.normalize",
+          "transformVersion": 1,
+          "settings": {}
+        }
+      },
+      {
+        "id": "invoke",
+        "kind": "u.invoke",
+        "version": 1,
+        "label": "Local text statistics",
+        "position": {
+          "x": 560,
+          "y": 0
+        },
+        "config": {
+          "capabilityId": "local.text-statistics",
+          "capabilityVersion": 1,
+          "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3",
+          "settings": {}
+        }
+      },
+      {
+        "id": "output",
+        "kind": "u.output",
+        "version": 1,
+        "label": "Return statistics",
+        "position": {
+          "x": 840,
+          "y": 0
+        },
+        "config": {
+          "mode": "return",
+          "type": "record",
+          "schemaRef": "cf.document-statistics@1"
+        }
+      }
+    ],
+    "edges": [
+      {
+        "id": "input-to-transform",
+        "source": "input",
+        "sourceHandle": "value",
+        "target": "transform",
+        "targetHandle": "input"
+      },
+      {
+        "id": "transform-to-invoke",
+        "source": "transform",
+        "sourceHandle": "value",
+        "target": "invoke",
+        "targetHandle": "input"
+      },
+      {
+        "id": "invoke-to-output",
+        "source": "invoke",
+        "sourceHandle": "value",
+        "target": "output",
+        "targetHandle": "input"
+      }
+    ],
+    "groups": []
+  },
+  "run": {
+    "id": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+    "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+    "revision": 2,
+    "status": "completed",
+    "snapshot": {
+      "schemaVersion": 2,
+      "id": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+      "name": "Mediterranean harbor — local text statistics",
+      "revision": 2,
+      "nodes": [
+        {
+          "id": "input",
+          "kind": "u.input",
+          "version": 1,
+          "label": "Harbor text",
+          "position": {
+            "x": 0,
+            "y": 0
+          },
+          "config": {
+            "type": "text",
+            "value": "Mediterranean harbor at dawn"
+          }
+        },
+        {
+          "id": "transform",
+          "kind": "u.transform",
+          "version": 1,
+          "label": "Normalize text",
+          "position": {
+            "x": 280,
+            "y": 0
+          },
+          "config": {
+            "transformId": "text.normalize",
+            "transformVersion": 1,
+            "settings": {}
+          }
+        },
+        {
+          "id": "invoke",
+          "kind": "u.invoke",
+          "version": 1,
+          "label": "Local text statistics",
+          "position": {
+            "x": 560,
+            "y": 0
+          },
+          "config": {
+            "capabilityId": "local.text-statistics",
+            "capabilityVersion": 1,
+            "manifestHash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3",
+            "settings": {}
+          }
+        },
+        {
+          "id": "output",
+          "kind": "u.output",
+          "version": 1,
+          "label": "Return statistics",
+          "position": {
+            "x": 840,
+            "y": 0
+          },
+          "config": {
+            "mode": "return",
+            "type": "record",
+            "schemaRef": "cf.document-statistics@1"
+          }
+        }
+      ],
+      "edges": [
+        {
+          "id": "input-to-transform",
+          "source": "input",
+          "sourceHandle": "value",
+          "target": "transform",
+          "targetHandle": "input"
+        },
+        {
+          "id": "transform-to-invoke",
+          "source": "transform",
+          "sourceHandle": "value",
+          "target": "invoke",
+          "targetHandle": "input"
+        },
+        {
+          "id": "invoke-to-output",
+          "source": "invoke",
+          "sourceHandle": "value",
+          "target": "output",
+          "targetHandle": "input"
+        }
+      ],
+      "groups": []
+    },
+    "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+    "semanticHash": "ef7458a3dd8beb9dd334b9db90f5b605425d6ee3a906792abd305b49c2ba5440",
+    "contracts": {
+      "input": "{\"inputs\":[],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"type\":\"text\",\"value\":\"Mediterranean harbor at dawn\"},\"settings\":{}}",
+      "transform": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"transformId\":\"text.normalize\",\"transformVersion\":1,\"settings\":{}},\"settings\":{}}",
+      "invoke": "{\"inputs\":[{\"id\":\"input\",\"type\":\"text\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\",\"config\":{\"capabilityId\":\"local.text-statistics\",\"capabilityVersion\":1,\"manifestHash\":\"26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3\",\"settings\":{}},\"settings\":{}}",
+      "output": "{\"inputs\":[{\"id\":\"input\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"outputs\":[{\"id\":\"value\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\",\"role\":\"value\",\"cardinality\":\"single\",\"required\":true}],\"config\":{\"mode\":\"return\",\"type\":\"record\",\"schemaRef\":\"cf.document-statistics@1\"},\"settings\":{}}"
+    },
+    "states": {
+      "input": {
+        "status": "completed",
+        "outputs": {
+          "value": {
+            "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:input:value",
+            "type": "text",
+            "value": "Mediterranean harbor at dawn",
+            "parents": [],
+            "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+            "revision": 2,
+            "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+            "attemptId": "9aaf1b60-f3d0-48fe-baf5-9e25eba37678",
+            "nodeId": "input",
+            "outputPort": "value",
+            "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+            "provenance": "local",
+            "id": "5656aaa5-bc5c-445c-9a51-0e17a3f5655e",
+            "version": 1,
+            "createdAt": "2026-10-24T16:27:38.487Z",
+            "contentHash": "f6544af5c0bb0809a6c6ace66aa37ac26adeff080be13f930836323f15bdff73"
+          }
+        }
+      },
+      "transform": {
+        "status": "completed",
+        "outputs": {
+          "value": {
+            "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:transform:value",
+            "type": "text",
+            "value": "Mediterranean harbor at dawn",
+            "parents": [
+              {
+                "artifactId": "5656aaa5-bc5c-445c-9a51-0e17a3f5655e",
+                "role": "value"
+              }
+            ],
+            "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+            "revision": 2,
+            "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+            "attemptId": "b8751249-8fac-420a-90ea-a81dd76766f3",
+            "nodeId": "transform",
+            "outputPort": "value",
+            "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+            "provenance": "local",
+            "id": "bd35f300-a250-4b2c-a76f-81306068b8e3",
+            "version": 1,
+            "createdAt": "2026-10-24T16:27:38.491Z",
+            "contentHash": "f6544af5c0bb0809a6c6ace66aa37ac26adeff080be13f930836323f15bdff73"
+          }
+        }
+      },
+      "invoke": {
+        "status": "completed",
+        "outputs": {
+          "value": {
+            "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:invoke:value",
+            "type": "record",
+            "schemaRef": "cf.document-statistics@1",
+            "value": {
+              "characters": 28,
+              "words": 4,
+              "lines": 1
+            },
+            "parents": [
+              {
+                "artifactId": "bd35f300-a250-4b2c-a76f-81306068b8e3",
+                "role": "value"
+              }
+            ],
+            "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+            "revision": 2,
+            "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+            "attemptId": "ebbdcf98-5c37-4a05-ad80-f60f3bd4038c",
+            "nodeId": "invoke",
+            "outputPort": "value",
+            "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+            "provenance": "local",
+            "id": "35365554-1cc6-4126-8e50-ba174dd7c773",
+            "version": 1,
+            "createdAt": "2026-10-24T16:27:38.498Z",
+            "contentHash": "14ab61ff51f9a6a9b4c4f750e553b7cfd39e32401e28994c75cc02b2c66599da"
+          }
+        }
+      },
+      "output": {
+        "status": "completed",
+        "outputs": {
+          "value": {
+            "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:invoke:value",
+            "type": "record",
+            "schemaRef": "cf.document-statistics@1",
+            "value": {
+              "characters": 28,
+              "words": 4,
+              "lines": 1
+            },
+            "parents": [
+              {
+                "artifactId": "bd35f300-a250-4b2c-a76f-81306068b8e3",
+                "role": "value"
+              }
+            ],
+            "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+            "revision": 2,
+            "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+            "attemptId": "ebbdcf98-5c37-4a05-ad80-f60f3bd4038c",
+            "nodeId": "invoke",
+            "outputPort": "value",
+            "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+            "provenance": "local",
+            "id": "35365554-1cc6-4126-8e50-ba174dd7c773",
+            "version": 1,
+            "createdAt": "2026-10-24T16:27:38.498Z",
+            "contentHash": "14ab61ff51f9a6a9b4c4f750e553b7cfd39e32401e28994c75cc02b2c66599da"
+          }
+        }
+      }
+    },
+    "attempts": [
+      {
+        "id": "9aaf1b60-f3d0-48fe-baf5-9e25eba37678",
+        "nodeId": "input",
+        "status": "completed"
+      },
+      {
+        "id": "b8751249-8fac-420a-90ea-a81dd76766f3",
+        "nodeId": "transform",
+        "status": "completed"
+      },
+      {
+        "id": "ebbdcf98-5c37-4a05-ad80-f60f3bd4038c",
+        "nodeId": "invoke",
+        "status": "completed"
+      },
+      {
+        "id": "c393532e-c9f6-4290-b87f-25a669f819d8",
+        "nodeId": "output",
+        "status": "completed"
+      }
+    ],
+    "createdAt": "2026-10-24T16:27:38.482Z",
+    "completedAt": "2026-10-24T16:27:38.505Z"
+  },
+  "artifact": {
+    "familyId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c:invoke:value",
+    "type": "record",
+    "schemaRef": "cf.document-statistics@1",
+    "value": {
+      "characters": 28,
+      "words": 4,
+      "lines": 1
+    },
+    "parents": [
+      {
+        "artifactId": "bd35f300-a250-4b2c-a76f-81306068b8e3",
+        "role": "value"
+      }
+    ],
+    "workflowId": "8d7c98f7-438a-4282-b74a-52d28fd62b1c",
+    "revision": 2,
+    "runId": "a4584db6-4d32-41a6-8ee4-3551177ebc26",
+    "attemptId": "ebbdcf98-5c37-4a05-ad80-f60f3bd4038c",
+    "nodeId": "invoke",
+    "outputPort": "value",
+    "snapshotHash": "fd7dd7c107346cef7974387d0857cfb5d7786c5bc2f207992a17aed41d4e7652",
+    "provenance": "local",
+    "id": "35365554-1cc6-4126-8e50-ba174dd7c773",
+    "version": 1,
+    "createdAt": "2026-10-24T16:27:38.498Z",
+    "contentHash": "14ab61ff51f9a6a9b4c4f750e553b7cfd39e32401e28994c75cc02b2c66599da"
+  }
+}

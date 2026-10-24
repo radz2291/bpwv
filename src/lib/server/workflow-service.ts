@@ -1,7 +1,16 @@
 import { z } from 'zod';
 import { randomUUID } from 'node:crypto';
 import type { DatabaseSync } from 'node:sqlite';
-import { db } from './store';
+import { db, dataDirectory } from './store';
+import {
+  WorkbenchRuntime,
+  documentSchema as universalDocumentSchema,
+  validateDocument,
+  inspectDocument,
+  definition as universalDefinition,
+  catalog as workbenchCatalog,
+  type UniversalWorkflow
+} from '../workbench';
 import { registry } from '../registry';
 import { validateGraph, execute } from '../engine';
 import {
@@ -11,6 +20,11 @@ import {
   type NodeRegistry
 } from '../contract';
 
+export const anyWorkflowSchema = z.union([
+  workflowSchema,
+  universalDocumentSchema
+]);
+export type AnyWorkflow = Workflow | UniversalWorkflow;
 export class ServiceError extends Error {
   constructor(
     public code: 'NOT_FOUND' | 'CONFLICT' | 'INVALID' | 'FORBIDDEN',
@@ -55,8 +69,71 @@ export class WorkflowService {
     private connection: DatabaseSync = db,
     private nodes: NodeRegistry = registry,
     private baseUrl = process.env.CREATIVE_FLOW_APP_URL ??
-      'http://127.0.0.1:5173'
+      'http://127.0.0.1:5173',
+    private localPolicy: {
+      dataDirectory?: string;
+      allowLocalExecution?: boolean;
+    } = {}
   ) {}
+  private runtimeInstance?: WorkbenchRuntime;
+  private runtime() {
+    return (this.runtimeInstance ??= new WorkbenchRuntime(
+      this.connection,
+      this.localPolicy.dataDirectory ?? dataDirectory,
+      { allowLocal: this.localAllowed() }
+    ));
+  }
+  localAllowed() {
+    return (
+      this.localPolicy.allowLocalExecution ??
+      process.env.CREATIVE_FLOW_ALLOW_LOCAL_EXECUTION === '1'
+    );
+  }
+  universalCatalog() {
+    return workbenchCatalog();
+  }
+  universalRuns(id: string) {
+    this.get(id);
+    return this.runtime().runs(id);
+  }
+  universalArtifact(id: string) {
+    return this.runtime().artifact(id);
+  }
+  universalContent(id: string) {
+    return this.runtime().content(id);
+  }
+  importUniversalImage(input: { base64: string; name: string }) {
+    if (!this.localAllowed())
+      throw new ServiceError(
+        'FORBIDDEN',
+        'Managed-local execution policy is disabled'
+      );
+    return this.runtime().importImage(input);
+  }
+  createUniversal(input: { id?: string; name: string }) {
+    return this.save({
+      schemaVersion: 2,
+      id: input.id ?? randomUUID(),
+      name: input.name,
+      revision: 0,
+      nodes: [],
+      edges: [],
+      groups: []
+    });
+  }
+  async executeUniversal(id: string, revision: number, idempotencyKey: string) {
+    if (!this.localAllowed())
+      throw new ServiceError(
+        'FORBIDDEN',
+        'Managed-local execution policy is disabled'
+      );
+    const graph = this.get(id);
+    if (graph.schemaVersion !== 2)
+      throw new ServiceError('INVALID', 'Universal schemaVersion 2 required');
+    if (graph.revision !== revision)
+      throw new ServiceError('CONFLICT', 'Revision conflict');
+    return this.runtime().execute(graph, { idempotencyKey });
+  }
   url(id: string) {
     return `${this.baseUrl.replace(/\/$/, '')}/?workflow=${encodeURIComponent(id)}`;
   }
@@ -70,6 +147,7 @@ export class WorkflowService {
           id: g.id,
           name: g.name,
           revision: g.revision,
+          schemaVersion: g.schemaVersion,
           url: this.url(g.id)
         };
       });
@@ -91,14 +169,25 @@ export class WorkflowService {
         d.provider === 'local' ? 'implemented-local' : 'external-dependent'
     }));
   }
-  get(id: string): Workflow {
+  get(id: string): AnyWorkflow {
     const row = this.connection
       .prepare('SELECT document FROM workflows WHERE id=?')
       .get(id);
     if (!row) throw new ServiceError('NOT_FOUND', `Workflow ${id} not found`);
-    return JSON.parse(String(row.document));
+    return anyWorkflowSchema.parse(JSON.parse(String(row.document)));
   }
-  validate(raw: unknown) {
+  validate(raw: unknown): AnyWorkflow {
+    if ((raw as { schemaVersion?: number })?.schemaVersion === 2) {
+      const graph = validateDocument(raw);
+      // Pin the discovered contract when authoring; later drift cannot silently
+      // reinterpret a saved Invoke under the same capability identity.
+      for (const node of graph.nodes) {
+        const contract = universalDefinition(node);
+        if (contract.manifestHash)
+          node.config.manifestHash = contract.manifestHash;
+      }
+      return graph;
+    }
     const graph = validateGraph(raw, this.nodes);
     for (const n of graph.nodes) {
       const d = this.nodes.get(n.kind, n.version);
@@ -107,7 +196,9 @@ export class WorkflowService {
     return graph;
   }
   inspect(raw: unknown) {
-    const graph = this.validate(raw);
+    if ((raw as { schemaVersion?: number })?.schemaVersion === 2)
+      return inspectDocument(raw);
+    const graph = validateGraph(raw, this.nodes);
     const issues: { nodeId: string; message: string }[] = [];
     for (const n of graph.nodes) {
       const d = this.nodes.get(n.kind, n.version);
@@ -139,7 +230,7 @@ export class WorkflowService {
       throw e;
     }
   }
-  private persist(graph: Workflow, exists: boolean) {
+  private persist(graph: AnyWorkflow, exists: boolean) {
     const next = { ...graph, revision: graph.revision + 1 };
     if (exists) {
       this.connection
@@ -176,9 +267,9 @@ export class WorkflowService {
       );
     return next;
   }
-  create(input: { id?: string; name: string }) {
+  create(input: { id?: string; name: string; schemaVersion?: 1 | 2 }) {
     const graph = this.validate({
-      schemaVersion: 1,
+      schemaVersion: input.schemaVersion ?? 2,
       id: input.id ?? randomUUID(),
       name: input.name,
       revision: 0,
@@ -196,12 +287,53 @@ export class WorkflowService {
       return this.persist(graph, false);
     });
   }
+  /** Trusted maintenance only, after a verified full backup. History is retained. */
+  archiveWorkflows(entries: { id: string; expectedRevision: number }[]) {
+    const selected = z
+      .array(
+        z
+          .object({
+            id: z.string().min(1),
+            expectedRevision: z.number().int().positive()
+          })
+          .strict()
+      )
+      .min(1)
+      .max(500)
+      .parse(entries);
+    if (new Set(selected.map((e) => e.id)).size !== selected.length)
+      throw new ServiceError('INVALID', 'Duplicate archive identity');
+    return this.atomic(() => {
+      const graphs = selected.map((e) => {
+        const graph = this.get(e.id);
+        if (graph.revision !== e.expectedRevision)
+          throw new ServiceError(
+            'CONFLICT',
+            'Archive revision changed; inventory again'
+          );
+        return graph;
+      });
+      for (const graph of graphs)
+        this.connection
+          .prepare('DELETE FROM workflows WHERE id=? AND revision=?')
+          .run(graph.id, graph.revision);
+      return graphs;
+    });
+  }
   save(raw: unknown) {
     const graph = this.validate(raw);
     return this.atomic(() => {
       const row = this.connection
-        .prepare('SELECT revision FROM workflows WHERE id=?')
+        .prepare('SELECT revision,document FROM workflows WHERE id=?')
         .get(graph.id);
+      if (
+        row &&
+        JSON.parse(String(row.document)).schemaVersion !== graph.schemaVersion
+      )
+        throw new ServiceError(
+          'INVALID',
+          'Document format cannot change in place; create a new workflow identity'
+        );
       if (
         (row && row.revision !== graph.revision) ||
         (!row && graph.revision !== 0)
@@ -226,10 +358,16 @@ export class WorkflowService {
         if (c.op === 'add_node') {
           if (graph.nodes.some((n) => n.id === c.node.id))
             throw new ServiceError('INVALID', 'Duplicate node identity');
-          const def = this.nodes.get(c.node.kind, c.node.version);
+          const def =
+            graph.schemaVersion === 1
+              ? this.nodes.get(c.node.kind, c.node.version)
+              : undefined;
           graph.nodes.push({
             ...c.node,
-            config: { ...structuredClone(def.defaults), ...c.node.config }
+            config: {
+              ...structuredClone(def?.defaults ?? {}),
+              ...c.node.config
+            }
           });
         } else if (c.op === 'configure_node') {
           const node = graph.nodes.find((n) => n.id === c.nodeId);
@@ -268,6 +406,16 @@ export class WorkflowService {
   }
   execution(id: string) {
     const graph = this.get(id);
+    if (graph.schemaVersion === 2) {
+      const runs = this.universalRuns(id);
+      return {
+        workflowId: id,
+        revision: graph.revision,
+        url: this.url(id),
+        run: runs[0] ?? null,
+        assets: []
+      };
+    }
     const row = this.connection
       .prepare(
         'SELECT document FROM runs WHERE workflowId=? ORDER BY rowid DESC LIMIT 1'
@@ -290,8 +438,13 @@ export class WorkflowService {
     return JSON.parse(String(row.document));
   }
   async executeDocument(raw: unknown, options?: { targetNodeIds?: string[] }) {
-    const graph = this.validate(raw),
-      id = randomUUID();
+    const graph = this.validate(raw);
+    if (graph.schemaVersion !== 1)
+      throw new ServiceError(
+        'FORBIDDEN',
+        'Use authorized universal execution at a saved revision'
+      );
+    const id = randomUUID();
     const states = await execute(
       graph,
       this.nodes,
@@ -327,6 +480,11 @@ export class WorkflowService {
     const graph = this.get(id);
     if (graph.revision !== revision)
       throw new ServiceError('CONFLICT', 'Revision conflict');
+    if (graph.schemaVersion !== 1)
+      throw new ServiceError(
+        'FORBIDDEN',
+        'Use execute_universal with separate execution permission'
+      );
     if (
       graph.nodes.some(
         (n) => this.nodes.get(n.kind, n.version).provider !== 'local'

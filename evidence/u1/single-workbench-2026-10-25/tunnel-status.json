@@ -1,0 +1,9 @@
+{
+  "currentDaemonPid": 24732,
+  "currentDaemonRunning": true,
+  "stale": false,
+  "note": "Alias PID bookkeeping references the previous launch. Current daemon is alive; health and connected MCP read verified.",
+  "ready": true,
+  "aliasRecordedProcessRunning": false,
+  "healthy": true
+}

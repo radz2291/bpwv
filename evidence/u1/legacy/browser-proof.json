@@ -1,0 +1,18 @@
+{
+  "verifiedAt": "2026-10-24T15:20:19.055Z",
+  "checks": [
+    "open agent-authored graph",
+    "edit node text",
+    "save and reload",
+    "five nodes and four edges",
+    "local execution: 3 completed, model pending, preview blocked",
+    "create and delete node",
+    "matching-revision execution state restores on reopen"
+  ],
+  "pageErrors": [],
+  "screenshots": [
+    "editor.png",
+    "execution.png"
+  ],
+  "creditsSpent": 0
+}

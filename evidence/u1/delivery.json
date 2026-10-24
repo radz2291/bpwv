@@ -1,0 +1,32 @@
+{
+  "baseline": "d3296549676e942ae402fcee7ea570d8fc51a16e",
+  "initialHeldCandidate": "d9499a776fb16dd6bb5600a6c1ac59e47ef8b07a",
+  "reviewedImplementation": "57bd8b968e1b990779d17f7f870027663160945d",
+  "branch": "dev/u1-universal-execution",
+  "sourceTree": "ad102129d3ab6ffc5ae4ebd8957323e39cf3ae5c",
+  "testsTree": "fa8dc4bb3c18c8b1eec35375e4a414e2166cf6c4",
+  "scriptsTree": "174ccf681cd92043dd5c3d68620143ce21c0055c",
+  "independentReport": "evidence/u1/independent/final-57bd8b9-review.md",
+  "engineeringVerdict": "PASS WITH NON-BLOCKING LIMITATIONS",
+  "overallAcceptance": "HELD",
+  "gates": {
+    "G1": "PASS",
+    "G2": "PASS",
+    "G3": "PASS after repair",
+    "G4": "PASS",
+    "G5": "PASS within declared local subset",
+    "G6": "PASS",
+    "G7": "PASS",
+    "G8": "HELD actual ChatGPT-side U1 sequence unavailable",
+    "G9": "PASS independent exact-SHA recheck"
+  },
+  "tests": 56,
+  "checkErrors": 0,
+  "checkWarnings": 0,
+  "build": "PASS",
+  "paidCalls": 0,
+  "creditsSpent": 0,
+  "noMainMerge": true,
+  "noU2": true,
+  "deliveryFollowup": "documentation and evidence only; final delivery SHA reported after commit to avoid self-reference"
+}

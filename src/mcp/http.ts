@@ -3,12 +3,14 @@ import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/
 import { createHash, timingSafeEqual } from 'node:crypto';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
-import { createAuthoringServer, type Access } from './server';
+import type { Access } from './server';
+import { loadLocalRuntime } from '../../scripts/local-runtime.mjs';
+loadLocalRuntime();
+const { createAuthoringServer } = await import('./server');
 const port = Number(process.env.CREATIVE_FLOW_MCP_PORT ?? 5174);
-const authPath = resolve(
-  process.env.CREATIVE_FLOW_DATA_DIR ?? 'data',
-  'mcp-auth.json'
-);
+const authPath =
+  process.env.CREATIVE_FLOW_MCP_AUTH_FILE ??
+  resolve(process.env.CREATIVE_FLOW_DATA_DIR ?? 'data', 'mcp-auth.json');
 const keys = JSON.parse(readFileSync(authPath, 'utf8'));
 if (
   typeof keys.readToken !== 'string' ||
@@ -53,7 +55,7 @@ app.use((req, res, next) => {
   res.locals.access = access;
   next();
 });
-app.use(express.json({ limit: '2mb' }));
+app.use(express.json({ limit: '12mb' }));
 app.post('/mcp', async (req, res) => {
   const server = createAuthoringServer(res.locals.access);
   const transport = new StreamableHTTPServerTransport({

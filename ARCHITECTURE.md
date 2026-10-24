@@ -1,3 +1,7 @@
+## U1 universal execution addition
+
+Schema 2 documents share WorkflowService and the existing workflow/revision store with unchanged legacy schema 1. src/lib/workbench implements four generic primitives, trusted registry contracts and an additive durable local runtime. The universal canvas is an explicit projection at the same workflow URL. Execution/import require CREATIVE_FLOW_ALLOW_LOCAL_EXECUTION=1 in addition to MCP write permission. No external execution is added. See docs/decisions/2026-10-24-u1-execution.md and docs/universal-workbench/U1_IMPLEMENTATION.md for contracts, crash boundaries and limitations. Historical implementation statements below retain their original scope.
+
 # Architecture
 
 U0 adds an isolated experimental contract-and-spike module under `src/lib/universal/`, not a replacement production engine. It proves typed deterministic composition and manifest validation with no provider executor, production imports, graph migration or persistence schema change. Read `docs/universal-workbench/U0_ASSESSMENT.md` and `U0_CONTRACTS.md` for the future boundary, compatibility plan and explicitly deferred scheduling semantics. Root contracts below continue to describe the production application.

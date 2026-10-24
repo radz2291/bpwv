@@ -1,0 +1,27 @@
+{
+  "cards": [
+    {
+      "fullyInside": true,
+      "name": "Harbor text"
+    },
+    {
+      "fullyInside": true,
+      "name": "Normalize text"
+    },
+    {
+      "fullyInside": true,
+      "name": "Local text statistics"
+    },
+    {
+      "fullyInside": true,
+      "name": "Return statistics"
+    }
+  ],
+  "completed": true,
+  "horizontalOverflow": false,
+  "verticalOverflow": false,
+  "viewport": {
+    "height": 884,
+    "width": 1011
+  }
+}

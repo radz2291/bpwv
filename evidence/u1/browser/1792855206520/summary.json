@@ -1,0 +1,38 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-24T15:21:02.134Z",
+  "dataRoot": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\proof\\1792855102726",
+  "workflowA": "u1-inspector-1792855108452",
+  "workflowB": "u1-inspector-1792855108452-image",
+  "uiWorkflow": "4409c144-d9f8-4d84-8f73-96a678ad1f64",
+  "uiImageWorkflow": "03565f7b-c840-4775-a9b1-0541ffdf3584",
+  "uiRunIds": [
+    "856749ce-0f79-4979-ad3a-07ee1d8487fe",
+    "a3ce3eaa-1b06-470d-ab7f-5b8dfb8de756"
+  ],
+  "checks": [
+    "MCP-authored A exact local statistics visible; cosmetic UI save retains compatible results and immutable run",
+    "MCP-authored B three actual managed PNG previews decoded",
+    "Isolated browser response faults: missing artifact metadata and missing image bytes show persistent unavailable card badges; restored route plus reload recovers actual previews without execution",
+    "UI-authored recipe config/save/execute produces actual local statistics; semantic edit marks historical; second execution preserves prior run and creates version2",
+    "Competing browser stale save rejected without overwriting concurrent revision; reload restores authoritative graph and compatible results",
+    "UI-authored image recipe imports actual local PNG bytes, saves and executes three-operation managed image workflow",
+    "Full owned app stop/start with same root, browser external requests blocked: managed images/text remain visible; run/attempt/artifact counters unchanged; no replay",
+    "Existing legacy regression wrapper passed against the owned isolated server"
+  ],
+  "beforeRestart": {
+    "runs": 5,
+    "attempts": 18,
+    "artifacts": 15
+  },
+  "afterRestart": {
+    "runs": 5,
+    "attempts": 18,
+    "artifacts": 15
+  },
+  "pageErrors": [],
+  "externalNetworkBlocked": true,
+  "paidCalls": 0,
+  "actualChatGPTSide": false,
+  "evidenceDirectory": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\evidence\\u1\\browser\\1792855206520"
+}

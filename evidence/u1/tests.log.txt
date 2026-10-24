@@ -1,0 +1,362 @@
+
+> creative-flow@1.0.0 test
+> tsx --test tests/*.test.ts
+
+TAP version 13
+# Subtest: deterministic combination, pending generation and blocked preview
+ok 1 - deterministic combination, pending generation and blocked preview
+  ---
+  duration_ms: 12.8566
+  type: 'test'
+  ...
+# Subtest: local graph never calls generation adapter
+ok 2 - local graph never calls generation adapter
+  ---
+  duration_ms: 1.7453
+  type: 'test'
+  ...
+# Subtest: reject incompatible, duplicate, cyclic and unsupported graphs
+ok 3 - reject incompatible, duplicate, cyclic and unsupported graphs
+  ---
+  duration_ms: 3.7828
+  type: 'test'
+  ...
+# Subtest: new typed node registers and executes without engine changes
+ok 4 - new typed node registers and executes without engine changes
+  ---
+  duration_ms: 1.2523
+  type: 'test'
+  ...
+# Subtest: missing inputs and local refinement are explicit
+ok 5 - missing inputs and local refinement are explicit
+  ---
+  duration_ms: 4.0804
+  type: 'test'
+  ...
+# Subtest: execution identity survives cosmetic saves but rejects changed prompts/settings/wiring
+ok 6 - execution identity survives cosmetic saves but rejects changed prompts/settings/wiring
+  ---
+  duration_ms: 2.189
+  type: 'test'
+  ...
+# (node:14124) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: discovered model reference limits and field roles stay distinct from batching
+ok 7 - discovered model reference limits and field roles stay distinct from batching
+  ---
+  duration_ms: 2.7214
+  type: 'test'
+  ...
+# Subtest: reject unsupported parameters, missing prompts and invalid model-specific settings
+ok 8 - reject unsupported parameters, missing prompts and invalid model-specific settings
+  ---
+  duration_ms: 0.7694
+  type: 'test'
+  ...
+# Subtest: Reference Set wraps one asset, preserves identity/lineage and does not call a model
+ok 9 - Reference Set wraps one asset, preserves identity/lineage and does not call a model
+  ---
+  duration_ms: 15.2477
+  type: 'test'
+  ...
+# Subtest: Reference Set chaining preserves deterministic order beyond two references
+ok 10 - Reference Set chaining preserves deterministic order beyond two references
+  ---
+  duration_ms: 5.6966
+  type: 'test'
+  ...
+# Subtest: typed ports reject direct asset to assets and missing required Reference Set input
+ok 11 - typed ports reject direct asset to assets and missing required Reference Set input
+  ---
+  duration_ms: 2.2371
+  type: 'test'
+  ...
+# Subtest: canvas projection works before execution, updates after replacement and never invents output
+ok 12 - canvas projection works before execution, updates after replacement and never invents output
+  ---
+  duration_ms: 1.7626
+  type: 'test'
+  ...
+# Subtest: imported Preview is distinguished from model output; pending/running/failed never fabricate pixels
+ok 13 - imported Preview is distinguished from model output; pending/running/failed never fabricate pixels
+  ---
+  duration_ms: 0.7171
+  type: 'test'
+  ...
+# Subtest: targeted preparation leaves a separate refinement generation idle
+ok 14 - targeted preparation leaves a separate refinement generation idle
+  ---
+  duration_ms: 1.428
+  type: 'test'
+  ...
+# (node:21276) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: media resolution requires exact immutable input and local identities, retaining provider media object
+ok 15 - media resolution requires exact immutable input and local identities, retaining provider media object
+  ---
+  duration_ms: 13.8541
+  type: 'test'
+  ...
+# Subtest: quotation is tied to resolved inputs and never approves spend; five-credit boundary stops
+ok 16 - quotation is tied to resolved inputs and never approves spend; five-credit boundary stops
+  ---
+  duration_ms: 6.564
+  type: 'test'
+  ...
+# Subtest: human decision audit requires the exact quoted inputs and cannot bypass the cost cap
+ok 17 - human decision audit requires the exact quoted inputs and cannot bypass the cost cap
+  ---
+  duration_ms: 9.784
+  type: 'test'
+  ...
+# (node:16504) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: contract discovery rejects changed, expired, nonlocal, unknown and invalid settings
+ok 18 - contract discovery rejects changed, expired, nonlocal, unknown and invalid settings
+  ---
+  duration_ms: 107.2182
+  type: 'test'
+  ...
+# Subtest: duplicate identities, cycles, role/cardinality and unsupported media are not executable
+ok 19 - duplicate identities, cycles, role/cardinality and unsupported media are not executable
+  ---
+  duration_ms: 8.5463
+  type: 'test'
+  ...
+# Subtest: registered version two capability executes through unchanged scheduler
+ok 20 - registered version two capability executes through unchanged scheduler
+  ---
+  duration_ms: 214.4736
+  type: 'test'
+  ...
+# Subtest: resealed snapshot, parent, producer, type and output alias tampering rejected
+ok 21 - resealed snapshot, parent, producer, type and output alias tampering rejected
+  ---
+  duration_ms: 1394.3146
+  type: 'test'
+  ...
+# Subtest: SQLite completion faults roll back output and produce truthful failed dependency states
+ok 22 - SQLite completion faults roll back output and produce truthful failed dependency states
+  ---
+  duration_ms: 350.6585
+  type: 'test'
+  ...
+# Subtest: missing media fails visibly and import never accepts remote locations or denied effects
+ok 23 - missing media fails visibly and import never accepts remote locations or denied effects
+  ---
+  duration_ms: 40.0601
+  type: 'test'
+  ...
+# Subtest: real child process termination recovers interrupted attempt without replay
+ok 24 - real child process termination recovers interrupted attempt without replay
+  ---
+  duration_ms: 1056.6628
+  type: 'test'
+  ...
+# (node:24644) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: U1 saves pin manifests; contract drift blocks execution while historical runs stay readable
+ok 25 - U1 saves pin manifests; contract drift blocks execution while historical runs stay readable
+  ---
+  duration_ms: 171.4862
+  type: 'test'
+  ...
+# Subtest: U1 shared service executes real local capability; artifacts and idempotency survive a new service
+ok 26 - U1 shared service executes real local capability; artifacts and idempotency survive a new service
+  ---
+  duration_ms: 250.7474
+  type: 'test'
+  ...
+# Subtest: U1 authoring permission does not grant execution or import, and denied operations leave no run
+ok 27 - U1 authoring permission does not grant execution or import, and denied operations leave no run
+  ---
+  duration_ms: 64.4483
+  type: 'test'
+  ...
+# Subtest: U1 stale writes/execution and invalid typed atomic batches cannot alter a graph
+ok 28 - U1 stale writes/execution and invalid typed atomic batches cannot alter a graph
+  ---
+  duration_ms: 57.9965
+  type: 'test'
+  ...
+# Subtest: U1 changing semantic configuration produces new immutable results and keeps historical snapshots
+ok 29 - U1 changing semantic configuration produces new immutable results and keeps historical snapshots
+  ---
+  duration_ms: 156.0916
+  type: 'test'
+  ...
+# Subtest: U1 saving cannot reinterpret existing legacy graph identity as a universal schema
+ok 30 - U1 saving cannot reinterpret existing legacy graph identity as a universal schema
+  ---
+  duration_ms: 60.2856
+  type: 'test'
+  ...
+# Subtest: U0 deterministic Input → registered Transform → Output retains immutable lineage
+ok 31 - U0 deterministic Input → registered Transform → Output retains immutable lineage
+  ---
+  duration_ms: 80.287
+  type: 'test'
+  ...
+# Subtest: U0 new trusted transform registers without scheduler changes
+ok 32 - U0 new trusted transform registers without scheduler changes
+  ---
+  duration_ms: 8.5307
+  type: 'test'
+  ...
+# Subtest: U0 graph rejects incompatible types, roles, stale revisions and cycles
+ok 33 - U0 graph rejects incompatible types, roles, stale revisions and cycles
+  ---
+  duration_ms: 6.3097
+  type: 'test'
+  ...
+# Subtest: U0 forbids hidden effects, unknown versions and unsupported production primitives
+ok 34 - U0 forbids hidden effects, unknown versions and unsupported production primitives
+  ---
+  duration_ms: 58.0481
+  type: 'test'
+  ...
+# Subtest: U0 fixture Invoke manifest plans truthfully with zero external success or spend
+ok 35 - U0 fixture Invoke manifest plans truthfully with zero external success or spend
+  ---
+  duration_ms: 18.7667
+  type: 'test'
+  ...
+# Subtest: U0 Invoke rejects wrong image role, media type and reference cardinality
+ok 36 - U0 Invoke rejects wrong image role, media type and reference cardinality
+  ---
+  duration_ms: 2.1176
+  type: 'test'
+  ...
+# Subtest: U0 rejects provider parameter drift, unknown contracts and expired discovery
+ok 37 - U0 rejects provider parameter drift, unknown contracts and expired discovery
+  ---
+  duration_ms: 6.9863
+  type: 'test'
+  ...
+# Subtest: U0 unavailable capability and approval absence remain blocked after serialized restart
+ok 38 - U0 unavailable capability and approval absence remain blocked after serialized restart
+  ---
+  duration_ms: 26.479
+  type: 'test'
+  ...
+# Subtest: U0 cancellation, duplicate items and bound violations cannot schedule iteration
+ok 39 - U0 cancellation, duplicate items and bound violations cannot schedule iteration
+  ---
+  duration_ms: 6.628
+  type: 'test'
+  ...
+# Subtest: U0 artifact tampering and fictitious external provenance fail restore
+ok 40 - U0 artifact tampering and fictitious external provenance fail restore
+  ---
+  duration_ms: 23.0259
+  type: 'test'
+  ...
+# Subtest: U0 restore rejects cyclic lineage, wrong value/type and reassigned producer output
+ok 41 - U0 restore rejects cyclic lineage, wrong value/type and reassigned producer output
+  ---
+  duration_ms: 74.1854
+  type: 'test'
+  ...
+# Subtest: U0 four cross-domain recipe fixtures validate without project primitives
+ok 42 - U0 four cross-domain recipe fixtures validate without project primitives
+  ---
+  duration_ms: 3.7037
+  type: 'test'
+  ...
+# Subtest: U0 restored completion requires ordered producer/dependency events
+ok 43 - U0 restored completion requires ordered producer/dependency events
+  ---
+  duration_ms: 22.1929
+  type: 'test'
+  ...
+# (node:24804) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: real local invoke, immutable versions, alias, restart, scoped idempotency
+ok 44 - real local invoke, immutable versions, alias, restart, scoped idempotency
+  ---
+  duration_ms: 386.3658
+  type: 'test'
+  ...
+# Subtest: permission, drafts, type/cycle/settings/schema negatives
+ok 45 - permission, drafts, type/cycle/settings/schema negatives
+  ---
+  duration_ms: 21.4755
+  type: 'test'
+  ...
+# Subtest: registry extension executes without scheduler change; invalid outputs fail descendants
+ok 46 - registry extension executes without scheduler change; invalid outputs fail descendants
+  ---
+  duration_ms: 184.6563
+  type: 'test'
+  ...
+# Subtest: external planning is blocked with no attempts or synthetic assets
+ok 47 - external planning is blocked with no attempts or synthetic assets
+  ---
+  duration_ms: 12.1038
+  type: 'test'
+  ...
+# Subtest: migration injected failure rollback and rerun preserve legacy rows
+ok 48 - migration injected failure rollback and rerun preserve legacy rows
+  ---
+  duration_ms: 2.824
+  type: 'test'
+  ...
+# Subtest: corruption, resealed identity tampering, cosmetic semantic hashes
+ok 49 - corruption, resealed identity tampering, cosmetic semantic hashes
+  ---
+  duration_ms: 105.2756
+  type: 'test'
+  ...
+# Subtest: managed PNG actual bytes restart, lineage, corruption and bounded import
+ok 50 - managed PNG actual bytes restart, lineage, corruption and bounded import
+  ---
+  duration_ms: 119.0525
+  type: 'test'
+  ...
+# Subtest: in-flight duplicate is reused, different key denied, recovery never invokes adapter
+ok 51 - in-flight duplicate is reused, different key denied, recovery never invokes adapter
+  ---
+  duration_ms: 85.9281
+  type: 'test'
+  ...
+# (node:2984) ExperimentalWarning: SQLite is an experimental feature and might change at any time
+# (Use `node --trace-warnings ...` to show where the warning was created)
+# Subtest: service discovers contracts and atomically creates/configures/connects/reopens nodes
+ok 52 - service discovers contracts and atomically creates/configures/connects/reopens nodes
+  ---
+  duration_ms: 43.8861
+  type: 'test'
+  ...
+# Subtest: invalid batch rolls back earlier node and asset removals; stale revision conflicts
+ok 53 - invalid batch rolls back earlier node and asset removals; stale revision conflicts
+  ---
+  duration_ms: 15.7902
+  type: 'test'
+  ...
+# Subtest: save rejects nonexistent revision and invalid configuration; no partial save
+ok 54 - save rejects nonexistent revision and invalid configuration; no partial save
+  ---
+  duration_ms: 2.3739
+  type: 'test'
+  ...
+# Subtest: concurrent writers cannot overwrite and local authoring refuses generative execution
+ok 55 - concurrent writers cannot overwrite and local authoring refuses generative execution
+  ---
+  duration_ms: 6.6276
+  type: 'test'
+  ...
+# Subtest: local execution and asset origin metadata persist without changing external generation state
+ok 56 - local execution and asset origin metadata persist without changing external generation state
+  ---
+  duration_ms: 11.3729
+  type: 'test'
+  ...
+1..56
+# tests 56
+# suites 0
+# pass 56
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 4594.9222

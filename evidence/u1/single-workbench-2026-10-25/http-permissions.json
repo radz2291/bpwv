@@ -1,0 +1,9 @@
+{
+  "unauthenticated": 401,
+  "toolCounts": {
+    "read": 9,
+    "write": 22
+  },
+  "readWriteAttempt": "refused",
+  "credentials": "existing file reused; no rotation or output"
+}

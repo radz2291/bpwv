@@ -1,0 +1,19 @@
+{
+  "verifiedAt": "2026-10-24T15:32:58.660Z",
+  "status": "PASS",
+  "counts": {
+    "workflows": 13,
+    "workflow_revisions": 37,
+    "runs": 31,
+    "requests": 13,
+    "workflow_assets": 5
+  },
+  "originalManagedFiles": 24,
+  "allOriginalRowsExactlyEqual": true,
+  "allOriginalMediaAndAuthAndArchiveDigestsEqual": true,
+  "noAddedOriginalMedia": true,
+  "originalServedWorkflowEqualsSQLite": true,
+  "baseline": "d3296549676e942ae402fcee7ea570d8fc51a16e",
+  "backup": "data/u1/before.sqlite (private consistent VACUUM backup)",
+  "paidCalls": 0
+}

@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "scope": "Official Inspector authenticated Streamable HTTP isolated process; separate permission denial after restart",
+  "dataRoot": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\http-proof\\1792855187810",
+  "workflowId": "u1-http-1792855191830",
+  "actualChatGPTSide": false,
+  "paidCalls": 0
+}

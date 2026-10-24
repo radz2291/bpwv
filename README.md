@@ -10,27 +10,16 @@ Requires Node 22.22 or later in the Node 22 line (tested on 22.22.3), npm and Wi
 
 ```powershell
 npm ci
-npm run dev
-```
-
-Open http://127.0.0.1:5173. Choose **Agent proof · first light** in the workflow library for the saved proof. Create nodes using the library, select them to configure, drag handles to compatible ports, and select an edge then press Delete to disconnect. Pan, zoom or use the minimap. Save explicitly before leaving; workflows are durable SQLite records, not browser storage. Export/import workflow JSON for portability. Import does not overwrite an existing saved revision silently.
-
-**Run local steps** saves and prepares the first generation branch and its Preview, leaving refinement idle. A configured Weave node creates a pending request; it does not spend credits. Use **Prepare this generation** to explicitly prepare a different selected generation. Local-only graphs execute fully. Inspect the Execution tab for prompt snapshots/status and the Assets tab for actual media. A missing model selection produces a visible error.
-
-Shift-select multiple nodes and use **Reusable groups** in the inspector to save a group. Insert duplicates its nodes and internal connections with fresh IDs. Refinement combines the incoming prompt and consolidated feedback locally.
-
-```powershell
-npm run check
-npm test
 npm run build
-npm run proof
-node scripts/browser-proof.mjs
+npm start
 ```
 
-The last two commands require a running dev server; browser verification uses installed Microsoft Edge in headless mode. `npm run proof` creates/updates the `agent-proof` workflow and adds pending requests, with zero paid calls. Evidence is in `evidence/`. For a production local process, `npm run build`, set `HOST=127.0.0.1`, `PORT=5173`, `ORIGIN=http://127.0.0.1:5173`, then `npm start` from this project directory. The server expects `evidence/weave-discovery.json` and the writable `data/` directory relative to this directory.
+Open [Creative Flow](http://127.0.0.1:5173/). The universal workbench is the only editor. Use **New workflow**, **Text recipe** or **Image recipe**, save explicitly, and select saved workflows in the same shell. **Run local workflow** requires the separate managed-local execution grant; its results and artifact versions persist across reopening and restarts. Only Input, Transform, local Invoke and Output are implemented for U1. No paid model execution is enabled by these actions.
 
-Stage 2 adds Reference Set v1, real canvas thumbnails/galleries, model identity/state, inspector/lightbox enlargement and durable imported references. Open `http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt` for the existing BorderPoint workflow. Its actual approved B reference and one user-approved Nano Banana 2.1 result are visible; refinement is separate. The one approved real generation cost 3.5 Weave credits. No deployment was performed.
+On this review machine, ignored `data/local-runtime.json` selects the verified U1 store and preserves its previously authorized local execution grant. The production app, development server and MCP launchers share that selection. Explicit `CREATIVE_FLOW_DATA_DIR` environments take precedence for isolated tests. With no local configuration or explicit grant, local execution remains denied. Configuration stores paths and an explicit boolean, never credential contents. MCP HTTP can reuse an existing credential file using `CREATIVE_FLOW_MCP_AUTH_FILE`.
 
-`npm start` defaults to loopback and permits multipart overhead above the API's enforced 25 MiB per-file limit. Stop the running production process before rebuilding its files, then restart it. Model snapshots are listed in `evidence/weave-model-catalog.json`. Keep all `data/`, credentials and runtime profiles local.
+Use `npm run dev` for development after stopping the production process on 5173. Both use the same workbench; there is no second product editor on 5175. Stop a running production app before rebuilding. Keep data, media, credentials, tunnel profiles and the supplied reference ZIP local.
 
-See WORKFLOW_CONTRACT.md for agent authoring and the separate manual Weave bridge; NODE_CATALOG.md for capability status. Stage 2 evidence is in `evidence/stage2-*`.
+Legacy workflow documents remain readable through the service for history/compatibility. Their editor is retired; legacy or missing deep links stay inside the universal shell with an explanatory message. Identified disposable demos were archived with full backups; the real ChatGPT G8 workflow remains for review. See [single-workbench closure](docs/universal-workbench/SINGLE_WORKBENCH_CLOSURE_2026-10-25.md) for inventory, recovery and verification.
+
+Follow [development guidelines](docs/DEVELOPMENT_GUIDELINES.md) for risk-based checks. The focused current product smoke is `node scripts/single-workbench-proof.mjs` (requires the built app running on 5173, installed Edge and a free scratch port 5178). It writes only a fresh isolated test store and reads the retained G8 workflow. Earlier `agent-proof`, legacy browser scripts and Stage 2 screenshots remain historical evidence for their original interfaces, not current-editor acceptance tests.
