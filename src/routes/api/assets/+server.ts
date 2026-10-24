@@ -30,6 +30,7 @@ export async function POST({ request }) {
   return json({
     id,
     uri: `/api/assets/${id}`,
-    mediaType: file.type.split('/')[0]
+    mediaType: file.type.split('/')[0],
+    name: file.name
   });
 }

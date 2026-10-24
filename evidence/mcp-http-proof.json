@@ -1,5 +1,5 @@
 {
-  "verifiedAt": "2026-10-24T11:11:56.669Z",
+  "verifiedAt": "2026-10-24T12:13:45.431Z",
   "endpoint": "http://127.0.0.1:5174/mcp",
   "transport": "Streamable HTTP, stateless JSON responses",
   "authorization": "independent read/write local bearer credentials; secrets excluded",
@@ -4850,20 +4850,20 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-http-1792840314685\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792840314685\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-http-1792844022949\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792844022949\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-http-1792840314685",
+              "id": "mcp-http-1792844022949",
               "name": "Authenticated HTTP MCP proof",
               "revision": 1,
               "nodes": [],
               "edges": [],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792840314685"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792844022949"
           }
         }
       },
@@ -4879,20 +4879,20 @@
           "content": [
             {
               "type": "text",
-              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-http-1792840314685\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792840314685\"}"
+              "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-http-1792844022949\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"nodes\":[],\"edges\":[],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792844022949\"}"
             }
           ],
           "structuredContent": {
             "workflow": {
               "schemaVersion": 1,
-              "id": "mcp-http-1792840314685",
+              "id": "mcp-http-1792844022949",
               "name": "Authenticated HTTP MCP proof",
               "revision": 1,
               "nodes": [],
               "edges": [],
               "groups": []
             },
-            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792840314685"
+            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792844022949"
           }
         }
       },

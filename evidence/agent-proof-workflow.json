@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "agent-proof",
   "name": "Agent proof · first light",
-  "revision": 21,
+  "revision": 26,
   "nodes": [
     {
       "id": "scene",

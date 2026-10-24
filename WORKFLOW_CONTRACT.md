@@ -26,6 +26,14 @@ Groups: `{id,name,nodeIds,version}` in workflow JSON. Insert creates fresh nodes
 
 ## Local API
 
+Stage 2 adds `reference_set@1`: required `asset:asset`, optional `existing:assets`, output `references:assets`. It appends without changing IDs/lineage or invoking a provider. Pure registry `project` handlers support actual imported media on canvas before execution. Local operation and multi-reference conditioning remain distinct from batch iteration.
+
+`POST /api/run` accepts optional `targetNodeIds:string[]`. The engine executes their dependency closure, leaving other nodes idle. The editor selects one generation plus its direct Preview, so refinement is a separate preparation. Every paid run still requires external fresh quotation and structured approval.
+
+`POST /api/requests/:id/media` accepts `{expectedInputHash,resolutions:[{assetId,providerAsset}]}`. Only actual official upload objects belong here; it verifies immutable input and exact local asset IDs, preserves original local input, and creates `providerInput`/hash. `POST /api/requests/:id/quote` accepts `{expectedProviderInputHash,cost,quotedAt}` and records an unapproved exact quote; >=5 is `limit_reached`. Trusted bridge `RequestService.recordApproval` audits a structured human decision for that exact sub-five quote. None of these operations submits inference, proves a human decision independently, or grants MCP authoring tools paid execution. Original pending JSON exports are historical; SQLite is authoritative.
+
+Additive `workflow_revisions` preserves prior documents on writes without changing workflow identity. The editor restores a last run when its execution signature (IDs, kinds, versions, configs and edges) matches the current workflow; cosmetic save/revision changes alone do not hide real results.
+
 All calls target `http://127.0.0.1:5173`. No third-party clients or paid services are required.
 
 | Method/path                  | Behavior                                                                        |
@@ -36,7 +44,7 @@ All calls target `http://127.0.0.1:5173`. No third-party clients or paid service
 | GET /api/models              | Discovered model snapshots with exact input/parameter/output metadata           |
 | POST /api/run                | Execute provided graph; return immutable run ID, graph snapshot and node states |
 | GET /api/runs/:id            | Fetch persisted run states                                                      |
-| GET /api/runs?workflowId=:id | Fetch latest run; editor restores state when saved revisions match              |
+| GET /api/runs?workflowId=:id | Fetch latest run; editor restores state when execution signatures match         |
 | GET /api/requests            | List generation requests and current statuses                                   |
 | POST /api/requests/:id       | Report actual external status/result and resume ready local descendants         |
 | POST /api/assets             | multipart `file`; store supported local media up to 25 MiB                      |
@@ -75,4 +83,4 @@ Result JSON:
 }
 ```
 
-Failure uses `status: "failed"`, a real prediction ID/model ID and nonempty `error`. Running uses `status: "running"`. Terminal requests cannot be overwritten. Completed results without assets and results with mismatched model IDs are rejected. No result endpoint call can spend credits. Additional metadata can be documented in future schema versions, including authenticated result signatures and explicit quote/approval audit records. The current endpoint is trusted local operator input, not independent proof of external execution.
+Failure uses `status: "failed"`, a real prediction ID/model ID and nonempty `error`. Running uses `status: "running"`. Terminal requests cannot be overwritten. Completed results without assets and results with mismatched model IDs are rejected. No result endpoint call can spend credits. Quote/decision audit records are supported by RequestService; authenticated external result signatures remain future work. This endpoint trusts local operator reports rather than independently proving external execution. If the provider supplies a URL without an asset ID, assign an explicitly local association identity and retain the actual prediction ID/URL, never invent a provider ID.

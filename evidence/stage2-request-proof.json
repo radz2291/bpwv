@@ -1,0 +1,58 @@
+{
+  "verifiedAt": "2026-10-24T12:12:14.286Z",
+  "workflowId": "borderpoint-image-first-chatgpt",
+  "workflowRevision": 5,
+  "workflowHash": "85f1eb339363df137a0e560c1d422fa9b4710b7f6b3ac45fcb30900d950a09af",
+  "requestId": "c99eafa5-c2ac-487c-ab21-21a1d1a9267d",
+  "runId": "15bc6f2d-806a-4e3d-8480-5c928dd32ea6",
+  "inputHash": "cbf390ec1e763136eda400fc4b6c2532393268b192c273dea0290b8c1dbc967b",
+  "providerInputHash": "58c8e3035f2dbce9258870467396c24fbcae8ba53977c419022b05453ef65eb9",
+  "promptMatchesFullEstablishedPrompt": true,
+  "referenceCount": 1,
+  "referenceLocalId": "4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+  "realProviderUploadResolved": true,
+  "refinementState": "idle",
+  "model": {
+    "id": "bebebed5-50c1-4701-98b3-86929db21585",
+    "label": "Nano Banana 2.1",
+    "modelId": "fal-ai/nano-banana-2/edit"
+  },
+  "settings": {
+    "model": "Nano Banana 2.1",
+    "resolution": "1K",
+    "aspect_ratio": "9:16",
+    "thinking_level": "Minimal",
+    "output_format": "png",
+    "enable_web_search": false
+  },
+  "actualQuote": {
+    "estimate": 3.5,
+    "quoted": 3.5,
+    "approved": true,
+    "quotedAt": "2026-10-24T12:12:58.480Z",
+    "source": "official Figma Weave MCP",
+    "status": "approved",
+    "decision": {
+      "expectedProviderInputHash": "58c8e3035f2dbce9258870467396c24fbcae8ba53977c419022b05453ef65eb9",
+      "quotedCost": 3.5,
+      "decision": "approve",
+      "decidedAt": "2026-10-24T12:14:39.512Z",
+      "evidence": "User structured reply: Approve — run once for 3.5 credits (call_059d3b1282a24415a1410266674535b6)",
+      "source": "structured human decision reported by trusted bridge"
+    }
+  },
+  "generationSubmitted": true,
+  "creditsSpent": 3.5,
+  "predictionId": "871a6b1c-f8a3-48fe-b6b4-2fcb45577eeb",
+  "actualOutput": {
+    "url": "https://media.weavy.ai/image/upload/v1792844003/uploads/CkfacNvRsxWxoGFObOenSYdYMyf1/vcsxuy6r21sqjtiu0epg.png",
+    "type": "image",
+    "width": 768,
+    "height": 1376,
+    "localAssociationId": "local-871a6b1c-f8a3-48fe-b6b4-2fcb45577eeb-output-1"
+  },
+  "initialState": "completed",
+  "previewState": "completed",
+  "structuredHumanApproval": true,
+  "submittedRunCount": 1
+}

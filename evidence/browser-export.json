@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "browser-interactions",
   "name": "Browser interaction proof",
-  "revision": 8,
+  "revision": 10,
   "nodes": [
     {
       "id": "scene",
@@ -10,8 +10,8 @@
       "version": 1,
       "label": "Scene text",
       "position": {
-        "x": 96.23779193205945,
-        "y": 89.23566878980893
+        "x": 100.63066954643628,
+        "y": 92.7170626349892
       },
       "config": {
         "text": "A quiet mountain observatory at sunrise, with one illuminated window."
@@ -71,13 +71,13 @@
       "config": {}
     },
     {
-      "id": "bc110f96-7985-4cb3-8179-d6779b7f4f11",
+      "id": "61f098f9-4a5a-4e61-a6d7-5b1c6b19606d",
       "kind": "text",
       "version": 1,
       "label": "Scene text",
       "position": {
-        "x": 176.23779193205945,
-        "y": 509.2356687898089
+        "x": 180.63066954643628,
+        "y": 512.7170626349892
       },
       "config": {
         "text": "A quiet mountain observatory at sunrise, with one illuminated window."
@@ -116,7 +116,7 @@
   ],
   "groups": [
     {
-      "id": "ca44f5ab-fb3b-46a1-b73b-5462ded18e01",
+      "id": "51fd9f3b-9103-4c3a-968b-395b91e10445",
       "version": 1,
       "name": "Reusable scene",
       "nodeIds": [

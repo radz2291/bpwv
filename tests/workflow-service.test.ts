@@ -11,7 +11,7 @@ function setup() {
 }
 test('service discovers contracts and atomically creates/configures/connects/reopens nodes', () => {
   const { db, service } = setup();
-  assert.equal(service.catalog().length, 6);
+  assert.equal(service.catalog().length, 7);
   assert.ok(service.catalog().every((n) => n.configSchema));
   const created = service.create({ id: 'test', name: 'MCP graph' });
   const graph = demo();
