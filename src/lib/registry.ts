@@ -1,4 +1,5 @@
 import { NodeRegistry, type NodeDefinition, type Asset } from './contract';
+import { z } from 'zod';
 const complete = (outputs: Record<string, unknown>) => ({
   status: 'completed' as const,
   outputs
@@ -123,4 +124,22 @@ const definitions: NodeDefinition[] = [
       })
   }
 ];
-definitions.forEach((d) => registry.register(d));
+const configSchemas: Record<string, z.ZodType> = {
+  text: z.object({ text: z.string() }).passthrough(),
+  combine: z.object({ separator: z.string() }).passthrough(),
+  asset: z
+    .object({
+      uri: z.string(),
+      mediaType: z.enum(['image', 'video', 'audio']),
+      assetId: z.string().optional()
+    })
+    .passthrough(),
+  weave: z
+    .object({ modelId: z.string(), params: z.record(z.string(), z.unknown()) })
+    .passthrough(),
+  preview: z.object({}).passthrough(),
+  refinement: z.object({ notes: z.string() }).passthrough()
+};
+definitions.forEach((d) =>
+  registry.register({ ...d, configSchema: configSchemas[d.kind] })
+);

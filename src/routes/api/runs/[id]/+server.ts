@@ -1,8 +1,9 @@
 import { json } from '@sveltejs/kit';
-import { db } from '$lib/server/store';
+import { workflowService } from '$lib/server/workflow-service';
 export function GET({ params }) {
-  const row = db.prepare('SELECT document FROM runs WHERE id=?').get(params.id);
-  return row
-    ? json(JSON.parse(String(row.document)))
-    : json({ error: 'Not found' }, { status: 404 });
+  try {
+    return json(workflowService.run(params.id));
+  } catch (e) {
+    return json({ error: String(e) }, { status: 404 });
+  }
 }

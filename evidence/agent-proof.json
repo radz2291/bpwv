@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-24T10:51:13.563Z",
+  "verifiedAt": "2026-10-24T11:12:13.365Z",
   "workflowId": "agent-proof",
-  "revision": 16,
+  "revision": 21,
   "nodes": 5,
   "edges": 4,
   "persistence": "exact roundtrip verified",
   "programmaticModification": "verified",
-  "runId": "99f12ded-2cf6-4fb3-9b91-365fa76a6e09",
+  "runId": "fdc8c618-5aab-4850-abd6-6f78a9e3d25f",
   "states": {
     "scene": {
       "status": "completed",
@@ -29,7 +29,7 @@
     "model": {
       "status": "pending",
       "outputs": {},
-      "requestId": "8ebfd338-8493-4afe-95a7-37d44010563c"
+      "requestId": "f41fdf18-93e4-4824-808d-4a1bc79101e3"
     },
     "preview": {
       "status": "blocked",
@@ -39,9 +39,9 @@
   },
   "request": {
     "schemaVersion": 1,
-    "id": "8ebfd338-8493-4afe-95a7-37d44010563c",
+    "id": "f41fdf18-93e4-4824-808d-4a1bc79101e3",
     "workflowId": "agent-proof",
-    "runId": "99f12ded-2cf6-4fb3-9b91-365fa76a6e09",
+    "runId": "fdc8c618-5aab-4850-abd6-6f78a9e3d25f",
     "nodeId": "model",
     "status": "pending",
     "provider": "weave-codex",
@@ -105,7 +105,7 @@
     "promptSnapshot": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography.",
     "inputHash": "62081b34c443b373dc79cc0cb9a3b554eeaa9840b259041497fe1ebfd5cb620a",
     "discoveredAt": "2026-10-24",
-    "createdAt": "2026-10-24T10:51:13.537Z",
+    "createdAt": "2026-10-24T11:12:13.351Z",
     "cost": {
       "estimate": 5,
       "quoted": null,

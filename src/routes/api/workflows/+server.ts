@@ -1,26 +1,15 @@
 import { json } from '@sveltejs/kit';
-import { db, save } from '$lib/server/store';
-import { validateGraph } from '$lib/engine';
-import { registry } from '$lib/registry';
+import { workflowService, ServiceError } from '$lib/server/workflow-service';
 export function GET() {
-  return json(
-    db
-      .prepare('SELECT id,revision,document FROM workflows')
-      .all()
-      .map((r) => ({
-        id: r.id,
-        revision: r.revision,
-        name: JSON.parse(String(r.document)).name
-      }))
-  );
+  return json(workflowService.list());
 }
 export async function POST({ request }) {
   try {
-    return json(save(validateGraph(await request.json(), registry)));
+    return json(workflowService.save(await request.json()));
   } catch (e) {
     return json(
       { error: String(e) },
-      { status: String(e).includes('conflict') ? 409 : 400 }
+      { status: e instanceof ServiceError && e.code === 'CONFLICT' ? 409 : 400 }
     );
   }
 }

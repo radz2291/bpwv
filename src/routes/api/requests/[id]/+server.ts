@@ -1,6 +1,7 @@
 import { json } from '@sveltejs/kit';
 import { db } from '$lib/server/store';
 import { z } from 'zod';
+import { workflowService } from '$lib/server/workflow-service';
 const result = z.object({
   status: z.enum(['running', 'completed', 'failed']),
   predictionId: z.string().min(1),
@@ -104,6 +105,13 @@ export async function POST({ params, request }) {
         JSON.stringify(run),
         pending.runId
       );
+      if (body.status === 'completed')
+        workflowService.recordRunAssets(
+          pending.runId,
+          pending.nodeId,
+          body.assets,
+          body.predictionId
+        );
       db.exec('COMMIT');
     } catch (e) {
       db.exec('ROLLBACK');

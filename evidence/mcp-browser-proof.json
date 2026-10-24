@@ -1,0 +1,16 @@
+{
+  "verifiedAt": "2026-10-24T11:07:56.124Z",
+  "workflowId": "mcp-proof-1792839945926",
+  "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926",
+  "revision": 7,
+  "checks": [
+    "MCP-authored graph opens by returned URL",
+    "three nodes and two connections render",
+    "visual edit visible through official Inspector get_workflow",
+    "concurrent MCP edit makes stale UI save fail",
+    "reload preserves both accepted edits",
+    "MCP-associated real imported asset appears in visual preview"
+  ],
+  "pageErrors": [],
+  "creditsSpent": 0
+}

@@ -110,7 +110,8 @@ form.set(
 );
 const uploaded = await fetch(origin + '/api/assets', {
   method: 'POST',
-  body: form
+  body: form,
+  headers: { Origin: origin }
 });
 assert.equal(uploaded.status, 200);
 const asset = await uploaded.json();

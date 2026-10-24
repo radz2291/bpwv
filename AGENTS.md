@@ -2,6 +2,8 @@
 
 This is an independent local application. Preserve the supplied BorderPoint_Weave_Setup_v1.zip; it is reference material, not engine configuration. Do not push, deploy, or upload source/media without authorization.
 
+Workflow authoring belongs in `src/lib/server/workflow-service.ts`. Both visual HTTP routes and MCP tools must use that service; do not create a parallel graph store or implement graph mutations in transport code. MCP stdio defaults to read-only; `--write` is an explicit process grant. MCP HTTP requires separate read/write credentials. Preserve transactional batches, expected revisions, typed schemas/annotations and asset provenance. Never add paid generation or approval overrides to authoring tools. Codex is optional for authoring. Read MCP_SETUP.md for transports, Inspector proofs and future ChatGPT connectivity. For MCP/service changes, run `npm run check`, `npm test`, `npm run build`, and appropriate official Inspector proofs. Never commit MCP tokens, ignored data, tunnel credentials or `.env` secrets.
+
 Read ARCHITECTURE.md, WORKFLOW_CONTRACT.md, NODE_CATALOG.md and STATE.md before extending behavior. Run `npm run check`, `npm test`, `npm run build` for engine/API changes. With the dev server running, use `npm run proof` and `node scripts/browser-proof.mjs` for integration verification. Keep fixture and real-generation evidence distinct.
 
 Register versioned node definitions in the registry. Never add per-node branches to the execution engine. Keep deterministic operations local; inject generation through provider adapters. Preserve stable node/edge IDs, asset lineage, prompt snapshots and revision conflict checks. Reject cycles, unknown versions and incompatible ports. Do not silently migrate graphs.

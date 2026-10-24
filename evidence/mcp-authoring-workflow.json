@@ -1,0 +1,64 @@
+{
+  "schemaVersion": 1,
+  "id": "mcp-proof-1792839945926",
+  "name": "MCP Inspector · authored without browser",
+  "revision": 5,
+  "nodes": [
+    {
+      "id": "scene",
+      "kind": "text",
+      "version": 1,
+      "label": "scene",
+      "position": {
+        "x": 30,
+        "y": 40
+      },
+      "config": {
+        "text": "A quiet mountain observatory at sunrise."
+      }
+    },
+    {
+      "id": "style",
+      "kind": "text",
+      "version": 1,
+      "label": "style",
+      "position": {
+        "x": 30,
+        "y": 290
+      },
+      "config": {
+        "text": "Soft light and restrained colors."
+      }
+    },
+    {
+      "id": "combine",
+      "kind": "combine",
+      "version": 1,
+      "label": "combine",
+      "position": {
+        "x": 360,
+        "y": 160
+      },
+      "config": {
+        "separator": "\n\n"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "scene-combine",
+      "source": "scene",
+      "sourceHandle": "text",
+      "target": "combine",
+      "targetHandle": "scene"
+    },
+    {
+      "id": "style-combine",
+      "source": "style",
+      "sourceHandle": "text",
+      "target": "combine",
+      "targetHandle": "style"
+    }
+  ],
+  "groups": []
+}

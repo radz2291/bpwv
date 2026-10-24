@@ -63,6 +63,7 @@ export interface NodeDefinition {
   inputs: Port[];
   outputs: Port[];
   defaults: Record<string, unknown>;
+  configSchema?: z.ZodType;
   validate: (config: Record<string, unknown>) => void;
   execute: (ctx: {
     node: FlowNode;

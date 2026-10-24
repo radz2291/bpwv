@@ -2,7 +2,7 @@
   "schemaVersion": 1,
   "id": "browser-interactions",
   "name": "Browser interaction proof",
-  "revision": 6,
+  "revision": 8,
   "nodes": [
     {
       "id": "scene",
@@ -71,7 +71,7 @@
       "config": {}
     },
     {
-      "id": "53322872-d08d-4adb-88df-f72ad19a8de2",
+      "id": "bc110f96-7985-4cb3-8179-d6779b7f4f11",
       "kind": "text",
       "version": 1,
       "label": "Scene text",
@@ -116,7 +116,7 @@
   ],
   "groups": [
     {
-      "id": "37fe78e2-7b50-4fa8-b39e-6d1951073d30",
+      "id": "ca44f5ab-fb3b-46a1-b73b-5462ded18e01",
       "version": 1,
       "name": "Reusable scene",
       "nodeIds": [

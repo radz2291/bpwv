@@ -1,0 +1,353 @@
+{
+  "verifiedAt": "2026-10-24T11:09:37.182Z",
+  "workflowId": "mcp-proof-1792839945926",
+  "revision": 8,
+  "visualAppWasStopped": true,
+  "launcherWorkedFromForeignCwd": true,
+  "checks": [
+    "retrieve with editor offline",
+    "configure/save with editor offline",
+    "reopen across independent Inspector sessions",
+    "execute local DAG without UI or Codex runtime"
+  ],
+  "transcript": [
+    {
+      "name": "get_workflow",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":7,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"MCP-authored prompt refined in the visual editor.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Agent modification after the browser opened.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+          }
+        ],
+        "structuredContent": {
+          "workflow": {
+            "schemaVersion": 1,
+            "id": "mcp-proof-1792839945926",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 7,
+            "nodes": [
+              {
+                "id": "scene",
+                "kind": "text",
+                "version": 1,
+                "label": "scene",
+                "position": {
+                  "x": 30,
+                  "y": 40
+                },
+                "config": {
+                  "text": "MCP-authored prompt refined in the visual editor."
+                }
+              },
+              {
+                "id": "style",
+                "kind": "text",
+                "version": 1,
+                "label": "style",
+                "position": {
+                  "x": 30,
+                  "y": 290
+                },
+                "config": {
+                  "text": "Agent modification after the browser opened."
+                }
+              },
+              {
+                "id": "combine",
+                "kind": "combine",
+                "version": 1,
+                "label": "combine",
+                "position": {
+                  "x": 360,
+                  "y": 160
+                },
+                "config": {
+                  "separator": "\n\n"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "scene-combine",
+                "source": "scene",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "scene"
+              },
+              {
+                "id": "style-combine",
+                "source": "style",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "style"
+              }
+            ],
+            "groups": []
+          },
+          "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+        }
+      }
+    },
+    {
+      "name": "configure_node",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":8,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"Authored by standalone MCP while the visual app was stopped.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Agent modification after the browser opened.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+          }
+        ],
+        "structuredContent": {
+          "workflow": {
+            "schemaVersion": 1,
+            "id": "mcp-proof-1792839945926",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 8,
+            "nodes": [
+              {
+                "id": "scene",
+                "kind": "text",
+                "version": 1,
+                "label": "scene",
+                "position": {
+                  "x": 30,
+                  "y": 40
+                },
+                "config": {
+                  "text": "Authored by standalone MCP while the visual app was stopped."
+                }
+              },
+              {
+                "id": "style",
+                "kind": "text",
+                "version": 1,
+                "label": "style",
+                "position": {
+                  "x": 30,
+                  "y": 290
+                },
+                "config": {
+                  "text": "Agent modification after the browser opened."
+                }
+              },
+              {
+                "id": "combine",
+                "kind": "combine",
+                "version": 1,
+                "label": "combine",
+                "position": {
+                  "x": 360,
+                  "y": 160
+                },
+                "config": {
+                  "separator": "\n\n"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "scene-combine",
+                "source": "scene",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "scene"
+              },
+              {
+                "id": "style-combine",
+                "source": "style",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "style"
+              }
+            ],
+            "groups": []
+          },
+          "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+        }
+      }
+    },
+    {
+      "name": "get_workflow",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"workflow\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":8,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"Authored by standalone MCP while the visual app was stopped.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Agent modification after the browser opened.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"}"
+          }
+        ],
+        "structuredContent": {
+          "workflow": {
+            "schemaVersion": 1,
+            "id": "mcp-proof-1792839945926",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 8,
+            "nodes": [
+              {
+                "id": "scene",
+                "kind": "text",
+                "version": 1,
+                "label": "scene",
+                "position": {
+                  "x": 30,
+                  "y": 40
+                },
+                "config": {
+                  "text": "Authored by standalone MCP while the visual app was stopped."
+                }
+              },
+              {
+                "id": "style",
+                "kind": "text",
+                "version": 1,
+                "label": "style",
+                "position": {
+                  "x": 30,
+                  "y": 290
+                },
+                "config": {
+                  "text": "Agent modification after the browser opened."
+                }
+              },
+              {
+                "id": "combine",
+                "kind": "combine",
+                "version": 1,
+                "label": "combine",
+                "position": {
+                  "x": 360,
+                  "y": 160
+                },
+                "config": {
+                  "separator": "\n\n"
+                }
+              }
+            ],
+            "edges": [
+              {
+                "id": "scene-combine",
+                "source": "scene",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "scene"
+              },
+              {
+                "id": "style-combine",
+                "source": "style",
+                "sourceHandle": "text",
+                "target": "combine",
+                "targetHandle": "style"
+              }
+            ],
+            "groups": []
+          },
+          "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+        }
+      }
+    },
+    {
+      "name": "execute_local",
+      "result": {
+        "content": [
+          {
+            "type": "text",
+            "text": "{\"run\":{\"id\":\"79597218-6676-4788-ab34-8055d4822828\",\"workflowId\":\"mcp-proof-1792839945926\",\"workflowRevision\":8,\"graphSnapshot\":{\"schemaVersion\":1,\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":8,\"nodes\":[{\"id\":\"scene\",\"kind\":\"text\",\"version\":1,\"label\":\"scene\",\"position\":{\"x\":30,\"y\":40},\"config\":{\"text\":\"Authored by standalone MCP while the visual app was stopped.\"}},{\"id\":\"style\",\"kind\":\"text\",\"version\":1,\"label\":\"style\",\"position\":{\"x\":30,\"y\":290},\"config\":{\"text\":\"Agent modification after the browser opened.\"}},{\"id\":\"combine\",\"kind\":\"combine\",\"version\":1,\"label\":\"combine\",\"position\":{\"x\":360,\"y\":160},\"config\":{\"separator\":\"\\n\\n\"}}],\"edges\":[{\"id\":\"scene-combine\",\"source\":\"scene\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"scene\"},{\"id\":\"style-combine\",\"source\":\"style\",\"sourceHandle\":\"text\",\"target\":\"combine\",\"targetHandle\":\"style\"}],\"groups\":[]},\"states\":{\"scene\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Authored by standalone MCP while the visual app was stopped.\"}},\"style\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Agent modification after the browser opened.\"}},\"combine\":{\"status\":\"completed\",\"outputs\":{\"text\":\"Authored by standalone MCP while the visual app was stopped.\\n\\nAgent modification after the browser opened.\"}}},\"createdAt\":\"2026-10-24T11:09:37.096Z\"}}"
+          }
+        ],
+        "structuredContent": {
+          "run": {
+            "id": "79597218-6676-4788-ab34-8055d4822828",
+            "workflowId": "mcp-proof-1792839945926",
+            "workflowRevision": 8,
+            "graphSnapshot": {
+              "schemaVersion": 1,
+              "id": "mcp-proof-1792839945926",
+              "name": "MCP Inspector · authored without browser",
+              "revision": 8,
+              "nodes": [
+                {
+                  "id": "scene",
+                  "kind": "text",
+                  "version": 1,
+                  "label": "scene",
+                  "position": {
+                    "x": 30,
+                    "y": 40
+                  },
+                  "config": {
+                    "text": "Authored by standalone MCP while the visual app was stopped."
+                  }
+                },
+                {
+                  "id": "style",
+                  "kind": "text",
+                  "version": 1,
+                  "label": "style",
+                  "position": {
+                    "x": 30,
+                    "y": 290
+                  },
+                  "config": {
+                    "text": "Agent modification after the browser opened."
+                  }
+                },
+                {
+                  "id": "combine",
+                  "kind": "combine",
+                  "version": 1,
+                  "label": "combine",
+                  "position": {
+                    "x": 360,
+                    "y": 160
+                  },
+                  "config": {
+                    "separator": "\n\n"
+                  }
+                }
+              ],
+              "edges": [
+                {
+                  "id": "scene-combine",
+                  "source": "scene",
+                  "sourceHandle": "text",
+                  "target": "combine",
+                  "targetHandle": "scene"
+                },
+                {
+                  "id": "style-combine",
+                  "source": "style",
+                  "sourceHandle": "text",
+                  "target": "combine",
+                  "targetHandle": "style"
+                }
+              ],
+              "groups": []
+            },
+            "states": {
+              "scene": {
+                "status": "completed",
+                "outputs": {
+                  "text": "Authored by standalone MCP while the visual app was stopped."
+                }
+              },
+              "style": {
+                "status": "completed",
+                "outputs": {
+                  "text": "Agent modification after the browser opened."
+                }
+              },
+              "combine": {
+                "status": "completed",
+                "outputs": {
+                  "text": "Authored by standalone MCP while the visual app was stopped.\n\nAgent modification after the browser opened."
+                }
+              }
+            },
+            "createdAt": "2026-10-24T11:09:37.096Z"
+          }
+        }
+      }
+    }
+  ],
+  "creditsSpent": 0
+}

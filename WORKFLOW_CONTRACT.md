@@ -1,5 +1,15 @@
 # Workflow and agent contract v1
 
+## Shared authoring service and MCP
+
+Workflow schema version remains 1. Visual HTTP routes and the standards-compatible MCP tools now call the same `WorkflowService`; neither transport owns a separate graph implementation. See [MCP_SETUP.md](MCP_SETUP.md) for the sixteen tools, typed schemas, authorization profiles, official Inspector proofs and future ChatGPT connection runbook. External agents can create, inspect, modify, validate and save graphs without the browser or Codex.
+
+`apply_changes` accepts `{workflowId,expectedRevision,changes:[...]}` and commits one new revision after validating the entire resulting graph. Supported operations are `add_node`, `configure_node`, `remove_node`, `connect`, `disconnect`, `rename_workflow`, `set_groups`. A failed operation, invalid graph or stale revision rolls back the complete batch, including asset cleanup. Single-operation tools use this same path. Removing a node prunes incident edges, group membership and current asset associations. `save_workflow` requires an explicit expected revision matching the embedded workflow revision; imports cannot create a nonexistent workflow at a nonzero revision.
+
+Node discovery now includes JSON configuration schemas. The service checks structural configuration types while allowing incomplete drafts (for example, an empty model selection); readiness validation reports missing required execution fields. Execution still validates runtime port values. `get_workflow` returns a URL of the form `/?workflow=<id>`; `get_execution` returns the latest run's separate workflow revision so clients can distinguish historical results from the current graph.
+
+Asset associations are durable `{workflowId,sourceNodeId,id,uri,mediaType,parentIds,runId?,provenance,predictionId?,associatedAt}` records. Provenance is explicitly `imported` or `external-reported`. An authoring association increments the graph revision and checks origin-node/run membership. It never marks a provider request completed. Separate actual Weave result reporting records originating assets inside the result transaction without changing the graph definition. The editor's Assets tab also reads this association store. `execute_local` is available only to write-authorized MCP clients and rejects a workflow containing any generative node.
+
 ## Workflow JSON
 
 `schemaVersion: 1`, safe `id`, `name`, nonnegative integer `revision`, `nodes`, `edges`, `groups`.
@@ -18,19 +28,19 @@ Groups: `{id,name,nodeIds,version}` in workflow JSON. Insert creates fresh nodes
 
 All calls target `http://127.0.0.1:5173`. No third-party clients or paid services are required.
 
-| Method/path            | Behavior                                                                        |
-| ---------------------- | ------------------------------------------------------------------------------- |
-| GET /api/workflows     | List saved workflow IDs, names and revisions                                    |
-| GET /api/workflows/:id | Load full graph                                                                 |
-| POST /api/workflows    | Validate/save full JSON; return incremented revision; stale revision yields 409 |
-| GET /api/models        | Discovered model snapshots with exact input/parameter/output metadata           |
-| POST /api/run          | Execute provided graph; return immutable run ID, graph snapshot and node states |
-| GET /api/runs/:id      | Fetch persisted run states                                                      |
-| GET /api/runs?workflowId=:id | Fetch latest run; editor restores state when saved revisions match |
-| GET /api/requests      | List generation requests and current statuses                                   |
-| POST /api/requests/:id | Report actual external status/result and resume ready local descendants         |
-| POST /api/assets       | multipart `file`; store supported local media up to 25 MiB                      |
-| GET /api/assets/:id    | Read local media by generated UUID                                              |
+| Method/path                  | Behavior                                                                        |
+| ---------------------------- | ------------------------------------------------------------------------------- |
+| GET /api/workflows           | List saved workflow IDs, names and revisions                                    |
+| GET /api/workflows/:id       | Load full graph                                                                 |
+| POST /api/workflows          | Validate/save full JSON; return incremented revision; stale revision yields 409 |
+| GET /api/models              | Discovered model snapshots with exact input/parameter/output metadata           |
+| POST /api/run                | Execute provided graph; return immutable run ID, graph snapshot and node states |
+| GET /api/runs/:id            | Fetch persisted run states                                                      |
+| GET /api/runs?workflowId=:id | Fetch latest run; editor restores state when saved revisions match              |
+| GET /api/requests            | List generation requests and current statuses                                   |
+| POST /api/requests/:id       | Report actual external status/result and resume ready local descendants         |
+| POST /api/assets             | multipart `file`; store supported local media up to 25 MiB                      |
+| GET /api/assets/:id          | Read local media by generated UUID                                              |
 
 Save checks structural validity, allowing incomplete draft configurations. Execute checks required ports and node configuration. It is valid to save an unconfigured model, but it fails visibly at execution. Save returns the latest document; retain its revision for the next edit. A stale import cannot overwrite newer work without reconciliation or a new workflow ID.
 

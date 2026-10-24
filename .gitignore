@@ -4,5 +4,8 @@ build/
 data/
 test-results/
 *.log
+.env
+.env.*
+!.env.example
 # Supplied reference archive stays local and untouched.
 BorderPoint_Weave_Setup_v1.zip

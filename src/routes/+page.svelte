@@ -27,6 +27,7 @@
     nodes = $state.raw<CanvasNode[]>([]),
     edges = $state.raw<Edge[]>([]),
     states = $state<Record<string, NodeState>>({}),
+    associatedAssets = $state<(Asset & { provenance?: string })[]>([]),
     models = $state<any[]>([]),
     workflows = $state<any[]>([]),
     selected = $state('scene'),
@@ -41,11 +42,16 @@
   let model = $derived(
     models.find((m) => m.id === current?.data.config.modelId)
   );
-  let previews = $derived(
-    Object.values(states).flatMap((s) =>
-      s.outputs.asset ? [s.outputs.asset as Asset] : []
-    )
-  );
+  let previews = $derived([
+    ...new Map(
+      [
+        ...associatedAssets,
+        ...Object.values(states).flatMap((s) =>
+          s.outputs.asset ? [s.outputs.asset as Asset] : []
+        )
+      ].map((a) => [a.id, a])
+    ).values()
+  ]);
   function sync(g: Workflow) {
     graph = g;
     nodes = g.nodes.map((n) => ({
@@ -110,7 +116,9 @@
     try {
       states = {};
       runId = '';
+      associatedAssets = [];
       sync(await api(`/api/workflows/${id}`));
+      associatedAssets = await api(`/api/workflows/${id}/assets`);
       const previous = await api(
         `/api/runs?workflowId=${encodeURIComponent(id)}`
       );
@@ -130,7 +138,8 @@
       const result = await api('/api/run', document());
       runId = result.id;
       applyStates(result.states);
-      message = 'Local execution finished · generation requires Codex approval';
+      message =
+        'Local execution finished · generation requires your cost approval';
       tab = 'execution';
     } catch (e) {
       message = String(e);
@@ -294,6 +303,10 @@
     Promise.all([api('/api/models'), list()])
       .then(([m]) => {
         models = m;
+        const workflowId = new URL(window.location.href).searchParams.get(
+          'workflow'
+        );
+        if (workflowId) return open(workflowId);
       })
       .catch((e) => (message = String(e)));
     const timer = setInterval(() => {
@@ -381,6 +394,7 @@
           onclick={() => {
             states = {};
             runId = '';
+            associatedAssets = [];
             sync({
               ...demo(),
               id: crypto.randomUUID(),

@@ -1,38 +1,16 @@
 import { DatabaseSync } from 'node:sqlite';
 import { mkdirSync } from 'node:fs';
-import type { Workflow } from '../contract';
-mkdirSync('data/assets', { recursive: true });
-export const db = new DatabaseSync('data/creative-flow.sqlite');
-db.exec(
-  `PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS workflows (id TEXT PRIMARY KEY, revision INTEGER NOT NULL, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS runs (id TEXT PRIMARY KEY, workflowId TEXT, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS requests (id TEXT PRIMARY KEY, document TEXT NOT NULL);`
+import { resolve } from 'node:path';
+export const dataDirectory = resolve(
+  process.env.CREATIVE_FLOW_DATA_DIR ?? 'data'
 );
-export function save(graph: Workflow) {
-  return saveAtomic(graph);
+mkdirSync(resolve(dataDirectory, 'assets'), { recursive: true });
+export const db = new DatabaseSync(
+  resolve(dataDirectory, 'creative-flow.sqlite')
+);
+export function initializeDatabase(connection: DatabaseSync) {
+  connection.exec(
+    `PRAGMA busy_timeout=5000; PRAGMA journal_mode=WAL; CREATE TABLE IF NOT EXISTS workflows (id TEXT PRIMARY KEY, revision INTEGER NOT NULL, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS runs (id TEXT PRIMARY KEY, workflowId TEXT, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS requests (id TEXT PRIMARY KEY, document TEXT NOT NULL); CREATE TABLE IF NOT EXISTS workflow_assets (workflowId TEXT NOT NULL,nodeId TEXT NOT NULL,assetId TEXT NOT NULL,document TEXT NOT NULL,PRIMARY KEY(workflowId,nodeId,assetId));`
+  );
 }
-function saveAtomic(graph: Workflow) {
-  db.exec('BEGIN IMMEDIATE');
-  try {
-    const existing = db
-      .prepare('SELECT revision FROM workflows WHERE id=?')
-      .get(graph.id) as { revision: number } | undefined;
-    if (existing && existing.revision !== graph.revision)
-      throw Error('Revision conflict: reload before saving');
-    const next = { ...graph, revision: (existing?.revision ?? 0) + 1 };
-    db.prepare('INSERT OR REPLACE INTO workflows VALUES(?,?,?)').run(
-      next.id,
-      next.revision,
-      JSON.stringify(next)
-    );
-    db.exec('COMMIT');
-    return next;
-  } catch (e) {
-    db.exec('ROLLBACK');
-    throw e;
-  }
-}
-export function getWorkflow(id: string): Workflow | undefined {
-  const row = db
-    .prepare('SELECT document FROM workflows WHERE id=?')
-    .get(id) as { document: string } | undefined;
-  return row ? JSON.parse(row.document) : undefined;
-}
+initializeDatabase(db);

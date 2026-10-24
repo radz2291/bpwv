@@ -2,6 +2,8 @@
 
 A local visual workflow studio for prompts, references, assets and reusable creative processes.
 
+Direct AI-agent authoring is available through the same workflow service as the editor. See [MCP_SETUP.md](MCP_SETUP.md) for a ready local stdio profile, authenticated Streamable HTTP endpoint, tool contracts, official MCP Inspector verification and the supported future ChatGPT tunnel/HTTPS connection path. Authoring requires no Codex runtime or browser automation. Weave generation remains a separate cost-approved adapter.
+
 ## Run
 
 Requires Node 22.22 or later in the Node 22 line (tested on 22.22.3), npm and Windows. SQLite uses Node's built-in `node:sqlite`, which emits an experimental warning on this runtime.

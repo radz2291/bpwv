@@ -1,0 +1,50 @@
+{
+  "verifiedAt": "2026-10-24T11:13:17.942Z",
+  "appUrl": "http://127.0.0.1:5173",
+  "mcpUrl": "http://127.0.0.1:5174/mcp",
+  "checks": {
+    "typecheck": "0 errors, 0 warnings",
+    "unitTests": {
+      "passed": 12,
+      "failed": 0
+    },
+    "productionBuild": "passed",
+    "officialInspectorStdio": "passed",
+    "officialInspectorHTTP": "passed",
+    "editorMcpParity": "passed",
+    "standaloneAuthoringWithEditorStopped": "passed",
+    "existingMilestoneRegressions": "passed"
+  },
+  "reports": [
+    {
+      "path": "evidence/mcp-inspector-proof.json",
+      "verifiedAt": "2026-10-24T11:06:06.923Z"
+    },
+    {
+      "path": "evidence/mcp-http-proof.json",
+      "verifiedAt": "2026-10-24T11:11:56.669Z"
+    },
+    {
+      "path": "evidence/mcp-browser-proof.json",
+      "verifiedAt": "2026-10-24T11:07:56.124Z"
+    },
+    {
+      "path": "evidence/mcp-offline-proof.json",
+      "verifiedAt": "2026-10-24T11:09:37.182Z"
+    }
+  ],
+  "protocol": "2025-11-25",
+  "sdk": "1.32.2",
+  "inspector": "2.12.0",
+  "tools": {
+    "writeProfile": 16,
+    "readProfile": 6
+  },
+  "sameServiceForUIAndMCP": true,
+  "CodexRuntimeRequiredForAuthoring": false,
+  "paidGenerationSubmitted": false,
+  "creditsSpent": 0,
+  "ChatGPTConnectionVerified": false,
+  "tunnelCreated": false,
+  "externallyDeployed": false
+}
