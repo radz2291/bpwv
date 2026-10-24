@@ -1,0 +1,31 @@
+{
+  "verifiedOn": "2026-10-24",
+  "connection": "OpenAI Secure MCP Tunnel",
+  "profile": "creative-flow",
+  "clientVersion": "0.0.18",
+  "baseline": "fb95da4",
+  "userCompletedChatGPTRegistration": true,
+  "userReportedChatGPTTestSucceeded": true,
+  "registeredConnector": "creative_flow_local",
+  "availableToolCount": 16,
+  "independentConnectedReadVerification": {
+    "nodeTypes": {
+      "isError": false,
+      "kinds": ["text", "combine", "asset", "weave", "preview", "refinement"]
+    },
+    "listWorkflows": {
+      "isError": false,
+      "workflowCount": 7
+    },
+    "reopenExisting": {
+      "isError": false,
+      "workflowId": "agent-proof",
+      "revision": 24
+    }
+  },
+  "authoringWriteReopenTest": "Not independently observed; no ChatGPT connection-check workflow was present. Earlier local Inspector authoring tests remain separate evidence.",
+  "generationCalled": false,
+  "creditsSpent": 0,
+  "publicPortsExposed": false,
+  "credentialsIncluded": false
+}
