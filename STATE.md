@@ -1,5 +1,9 @@
 # Current U1 authorization and implementation
 
+**U1 review delivery: engineering PASS WITH NON-BLOCKING LIMITATIONS; overall acceptance HELD at G8.** Exact independently reviewed implementation `57bd8b968e1b990779d17f7f870027663160945d`, dedicated branch `dev/u1-universal-execution`, baseline `d3296549676e942ae402fcee7ea570d8fc51a16e`. Initial committed candidate `d9499a776fb16dd6bb5600a6c1ac59e47ef8b07a` is retained with its independent G3 failure and repair lineage. Final delivery follow-up contains documentation/evidence only. See `docs/universal-workbench/U1_VERIFICATION.md` and `evidence/u1/independent/final-57bd8b9-review.md`.
+
+G1–G7 and G9 pass for the declared local subset. G8 requires an actual ChatGPT-side U1 author/save/execute/artifact-read and editor reopen; local Inspector and Codex-connected reads are not substituted. No main merge, U2 work or paid generation occurred. Original rows/media/auth/archive remain exact; all 56 tests, build, type checks, official Inspector transports, actual editor/restart and repaired independent verification pass. Isolated review app uses port 5175; original port 5173/data/MCP connection remain preserved.
+
 The owner authorized the full U1 cycle from main d3296549676e942ae402fcee7ea570d8fc51a16e. Work is on dev/u1-universal-execution: Input, Transform, local Invoke and Output integrated through WorkflowService, additive immutable artifacts/attempts, explicit separate local effect policy and minimal universal editor. This supersedes historical preparation-only statements below; it does not authorize U2 or a main merge. See docs/universal-workbench/U1_IMPLEMENTATION.md and the U1 verification record for actual gate outcomes. G8 requires a real ChatGPT-side U1 call and must remain HELD without that evidence. No paid generation is authorized or performed.
 
 # State — U0 owner-accepted; U1 preparation only, 24 October 2026

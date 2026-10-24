@@ -1,0 +1,27 @@
+{
+  "sha": "57bd8b968e1b990779d17f7f870027663160945d",
+  "root": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\independent\\1792855746636",
+  "output": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\evidence\\u1\\independent\\1792855746636",
+  "checks": [
+    "Actual normalized text/statistics and Output alias; duplicate idempotency returns same run",
+    "Repaired node/edge array-only reorder retains completed result on all cards",
+    "Full owned process restart offline restores exact text, runs/attempts/artifacts unchanged; stale revision and unknown setting rejected",
+    "Actual generated local fixture PNG decoded 2x1 in all three cards before/after full process restart with browser nonlocal requests blocked"
+  ],
+  "findings": [],
+  "reorderFooters": [
+    "completed",
+    "completed",
+    "completed",
+    "completed"
+  ],
+  "workflowId": "independent-text",
+  "runId": "6af478d4-efdf-46d2-ad1d-5f40552b9a08",
+  "mediaWorkflowId": "independent-media",
+  "mediaRunId": "5f13f113-650b-4ed0-9055-72941c3457b6",
+  "counts": {
+    "runs": 2,
+    "attempts": 7,
+    "artifacts": 6
+  }
+}

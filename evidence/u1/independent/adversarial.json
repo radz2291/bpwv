@@ -1,0 +1,20 @@
+{
+  "root": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\independent\\adversarial-xEpyON",
+  "checks": [
+    "Semantic hash ignores node/edge order",
+    "Manifest effect changes during earlier awaited transform fail Invoke before its handler; Output blocked; unrelated branch succeeds; lock released",
+    "Resealed missing completed Output rejected",
+    "Resealed wrong producer attempt rejected",
+    "Original database tables compare exactly with VACUUM baseline",
+    "All baseline file hashes match"
+  ],
+  "counts": {
+    "workflows": 13,
+    "workflow_revisions": 37,
+    "runs": 31,
+    "requests": 13,
+    "workflow_assets": 5
+  },
+  "baselineFiles": 26,
+  "paidCalls": 0
+}
