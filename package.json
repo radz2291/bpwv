@@ -10,6 +10,7 @@
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "test": "tsx --test tests/*.test.ts",
     "proof": "tsx scripts/agent-proof.ts",
+    "u0:proof": "tsx scripts/u0-proof.ts",
     "mcp:stdio": "tsx src/mcp/stdio.ts",
     "mcp:http": "tsx src/mcp/http.ts",
     "mcp:setup": "tsx scripts/setup-mcp.ts",

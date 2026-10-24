@@ -1,0 +1,1323 @@
+{
+  "verifiedAt": "2026-10-24T13:28:53.097Z",
+  "codeCommit": "a4832d29da59265cd559b9b33a669da807590c75",
+  "status": "non-paid isolated spike",
+  "paidCalls": 0,
+  "providerExecutors": 0,
+  "localRun": {
+    "schemaVersion": 1,
+    "id": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+    "recipe": {
+      "schemaVersion": 1,
+      "id": "u0-local",
+      "version": 1,
+      "revision": 0,
+      "operations": [
+        {
+          "schemaVersion": 1,
+          "id": "in",
+          "primitive": "Input",
+          "version": 1,
+          "effect": "pure",
+          "inputs": [],
+          "outputs": [
+            {
+              "id": "value",
+              "type": {
+                "kind": "text",
+                "collection": false
+              },
+              "role": "content",
+              "required": true,
+              "minItems": 1,
+              "maxItems": 1,
+              "ordered": true
+            }
+          ],
+          "config": {
+            "values": {
+              "value": "hello workbench"
+            }
+          }
+        },
+        {
+          "schemaVersion": 1,
+          "id": "transform",
+          "primitive": "Transform",
+          "version": 1,
+          "effect": "pure",
+          "inputs": [
+            {
+              "id": "value",
+              "type": {
+                "kind": "text",
+                "collection": false
+              },
+              "role": "content",
+              "required": true,
+              "minItems": 1,
+              "maxItems": 1,
+              "ordered": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "value",
+              "type": {
+                "kind": "text",
+                "collection": false
+              },
+              "role": "content",
+              "required": true,
+              "minItems": 1,
+              "maxItems": 1,
+              "ordered": true
+            }
+          ],
+          "config": {
+            "transform": "text.uppercase@1"
+          }
+        },
+        {
+          "schemaVersion": 1,
+          "id": "out",
+          "primitive": "Output",
+          "version": 1,
+          "effect": "pure",
+          "inputs": [
+            {
+              "id": "value",
+              "type": {
+                "kind": "text",
+                "collection": false
+              },
+              "role": "content",
+              "required": true,
+              "minItems": 1,
+              "maxItems": 1,
+              "ordered": true
+            }
+          ],
+          "outputs": [
+            {
+              "id": "value",
+              "type": {
+                "kind": "text",
+                "collection": false
+              },
+              "role": "content",
+              "required": true,
+              "minItems": 1,
+              "maxItems": 1,
+              "ordered": true
+            }
+          ],
+          "config": {}
+        }
+      ],
+      "edges": [
+        {
+          "id": "a",
+          "source": "in",
+          "output": "value",
+          "target": "transform",
+          "input": "value"
+        },
+        {
+          "id": "b",
+          "source": "transform",
+          "output": "value",
+          "target": "out",
+          "input": "value"
+        }
+      ]
+    },
+    "snapshotHash": "5af1e06173c71be9c7f376dade2cf64defd4e10795c8db46faaa3f4d525a85f8",
+    "status": "completed",
+    "artifacts": [
+      {
+        "schemaVersion": 1,
+        "id": "084f0ec7-b776-435d-a79b-724607211ce8",
+        "version": 1,
+        "type": {
+          "kind": "text",
+          "collection": false
+        },
+        "value": "hello workbench",
+        "digest": "91d3caac855f38963ce0a5bd3331626ce4cb5ee2cb69068e941d4b5ccc4e315c",
+        "access": "local",
+        "parentIds": [],
+        "createdAt": "2026-10-24T13:28:52.619Z",
+        "origin": {
+          "kind": "imported",
+          "runId": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+          "operationId": "in",
+          "attemptId": "9904a0d9-b039-4d68-a913-267edfaed6f0",
+          "recipeRevision": 0,
+          "snapshotHash": "5af1e06173c71be9c7f376dade2cf64defd4e10795c8db46faaa3f4d525a85f8"
+        }
+      },
+      {
+        "schemaVersion": 1,
+        "id": "cd676988-bed0-4d0b-8026-f83dc50439b0",
+        "version": 1,
+        "type": {
+          "kind": "text",
+          "collection": false
+        },
+        "value": "HELLO WORKBENCH",
+        "digest": "d8256389c1db38cfe71aa31e06a4dcc4afc8207cf93383646fc6acfca690b347",
+        "access": "local",
+        "parentIds": [
+          "084f0ec7-b776-435d-a79b-724607211ce8"
+        ],
+        "createdAt": "2026-10-24T13:28:52.622Z",
+        "origin": {
+          "kind": "local-transform",
+          "runId": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+          "operationId": "transform",
+          "attemptId": "a1ee1a8f-d9b6-42fa-a8cf-f475bd2474df",
+          "recipeRevision": 0,
+          "snapshotHash": "5af1e06173c71be9c7f376dade2cf64defd4e10795c8db46faaa3f4d525a85f8"
+        }
+      }
+    ],
+    "invocations": [],
+    "events": [
+      {
+        "sequence": 0,
+        "operationId": "in",
+        "status": "completed"
+      },
+      {
+        "sequence": 1,
+        "operationId": "transform",
+        "status": "completed"
+      },
+      {
+        "sequence": 2,
+        "operationId": "out",
+        "status": "completed"
+      }
+    ]
+  },
+  "manifest": {
+    "schemaVersion": 1,
+    "id": "fixture.image-edit",
+    "version": 1,
+    "adapterId": "fixture-no-executor",
+    "providerModelId": "fixture-only",
+    "status": "fixture",
+    "discoveredAt": "2026-10-23T00:00:00.000Z",
+    "expiresAt": "2026-10-25T00:00:00.000Z",
+    "provenance": "U0 synthetic shape fixture; no model discovery claim",
+    "effect": "paid",
+    "quoteMechanism": "actual-provider-quote",
+    "inputs": [
+      {
+        "id": "images",
+        "type": {
+          "kind": "image",
+          "collection": true
+        },
+        "role": "style-reference",
+        "required": true,
+        "minItems": 1,
+        "maxItems": 2,
+        "ordered": true
+      }
+    ],
+    "outputs": [
+      {
+        "id": "image",
+        "type": {
+          "kind": "image",
+          "collection": false
+        },
+        "role": "candidate",
+        "required": true,
+        "minItems": 1,
+        "maxItems": 1,
+        "ordered": true
+      }
+    ],
+    "parameters": {
+      "quality": {
+        "type": "string",
+        "required": false,
+        "choices": [
+          "draft",
+          "final"
+        ]
+      }
+    }
+  },
+  "invokePlan": {
+    "schemaVersion": 1,
+    "id": "838f5672-1982-4f88-b940-abd301802d81",
+    "attemptId": "72439a10-363c-48ed-abdf-f70839d6b8b3",
+    "idempotencyKey": "4cf1cf09-02e0-4e82-9977-667f3ca89e4a",
+    "manifestHash": "45d2e71130cf41dfd6e6728c1a7577f6a233ba545ea818a2c334c92039a4f885",
+    "recipeRevision": 0,
+    "payloadHash": "dd6fd4fdc46a839aa0091325b160d155c3b6bedf006cfdd877ac940e21203608",
+    "status": "blocked",
+    "externalCalls": 0,
+    "outputs": [],
+    "reason": "fixture-plan-only; no executor"
+  },
+  "restart": "Fresh-process restore PASS; no executor, no replay",
+  "scenarios": [
+    {
+      "status": "specification-fixture",
+      "recipe": {
+        "schemaVersion": 1,
+        "id": "illustration-review-refine",
+        "version": 1,
+        "revision": 0,
+        "operations": [
+          {
+            "schemaVersion": 1,
+            "id": "step-0",
+            "primitive": "Input",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-1",
+            "primitive": "Transform",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-2",
+            "primitive": "Invoke",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-3",
+            "primitive": "Invoke",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-4",
+            "primitive": "Branch",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-5",
+            "primitive": "Approve",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-6",
+            "primitive": "Iterate",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-7",
+            "primitive": "Output",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-0",
+            "source": "step-0",
+            "output": "value",
+            "target": "step-1",
+            "input": "value"
+          },
+          {
+            "id": "edge-1",
+            "source": "step-1",
+            "output": "value",
+            "target": "step-2",
+            "input": "value"
+          },
+          {
+            "id": "edge-2",
+            "source": "step-2",
+            "output": "value",
+            "target": "step-3",
+            "input": "value"
+          },
+          {
+            "id": "edge-3",
+            "source": "step-3",
+            "output": "value",
+            "target": "step-4",
+            "input": "value"
+          },
+          {
+            "id": "edge-4",
+            "source": "step-4",
+            "output": "value",
+            "target": "step-5",
+            "input": "value"
+          },
+          {
+            "id": "edge-5",
+            "source": "step-5",
+            "output": "value",
+            "target": "step-6",
+            "input": "value"
+          },
+          {
+            "id": "edge-6",
+            "source": "step-6",
+            "output": "value",
+            "target": "step-7",
+            "input": "value"
+          }
+        ]
+      }
+    },
+    {
+      "status": "specification-fixture",
+      "recipe": {
+        "schemaVersion": 1,
+        "id": "cinematic-production",
+        "version": 1,
+        "revision": 0,
+        "operations": [
+          {
+            "schemaVersion": 1,
+            "id": "step-0",
+            "primitive": "Input",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-1",
+            "primitive": "Transform",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-2",
+            "primitive": "Iterate",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-3",
+            "primitive": "Approve",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-4",
+            "primitive": "Subflow",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-5",
+            "primitive": "Output",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-0",
+            "source": "step-0",
+            "output": "value",
+            "target": "step-1",
+            "input": "value"
+          },
+          {
+            "id": "edge-1",
+            "source": "step-1",
+            "output": "value",
+            "target": "step-2",
+            "input": "value"
+          },
+          {
+            "id": "edge-2",
+            "source": "step-2",
+            "output": "value",
+            "target": "step-3",
+            "input": "value"
+          },
+          {
+            "id": "edge-3",
+            "source": "step-3",
+            "output": "value",
+            "target": "step-4",
+            "input": "value"
+          },
+          {
+            "id": "edge-4",
+            "source": "step-4",
+            "output": "value",
+            "target": "step-5",
+            "input": "value"
+          }
+        ]
+      }
+    },
+    {
+      "status": "specification-fixture",
+      "recipe": {
+        "schemaVersion": 1,
+        "id": "research-report",
+        "version": 1,
+        "revision": 0,
+        "operations": [
+          {
+            "schemaVersion": 1,
+            "id": "step-0",
+            "primitive": "Input",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-1",
+            "primitive": "Invoke",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-2",
+            "primitive": "Transform",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-3",
+            "primitive": "Branch",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-4",
+            "primitive": "Approve",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-5",
+            "primitive": "Output",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-0",
+            "source": "step-0",
+            "output": "value",
+            "target": "step-1",
+            "input": "value"
+          },
+          {
+            "id": "edge-1",
+            "source": "step-1",
+            "output": "value",
+            "target": "step-2",
+            "input": "value"
+          },
+          {
+            "id": "edge-2",
+            "source": "step-2",
+            "output": "value",
+            "target": "step-3",
+            "input": "value"
+          },
+          {
+            "id": "edge-3",
+            "source": "step-3",
+            "output": "value",
+            "target": "step-4",
+            "input": "value"
+          },
+          {
+            "id": "edge-4",
+            "source": "step-4",
+            "output": "value",
+            "target": "step-5",
+            "input": "value"
+          }
+        ]
+      }
+    },
+    {
+      "status": "specification-fixture",
+      "recipe": {
+        "schemaVersion": 1,
+        "id": "deterministic-media",
+        "version": 1,
+        "revision": 0,
+        "operations": [
+          {
+            "schemaVersion": 1,
+            "id": "step-0",
+            "primitive": "Input",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-1",
+            "primitive": "Transform",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-2",
+            "primitive": "Branch",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          },
+          {
+            "schemaVersion": 1,
+            "id": "step-3",
+            "primitive": "Output",
+            "version": 1,
+            "effect": "pure",
+            "inputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "value",
+                "type": {
+                  "kind": "text",
+                  "collection": false
+                },
+                "role": "content",
+                "required": true,
+                "minItems": 1,
+                "maxItems": 1,
+                "ordered": true
+              }
+            ],
+            "config": {
+              "note": "Structural vocabulary fixture only; domain semantics documented in U0 assessment"
+            }
+          }
+        ],
+        "edges": [
+          {
+            "id": "edge-0",
+            "source": "step-0",
+            "output": "value",
+            "target": "step-1",
+            "input": "value"
+          },
+          {
+            "id": "edge-1",
+            "source": "step-1",
+            "output": "value",
+            "target": "step-2",
+            "input": "value"
+          },
+          {
+            "id": "edge-2",
+            "source": "step-2",
+            "output": "value",
+            "target": "step-3",
+            "input": "value"
+          }
+        ]
+      }
+    }
+  ]
+}

@@ -1,6 +1,18 @@
-# State — Stage 2, 24 October 2026
+# State — U0 candidate, 24 October 2026
 
-Current milestone: visual references and on-canvas image previews, built on `b673887bd5555fca9a2ce67391254aa073f100ed`. Changes are committed locally only. No push or deployment is authorized.
+U0 — Foundation Contract and Reality Audit is implemented as an **isolated non-paid spike**, ready for owner review after independent verification. Dedicated branch: `dev/u0-universal-workbench`. Approved design commit `a939cbe8e82657fdd2782f8131b97813a37d5b70` was merged explicitly over clean Stage 2 baseline `45c9096780df1e43c32f5a15a5bafb2ce2170728`; PR #1 was open/unmerged when inspected. The owner authorized pushing this U0 branch, with no merge into main or deployment.
+
+See `docs/universal-workbench/U0_ASSESSMENT.md` for reuse/migration and four domain challenges; `U0_CONTRACTS.md` and generated `U0_SCHEMAS.json` for the concrete contract proposal and limits. Source under `src/lib/universal/` is not imported by the production registry, WorkflowService, HTTP/MCP transports or editor. No production graph/schema conversion, paid provider executor, new production node kind or UI redesign is introduced.
+
+Implemented proof: typed Input → registered pure Transform → Output(return), immutable artifact lineage, role/cardinality checking, revision/cycle/version rejection, exact-manifest/parameter validation, blocked fixture Invoke planning, disk/fresh-process pending-run restoration without replay. The four domain fixtures are structural specifications, not runnable production orchestration. Branch, Iterate, Approve and Subflow scheduling remain proposed; parsing approval metadata never grants authority. Structured schema resolution, interoperable canonical hashes, effect authorization and durable production artifact storage remain U1/U2 decisions.
+
+Fresh verification: 33 tests, zero type errors/warnings, production build, isolated legacy agent/browser/official MCP Inspector proofs, and read-only original BorderPoint editor proof. The original actual reference and generated output still decode at 941×1672 and 768×1376. SQLite baseline snapshot is local ignored `data/u0/before.sqlite`; every baseline workflow/revision/run/request/association remains byte-for-byte. An initial Inspector harness attempt filtered inherited environment and added harmless `mcp-proof-1792848649864` fixture data to the original database; the explicit-config environment repair isolates subsequent proofs. No original row was modified. All U0 calls/credits: **0**. Existing Weave quote/approval process is unchanged.
+
+Evidence: `evidence/u0/`; independent exact-candidate assessment is recorded there. Owner acceptance and authorization for U1 are pending. Recommendation: a separately scoped Input/Transform/Invoke-boundary/Output slice through the existing WorkflowService with additive artifact persistence and explicit legacy dispatch; no automatic graph migration or paid replay.
+
+## Stage 2 historical record (superseded status, retained evidence)
+
+Stage 2: visual references and on-canvas image previews, built on `b673887bd5555fca9a2ce67391254aa073f100ed`. Stage 2 was originally committed locally only; the subsequent U0 owner instruction authorizes its preservation in the dedicated development branch pushed for review. No deployment is authorized.
 
 The existing ChatGPT-authored `borderpoint-image-first-chatgpt` retains its identity, eight original nodes, original prompts/configuration except the requested initial model selection, and seven original edges. Three local media nodes and three reference/preview connections were added. Saved revisions now have additive SQLite history, including original revision 2; the ignored pre-stage database backup is `data/stage2/before.sqlite`.
 
