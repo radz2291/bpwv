@@ -37,6 +37,10 @@ Images, prompts, video, audio, scene specifications, review reports and other ou
 
 ## Documents
 
+- [U0_ASSESSMENT.md](U0_ASSESSMENT.md) — source-grounded architecture audit, cross-domain challenges and safe migration plan.
+- [U0_CONTRACTS.md](U0_CONTRACTS.md) — isolated proof boundary, contract proposal and deferred decisions.
+- [U0_SCHEMAS.json](U0_SCHEMAS.json) — generated experimental schemas; semantic checks and authority remain separate.
+
 - [PRIMITIVES_AND_CONTRACTS.md](PRIMITIVES_AND_CONTRACTS.md) — runtime language, typed values, invocation capabilities, artifacts and safety semantics.
 - [WORKBENCH_EXPERIENCE.md](WORKBENCH_EXPERIENCE.md) — synchronized creative/engineering views, agent authoring and review loop.
 - [MIGRATION_AND_GATES.md](MIGRATION_AND_GATES.md) — current baseline, compatibility mapping, staged plan and acceptance tests.

@@ -1,0 +1,35 @@
+{
+  "verifiedAt": "2026-10-24T13:36:44.462Z",
+  "readOnly": true,
+  "workflowId": "borderpoint-image-first-chatgpt",
+  "nodeCount": 11,
+  "images": [
+    {
+      "src": "https://media.weavy.ai/image/upload/v1792844003/uploads/CkfacNvRsxWxoGFObOenSYdYMyf1/vcsxuy6r21sqjtiu0epg.png",
+      "width": 768,
+      "height": 1376
+    },
+    {
+      "src": "https://media.weavy.ai/image/upload/v1792844003/uploads/CkfacNvRsxWxoGFObOenSYdYMyf1/vcsxuy6r21sqjtiu0epg.png",
+      "width": 768,
+      "height": 1376
+    },
+    {
+      "src": "/api/assets/4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "src": "/api/assets/4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+      "width": 941,
+      "height": 1672
+    },
+    {
+      "src": "/api/assets/4b1500c5-9fac-4ee0-a448-e4e123f4f370",
+      "width": 941,
+      "height": 1672
+    }
+  ],
+  "pageErrors": [],
+  "modelCalls": 0
+}

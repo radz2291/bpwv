@@ -1,5 +1,7 @@
 # Architecture
 
+U0 adds an isolated experimental contract-and-spike module under `src/lib/universal/`, not a replacement production engine. It proves typed deterministic composition and manifest validation with no provider executor, production imports, graph migration or persistence schema change. Read `docs/universal-workbench/U0_ASSESSMENT.md` and `U0_CONTRACTS.md` for the future boundary, compatibility plan and explicitly deferred scheduling semantics. Root contracts below continue to describe the production application.
+
 ## Baseline: 24 October 2026
 
 The initial folder contained only `BorderPoint_Weave_Setup_v1.zip`, with prompts, model notes, references and a workflow connection map. It is preserved byte-for-byte and is not loaded into engine logic. There was no Git repository or prior application. No VICT Studio code or dependencies were reused.

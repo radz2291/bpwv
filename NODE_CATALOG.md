@@ -1,5 +1,7 @@
 # Node catalog
 
+Universal Workbench U0 introduces no production node kinds. The future catalog direction is reusable transforms, capability manifests and recipes composed from eight provisional primitives; project concepts are recipe labels/configuration rather than new engine nodes. See `docs/universal-workbench/U0_ASSESSMENT.md` for the legacy mapping. The roadmap rows below are historical capability requirements, not a commitment to add a separate kind for each task.
+
 Six initial nodes were the first milestone, not the product boundary. Stage 2 adds the seventh production node, Reference Set v1. This is an architectural roadmap inspired by Weave's major families, not a claim that the connector exposes every listed node as a direct model. Status vocabulary: **Implemented** = working local behavior; **External-dependent** = bridge implemented, real generation needs external provider/approval; **Planned** = documented, not executable; **Simulated** = test fixture only. No product nodes simulate generation.
 
 Ports are named and typed in a common versioned registry. Unless stated otherwise, planned versions begin at v1 when implemented. Planned providers listed below are design intent and require actual discovery/verification, not an asserted connected service. Registry contracts must be shared by editor, validator, execution and agent interface.

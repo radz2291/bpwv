@@ -1,5 +1,7 @@
 # Workflow and agent contract v1
 
+The isolated U0 universal contract candidate is documented in `docs/universal-workbench/U0_CONTRACTS.md` with exported JSON schemas. It is not accepted by these production endpoints and does not change legacy v1 parsing, node identities, revision checks, MCP permissions or Weave approvals. No automatic migration is implemented.
+
 ## Shared authoring service and MCP
 
 Workflow schema version remains 1. Visual HTTP routes and the standards-compatible MCP tools now call the same `WorkflowService`; neither transport owns a separate graph implementation. See [MCP_SETUP.md](MCP_SETUP.md) for the sixteen tools, typed schemas, authorization profiles, official Inspector proofs and future ChatGPT connection runbook. External agents can create, inspect, modify, validate and save graphs without the browser or Codex.
