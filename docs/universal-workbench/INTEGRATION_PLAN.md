@@ -2,6 +2,8 @@
 
 Prepared 24 October 2026. **Review preparation only; no merge into main authorized or performed.**
 
+**Subsequent execution record, 24 October 2026:** the owner separately authorized all four merges. They completed in the order below with original ancestry preserved; the four-layer main baseline is `3391df4b28a7779d543ef54e47fe8303957261ad`. See [the integration verification report](INTEGRATION_VERIFICATION_2026-10-24.md). The original preparation and proposed sequence below are retained as historical context. U1 execution still requires separate authorization.
+
 ## Recovered history
 
 The local working tree was clean at accepted U0 `5e70993`. Local main was `45c9096`, one original Stage 2 commit ahead of remote main `b673887`. PR #1 was open/unmerged at documentation tip `a939cbe`; PR #2 was open/unmerged at `5e70993`, targeting main and showing 98 files across 11 commits. Its broad diff was caused by ancestry, not new U0 production changes.

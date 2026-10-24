@@ -1,0 +1,151 @@
+{
+  "verifiedAt": "2026-10-24T14:26:02.439Z",
+  "workflowId": "agent-proof",
+  "revision": 2,
+  "nodes": 5,
+  "edges": 4,
+  "persistence": "exact roundtrip verified",
+  "programmaticModification": "verified",
+  "runId": "45e729bf-5a70-4055-bbf6-ce04ccd4cdf9",
+  "states": {
+    "scene": {
+      "status": "completed",
+      "outputs": {
+        "text": "A quiet mountain observatory at sunrise, with one illuminated window."
+      }
+    },
+    "style": {
+      "status": "completed",
+      "outputs": {
+        "text": "Soft natural light, restrained colors, editorial photography."
+      }
+    },
+    "combine": {
+      "status": "completed",
+      "outputs": {
+        "text": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography."
+      }
+    },
+    "model": {
+      "status": "pending",
+      "outputs": {},
+      "requestId": "a315a58c-7179-43e3-bbaa-2d7972c88eae"
+    },
+    "preview": {
+      "status": "blocked",
+      "outputs": {},
+      "error": "Waiting for model"
+    }
+  },
+  "request": {
+    "schemaVersion": 1,
+    "id": "a315a58c-7179-43e3-bbaa-2d7972c88eae",
+    "workflowId": "agent-proof",
+    "runId": "45e729bf-5a70-4055-bbf6-ce04ccd4cdf9",
+    "workflowRevision": 2,
+    "workflowHash": "0314bbdd554d36b1b91262993c323e00f518b648358f9bf7e569c956a85f4972",
+    "nodeId": "model",
+    "status": "pending",
+    "provider": "weave-codex",
+    "model": {
+      "id": "e1c97d9d-2911-484f-a557-1436c5c9341f",
+      "label": "Flux 2 Pro",
+      "modelId": "fal-ai/flux-2-pro"
+    },
+    "contract": {
+      "inputs": {
+        "prompt": {
+          "type": "text",
+          "required": true,
+          "label": "prompt",
+          "description": "The prompt to generate an image from.",
+          "format": "text"
+        },
+        "images": {
+          "type": "image",
+          "required": false,
+          "description": "The image you want to edit",
+          "order": 1,
+          "format": "uri",
+          "maxItems": 8
+        }
+      },
+      "params": {
+        "seed": {
+          "required": false,
+          "type": "seed",
+          "title": "Seed",
+          "description": "Seed value for random number generator. Uncheck for reproducible results."
+        },
+        "image_size": {
+          "required": false,
+          "type": "fal_image_size",
+          "title": "Image Size",
+          "description": "The size of the generated image. If `auto`, the size will be determined by the model.",
+          "options": [
+            "Default",
+            "auto",
+            "square_hd",
+            "square",
+            "portrait_4_3",
+            "portrait_16_9",
+            "landscape_4_3",
+            "landscape_16_9"
+          ]
+        }
+      },
+      "outputs": {
+        "result": {
+          "type": "image"
+        }
+      }
+    },
+    "input": {
+      "image_size": "landscape_16_9",
+      "prompt": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography."
+    },
+    "promptSnapshot": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography.",
+    "inputHash": "62081b34c443b373dc79cc0cb9a3b554eeaa9840b259041497fe1ebfd5cb620a",
+    "discoveredAt": "2026-10-24",
+    "discoverySource": "official Figma MCP weave_find_model",
+    "discoverySnapshot": "weave-discovery.json",
+    "createdAt": "2026-10-24T14:26:02.427Z",
+    "cost": {
+      "estimate": 5,
+      "quoted": null,
+      "approved": false
+    },
+    "assetLineage": [],
+    "providerInput": {
+      "image_size": "landscape_16_9",
+      "prompt": "A quiet mountain observatory at sunrise, with one illuminated window.\n\nSoft natural light, restrained colors, editorial photography."
+    },
+    "mediaResolution": {
+      "status": "ready",
+      "mappings": []
+    },
+    "costPolicy": {
+      "stopAtOrAbove": 5,
+      "requiresFreshQuote": true,
+      "requiresStructuredUserApproval": true
+    },
+    "nodeSnapshot": {
+      "id": "model",
+      "kind": "weave",
+      "version": 1,
+      "label": "Weave model",
+      "position": {
+        "x": 700,
+        "y": 170
+      },
+      "config": {
+        "modelId": "e1c97d9d-2911-484f-a557-1436c5c9341f",
+        "params": {
+          "image_size": "landscape_16_9"
+        }
+      }
+    },
+    "instructions": "Resolve/upload local media through the official Figma Weave upload mechanism before quoting. Never pass /api/assets paths as Weave URLs. Refresh discovery, quote without acknowledgedCost, stop if actual quote >= 5 credits, then obtain structured Approve/Cancel before ONE submitted run. Refinement is separate. Never infer approval from this request."
+  },
+  "creditsSpent": 0
+}

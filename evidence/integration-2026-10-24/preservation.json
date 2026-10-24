@@ -1,0 +1,14 @@
+{
+  "verifiedAt": "2026-10-24T14:29:34.984Z",
+  "baselineRows": {
+    "workflows": 13,
+    "workflow_revisions": 37,
+    "runs": 31,
+    "requests": 13,
+    "workflow_assets": 5
+  },
+  "allRowsExactlyPreserved": true,
+  "mediaFiles": 24,
+  "allMediaBytesPreserved": true,
+  "authorizationFilesUnchanged": true
+}

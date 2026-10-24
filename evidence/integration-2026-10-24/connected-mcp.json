@@ -1,0 +1,18 @@
+{
+  "integrationMain": "3391df4b28a7779d543ef54e47fe8303957261ad",
+  "connection": "existing creative_flow_local via private MCP connection",
+  "readOnlyChecks": true,
+  "nodeTypeDiscovery": {
+    "success": true,
+    "count": 7
+  },
+  "getWorkflow": {
+    "success": true,
+    "id": "borderpoint-image-first-chatgpt",
+    "revision": 10,
+    "nodeCount": 11,
+    "url": "http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt"
+  },
+  "generationCalls": 0,
+  "writeCalls": 0
+}
