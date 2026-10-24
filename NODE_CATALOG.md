@@ -1,3 +1,14 @@
+## U1 generic operations (schema 2)
+
+| Operation | Inputs → outputs | Provider / status | Dependencies |
+| --- | --- | --- | --- |
+| Input v1 | configured scalar/record/managed PNG → typed artifact | Local, implemented | trusted record schemas, bounded PNG import |
+| Transform v1 | typed value → typed artifact | Registered local handlers, implemented | pinned transform ID/version/settings |
+| Invoke v1 | manifest typed value → result artifact | local.text-statistics implemented-local; weave.plan blocked external-dependent | exact manifest/effects, separate local grant; no external executor |
+| Output v1 | typed artifact → same version | Local return alias, implemented | durable upstream artifact |
+
+Branch, Iterate, Approve and Subflow remain planned. Single value ports are operational; collection/media roles and remote generation are not inferred. The seven legacy kinds and historical statuses below remain available under schema 1. See U1_IMPLEMENTATION.md for limits.
+
 # Node catalog
 
 Universal Workbench U0 introduces no production node kinds. The future catalog direction is reusable transforms, capability manifests and recipes composed from eight provisional primitives; project concepts are recipe labels/configuration rather than new engine nodes. See `docs/universal-workbench/U0_ASSESSMENT.md` for the legacy mapping. The roadmap rows below are historical capability requirements, not a commitment to add a separate kind for each task.

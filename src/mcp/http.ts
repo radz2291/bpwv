@@ -53,7 +53,7 @@ app.use((req, res, next) => {
   res.locals.access = access;
   next();
 });
-app.use(express.json({ limit: '2mb' }));
+app.use(express.json({ limit: '12mb' }));
 app.post('/mcp', async (req, res) => {
   const server = createAuthoringServer(res.locals.access);
   const transport = new StreamableHTTPServerTransport({

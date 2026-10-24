@@ -1,0 +1,120 @@
+cf·
+Universal workbench
+Input · Transform · Invoke · Output
+Legacy workflow studio ↗
+New workflow
+Text recipe
+Image recipe
+Save workflow
+Run local workflow
+OPERATIONS
++ input
++ transform
++ invoke
++ output
+
+Managed local execution granted. No model calls.
+
+SAVED WORKFLOWS
+U1 A · actual local text analysis
+revision 2
+U1 B · managed image return
+revision 2
+INPUT · V1
+u.input
+
+Typed local operation
+
+  One   two
+three  
+ARTIFACT VERSION 1 · LOCAL
+value · record
+Historical result · semantic edits
+TRANSFORM · V1
+u.transform
+
+text.normalize
+
+One two three
+ARTIFACT VERSION 1 · LOCAL
+input · text
+value · record
+Historical result · semantic edits
+INVOKE · V1
+u.invoke
+
+local.text-statistics
+
+{
+  "characters": 13,
+  "words": 3,
+  "lines": 1
+}
+ARTIFACT VERSION 1 · LOCAL
+input · text
+value · record
+Historical result · semantic edits
+OUTPUT · V1
+u.output
+
+Typed local operation
+
+{
+  "characters": 13,
+  "words": 3,
+  "lines": 1
+}
+ARTIFACT VERSION 1 · LOCAL
+input · text
+value · record
+Historical result · semantic edits
+Svelte Flow
+OPERATION INSPECTOR
+Label
+Typed configuration
+Import local PNG
+Apply configuration
+Remove operation
+Typed ports
+{
+  "inputs": [],
+  "outputs": [
+    {
+      "id": "value",
+      "type": "record",
+      "schemaRef": "cf.document-statistics@1",
+      "role": "value",
+      "cardinality": "single"
+    }
+  ]
+}
+CONNECT OPERATIONS
+From
+Select source
+u.input
+u.transform
+u.invoke
+u.output
+To
+Select target
+u.input
+u.transform
+u.invoke
+u.output
+Connect value → input
+u.input → u.transform
+Remove
+u.transform → u.invoke
+Remove
+u.invoke → u.output
+Remove
+RUN HISTORY
+No execution selected
+completed · revision 2 · abf02e64-7fd1-4fec-bca9-9b3e25bf89cf
+
+Historical results · semantic graph differs
+
+Artifact versions
+v1 · text · fa062016-4355-4ee1-a43b-08df68a9b624
+Universal workbench · local results only
+u1-inspector-1792854040347 · revision 2

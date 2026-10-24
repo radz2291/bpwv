@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "scope": "Official MCP Inspector stdio; each invocation starts a new server process; no visual app process needed; isolated DB and media",
+  "dataRoot": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\proof\\1792855102726",
+  "workflowA": "u1-inspector-1792855108452",
+  "workflowB": "u1-inspector-1792855108452-image",
+  "urlA": "http://127.0.0.1:5175/?workflow=u1-inspector-1792855108452",
+  "urlB": "http://127.0.0.1:5175/?workflow=u1-inspector-1792855108452-image",
+  "runA": "ec8ebfa1-adf7-498f-a93f-f8e8d95b0b3a",
+  "runB": "34d51faa-4a9e-420f-a281-64a180f016f6",
+  "tools": 22,
+  "actualChatGPTSide": false,
+  "paidCalls": 0
+}

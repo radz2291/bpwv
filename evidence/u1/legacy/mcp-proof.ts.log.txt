@@ -1,0 +1,1 @@
+Official MCP Inspector proof PASS: http://127.0.0.1:5175/?workflow=mcp-proof-1792855233509

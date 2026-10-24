@@ -1,0 +1,15 @@
+{
+  "status": "PASS",
+  "baselineClone": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\migration-1792854452699",
+  "originalTablesPreserved": true,
+  "counts": {
+    "workflows": 13,
+    "workflow_revisions": 37,
+    "runs": 31,
+    "requests": 13,
+    "workflow_assets": 5
+  },
+  "migrationRerun": true,
+  "rollbackFaultCoveredBy": "tests/workbench-runtime.test.ts",
+  "rollbackPolicy": "stop processes and restore verified pre-U1 backup; no downmigration"
+}

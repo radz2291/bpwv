@@ -1,0 +1,499 @@
+{
+  "documentSchema": {
+    "$schema": "https://json-schema.org/draft/2020-12/schema",
+    "type": "object",
+    "properties": {
+      "schemaVersion": {
+        "type": "number",
+        "const": 2
+      },
+      "id": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 160,
+        "pattern": "^[a-zA-Z0-9_-]+$"
+      },
+      "name": {
+        "type": "string",
+        "minLength": 1,
+        "maxLength": 1000
+      },
+      "revision": {
+        "type": "integer",
+        "minimum": 0,
+        "maximum": 9007199254740991
+      },
+      "nodes": {
+        "maxItems": 500,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9_-]+$"
+            },
+            "kind": {
+              "type": "string"
+            },
+            "version": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            },
+            "label": {
+              "type": "string",
+              "maxLength": 1000
+            },
+            "position": {
+              "type": "object",
+              "properties": {
+                "x": {
+                  "type": "number"
+                },
+                "y": {
+                  "type": "number"
+                }
+              },
+              "required": [
+                "x",
+                "y"
+              ],
+              "additionalProperties": false
+            },
+            "config": {
+              "type": "object",
+              "propertyNames": {
+                "type": "string"
+              },
+              "additionalProperties": {}
+            }
+          },
+          "required": [
+            "id",
+            "kind",
+            "version",
+            "label",
+            "position",
+            "config"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "edges": {
+        "maxItems": 2000,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9_-]+$"
+            },
+            "source": {
+              "type": "string"
+            },
+            "sourceHandle": {
+              "type": "string"
+            },
+            "target": {
+              "type": "string"
+            },
+            "targetHandle": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "id",
+            "source",
+            "sourceHandle",
+            "target",
+            "targetHandle"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "groups": {
+        "default": [],
+        "maxItems": 500,
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 160,
+              "pattern": "^[a-zA-Z0-9_-]+$"
+            },
+            "name": {
+              "type": "string"
+            },
+            "nodeIds": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            },
+            "version": {
+              "type": "integer",
+              "exclusiveMinimum": 0,
+              "maximum": 9007199254740991
+            }
+          },
+          "required": [
+            "id",
+            "name",
+            "nodeIds",
+            "version"
+          ],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": [
+      "schemaVersion",
+      "id",
+      "name",
+      "revision",
+      "nodes",
+      "edges",
+      "groups"
+    ],
+    "additionalProperties": false
+  },
+  "catalog": {
+    "schemaVersion": 2,
+    "operations": [
+      {
+        "kind": "u.input",
+        "version": 1,
+        "defaults": {
+          "type": "text",
+          "value": ""
+        }
+      },
+      {
+        "kind": "u.transform",
+        "version": 1,
+        "defaults": {
+          "transformId": "text.normalize",
+          "transformVersion": 1,
+          "settings": {}
+        }
+      },
+      {
+        "kind": "u.invoke",
+        "version": 1,
+        "defaults": {
+          "capabilityId": "local.text-statistics",
+          "capabilityVersion": 1,
+          "settings": {}
+        }
+      },
+      {
+        "kind": "u.output",
+        "version": 1,
+        "defaults": {
+          "mode": "return",
+          "type": "text"
+        }
+      }
+    ],
+    "configSchemas": {
+      "u.input": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "type": {
+            "type": "string",
+            "enum": [
+              "text",
+              "number",
+              "boolean",
+              "record",
+              "image"
+            ]
+          },
+          "value": {},
+          "artifactId": {
+            "type": "string",
+            "format": "uuid",
+            "pattern": "^([0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[1-8][0-9a-fA-F]{3}-[89abAB][0-9a-fA-F]{3}-[0-9a-fA-F]{12}|00000000-0000-0000-0000-000000000000|ffffffff-ffff-ffff-ffff-ffffffffffff)$"
+          },
+          "schemaRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "type"
+        ],
+        "additionalProperties": false
+      },
+      "u.transform": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "transformId": {
+            "type": "string"
+          },
+          "transformVersion": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "settings": {
+            "default": {},
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "transformId",
+          "transformVersion",
+          "settings"
+        ],
+        "additionalProperties": false
+      },
+      "u.invoke": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "capabilityId": {
+            "type": "string"
+          },
+          "capabilityVersion": {
+            "type": "integer",
+            "exclusiveMinimum": 0,
+            "maximum": 9007199254740991
+          },
+          "manifestHash": {
+            "type": "string"
+          },
+          "settings": {
+            "default": {},
+            "type": "object",
+            "propertyNames": {
+              "type": "string"
+            },
+            "additionalProperties": {}
+          }
+        },
+        "required": [
+          "capabilityId",
+          "capabilityVersion",
+          "settings"
+        ],
+        "additionalProperties": false
+      },
+      "u.output": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "const": "return"
+          },
+          "type": {
+            "default": "text",
+            "type": "string",
+            "enum": [
+              "text",
+              "number",
+              "boolean",
+              "record",
+              "image"
+            ]
+          },
+          "schemaRef": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "mode",
+          "type"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "portContract": {
+      "role": "value",
+      "cardinality": "single",
+      "output": "value",
+      "input": "input",
+      "resolution": "Input/Output config type+schemaRef; Transform/Invoke pinned registry manifest"
+    },
+    "transforms": [
+      {
+        "id": "text.normalize",
+        "version": 1,
+        "input": "text",
+        "output": "text",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      {
+        "id": "record.normalize",
+        "version": 1,
+        "input": "record",
+        "output": "record",
+        "inputSchema": "cf.document@1",
+        "outputSchema": "cf.document@1",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      {
+        "id": "record.text",
+        "version": 1,
+        "input": "record",
+        "output": "text",
+        "inputSchema": "cf.document@1",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      },
+      {
+        "id": "image.identity",
+        "version": 1,
+        "input": "image",
+        "output": "image",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        }
+      }
+    ],
+    "manifests": [
+      {
+        "id": "local.text-statistics",
+        "version": 1,
+        "adapter": "local",
+        "status": "implemented-local",
+        "effects": [
+          "compute",
+          "managed-artifacts"
+        ],
+        "discoveredAt": "2026-10-24T00:00:00.000Z",
+        "input": "text",
+        "output": "record",
+        "outputSchema": "cf.document-statistics@1",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "hash": "26aa00184a183de6817aad331ec6d9e48042c64a25a1d1835045386ab8259fd3"
+      },
+      {
+        "id": "weave.plan",
+        "version": 1,
+        "adapter": "weave",
+        "status": "external-dependent",
+        "effects": [
+          "network",
+          "spend"
+        ],
+        "discoveredAt": "2026-10-24T00:00:00.000Z",
+        "input": "text",
+        "output": "image",
+        "settingsSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {},
+          "additionalProperties": false
+        },
+        "hash": "a33c4c1e1f9a3bd55f967aea7c319c9e14365c219f04c0304fcf58765aac9f52"
+      }
+    ],
+    "schemas": {
+      "cf.document@1": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "title": {
+            "type": "string",
+            "maxLength": 10000
+          },
+          "body": {
+            "type": "string",
+            "maxLength": 100000
+          }
+        },
+        "required": [
+          "title",
+          "body"
+        ],
+        "additionalProperties": false
+      },
+      "cf.document-statistics@1": {
+        "$schema": "https://json-schema.org/draft/2020-12/schema",
+        "type": "object",
+        "properties": {
+          "characters": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "words": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          },
+          "lines": {
+            "type": "integer",
+            "minimum": 0,
+            "maximum": 9007199254740991
+          }
+        },
+        "required": [
+          "characters",
+          "words",
+          "lines"
+        ],
+        "additionalProperties": false
+      }
+    },
+    "recipes": [
+      {
+        "id": "local.document-analysis",
+        "version": 1,
+        "operations": [
+          "u.input",
+          "u.transform",
+          "u.invoke",
+          "u.output"
+        ]
+      },
+      {
+        "id": "local.image-return",
+        "version": 1,
+        "operations": [
+          "u.input",
+          "u.transform",
+          "u.output"
+        ]
+      }
+    ]
+  }
+}

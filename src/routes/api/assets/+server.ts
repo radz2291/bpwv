@@ -1,7 +1,10 @@
 import { json } from '@sveltejs/kit';
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { randomUUID } from 'node:crypto';
-mkdirSync('data/assets', { recursive: true });
+import { dataDirectory } from '$lib/server/store';
+import { resolve } from 'node:path';
+const assetsDirectory = resolve(dataDirectory, 'assets');
+mkdirSync(assetsDirectory, { recursive: true });
 export async function POST({ request }) {
   const form = await request.formData(),
     file = form.get('file');
@@ -22,9 +25,12 @@ export async function POST({ request }) {
       { status: 400 }
     );
   const id = randomUUID();
-  writeFileSync(`data/assets/${id}`, Buffer.from(await file.arrayBuffer()));
   writeFileSync(
-    `data/assets/${id}.json`,
+    resolve(assetsDirectory, id),
+    Buffer.from(await file.arrayBuffer())
+  );
+  writeFileSync(
+    resolve(assetsDirectory, `${id}.json`),
     JSON.stringify({ type: file.type, name: file.name })
   );
   return json({

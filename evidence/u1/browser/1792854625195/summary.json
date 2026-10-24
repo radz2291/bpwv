@@ -1,0 +1,37 @@
+{
+  "status": "PASS",
+  "verifiedAt": "2026-10-24T15:11:19.984Z",
+  "dataRoot": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\data\\u1\\proof\\1792854033234",
+  "workflowA": "u1-inspector-1792854040347",
+  "workflowB": "u1-inspector-1792854040347-image",
+  "uiWorkflow": "96be52ed-6e5b-476d-b4a3-ba8d4258ed0a",
+  "uiImageWorkflow": "9b60f94c-530e-40ab-a0fb-9fc1396da4fb",
+  "uiRunIds": [
+    "fe4bc627-1525-4560-b0b9-b79e9ed0ee51",
+    "5cec7424-e961-46d1-b2e5-afd13ce6028f"
+  ],
+  "checks": [
+    "MCP-authored A exact local statistics visible; cosmetic UI save retains compatible results and immutable run",
+    "MCP-authored B three actual managed PNG previews decoded",
+    "UI-authored recipe config/save/execute produces actual local statistics; semantic edit marks historical; second execution preserves prior run and creates version2",
+    "Competing browser stale save rejected without overwriting concurrent revision; reload restores authoritative graph and compatible results",
+    "UI-authored image recipe imports actual local PNG bytes, saves and executes three-operation managed image workflow",
+    "Full owned app stop/start with same root, browser external requests blocked: managed images/text remain visible; run/attempt/artifact counters unchanged; no replay",
+    "Existing legacy regression wrapper passed against the owned isolated server"
+  ],
+  "beforeRestart": {
+    "runs": 5,
+    "attempts": 18,
+    "artifacts": 15
+  },
+  "afterRestart": {
+    "runs": 5,
+    "attempts": 18,
+    "artifacts": 15
+  },
+  "pageErrors": [],
+  "externalNetworkBlocked": true,
+  "paidCalls": 0,
+  "actualChatGPTSide": false,
+  "evidenceDirectory": "C:\\Users\\RZ1\\Desktop\\RZ\\261024-Borderpoint\\evidence\\u1\\browser\\1792854625195"
+}

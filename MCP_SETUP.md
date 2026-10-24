@@ -1,3 +1,9 @@
+## U1 review candidate
+
+The U1 server version 1.2 adds six tools: universal_catalog, create_universal, list_universal_runs, get_artifact, import_image, execute_universal. Existing get/save/apply/validate author both document formats. Discovery totals are 22 for write clients and 9 for read clients. Universal execution/import require explicit CREATIVE_FLOW_ALLOW_LOCAL_EXECUTION=1 in the server process environment AND a write grant. Default remains denied; existing tunnel/auth files are unchanged. For Inspector, put both CREATIVE_FLOW_DATA_DIR and this effect policy explicitly in the server config env; inherited environment may be filtered. Streamable HTTP bounds JSON at 12 MiB; managed PNG bytes at 8 MiB. No external paid execution is added.
+
+Run npx tsx scripts/u1-proof.ts and npx tsx scripts/u1-http-proof.ts for isolated official Inspector proofs; node scripts/u1-browser-proof.mjs --legacy verifies the built editor and restart. These do not substitute for the held actual ChatGPT U1 gate. See docs/universal-workbench/U1_IMPLEMENTATION.md for the exact missing manual connection action.
+
 # MCP authoring — local setup and ChatGPT connection
 
 Creative Flow exposes a real MCP server for direct agent authoring. It does not need Codex, an LLM API key, browser automation, the visual editor process, or Weave credentials to discover/create/edit/save/reopen workflows. Its shared SQLite service is also used by the editor's HTTP routes. Node, installed dependencies and filesystem access to this workspace are required. The proof scripts use the editor's media upload endpoint only to obtain an actual imported screenshot; workflow authoring itself does not depend on that endpoint.

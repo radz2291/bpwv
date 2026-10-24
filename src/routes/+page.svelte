@@ -12,6 +12,7 @@
   } from '@xyflow/svelte';
   import '@xyflow/svelte/dist/style.css';
   import FlowCard from '$lib/FlowCard.svelte';
+  import Workbench from '$lib/Workbench.svelte';
   import MediaFrame from '$lib/MediaFrame.svelte';
   import CanvasNavigation from '$lib/CanvasNavigation.svelte';
   import { projectMedia, mediaFocusIds } from '$lib/media-view';
@@ -42,6 +43,8 @@
     tab = $state('configure'),
     groupName = $state('Reusable study'),
     dirty = $state(false);
+  let universalDocument = $state<any>(null);
+  let workbenchMode = $state(false);
   let lightbox = $state<Asset | null>(null),
     dialog: HTMLDialogElement;
   let runSignature = $state('');
@@ -153,7 +156,13 @@
       states = {};
       runId = '';
       associatedAssets = [];
-      sync(await api(`/api/workflows/${id}`));
+      const loaded = await api(`/api/workflows/${id}`);
+      if (loaded.schemaVersion === 2) {
+        universalDocument = loaded;
+        workbenchMode = true;
+        return;
+      }
+      sync(loaded);
       associatedAssets = await api(`/api/workflows/${id}/assets`);
       const previous = await api(
         `/api/runs?workflowId=${encodeURIComponent(id)}`
@@ -360,6 +369,10 @@
     dirty = true;
   }
   onMount(() => {
+    if (new URL(window.location.href).searchParams.has('workbench')) {
+      workbenchMode = true;
+      return;
+    }
     sync(graph);
     Promise.all([api('/api/models'), list()])
       .then(([m]) => {
@@ -383,6 +396,9 @@
     content="A local visual workspace for prompts, references and creative workflows."
   /></svelte:head
 >
+{#if workbenchMode}
+  <Workbench initialWorkflow={universalDocument} />
+{:else}
 <div class="app">
   <aside class="rail">
     <a class="mark" href="/" aria-label="Creative Flow home">cf<span>·</span></a
@@ -396,7 +412,7 @@
       <div class="breadcrumb">
         PERSONAL WORKSPACE <span>/</span> CREATIVE FLOW
       </div>
-      <div class="local"><i></i> Local workspace</div>
+      <div class="local"><a href="/?workbench=1">Universal workbench ↗</a> · <i></i> Local workspace</div>
     </header>
     <div class="titlebar">
       <div>
@@ -753,6 +769,7 @@
   </div>
 </div>
 
+{/if}
 <dialog
   bind:this={dialog}
   class="image-dialog"

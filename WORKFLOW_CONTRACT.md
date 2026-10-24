@@ -1,3 +1,7 @@
+## U1 schema 2
+
+Explicit schemaVersion 2 uses the same workflow/node/edge identity and optimistic revision envelope, with u.input/u.transform/u.invoke/u.output version 1. No in-place format change or mixed graph is permitted. Typed config schemas, ports, trusted records and manifests are discoverable through universal_catalog. Frozen runs and artifact UUID versions are distinct from graph revisions; Output returns an existing artifact version. See docs/universal-workbench/U1_IMPLEMENTATION.md and generated evidence/u1/contracts.json. Legacy schema 1 below remains valid and unchanged.
+
 # Workflow and agent contract v1
 
 The isolated U0 universal contract candidate is documented in `docs/universal-workbench/U0_CONTRACTS.md` with exported JSON schemas. It is not accepted by these production endpoints and does not change legacy v1 parsing, node identities, revision checks, MCP permissions or Weave approvals. No automatic migration is implemented.

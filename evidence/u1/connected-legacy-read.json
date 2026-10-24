@@ -1,0 +1,529 @@
+{
+  "origin": "Codex connected plugin read-only compatibility check; not a ChatGPT-side U1 proof",
+  "actualChatGPTSide": false,
+  "newU1ToolsAvailableInCurrentCachedPlugin": false,
+  "result": {
+    "catalog": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"nodes\":[{\"kind\":\"text\",\"version\":1,\"label\":\"Text\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"text\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"text\":{\"type\":\"string\"}},\"required\":[\"text\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"combine\",\"version\":1,\"label\":\"Combine\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"scene\",\"type\":\"text\",\"required\":true},{\"id\":\"style\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"separator\":\"\\n\\n\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"separator\":{\"type\":\"string\"}},\"required\":[\"separator\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"asset\",\"version\":1,\"label\":\"Asset Input\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"uri\":\"\",\"mediaType\":\"image\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"uri\":{\"type\":\"string\"},\"mediaType\":{\"type\":\"string\",\"enum\":[\"image\",\"video\",\"audio\"]},\"assetId\":{\"type\":\"string\"}},\"required\":[\"uri\",\"mediaType\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"reference_set\",\"version\":1,\"label\":\"Reference Set\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[{\"id\":\"asset\",\"type\":\"asset\",\"required\":true},{\"id\":\"existing\",\"type\":\"assets\"}],\"outputs\":[{\"id\":\"references\",\"type\":\"assets\"}],\"defaults\":{},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{},\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"weave\",\"version\":1,\"label\":\"Weave Model\",\"category\":\"AI generation\",\"provider\":\"generative\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true},{\"id\":\"references\",\"type\":\"assets\"}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{\"modelId\":\"\",\"params\":{}},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"modelId\":{\"type\":\"string\"},\"params\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"modelId\",\"params\"],\"additionalProperties\":{}},\"capability\":\"external-dependent\"},{\"kind\":\"preview\",\"version\":1,\"label\":\"Preview\",\"category\":\"Import & export\",\"provider\":\"local\",\"inputs\":[{\"id\":\"asset\",\"type\":\"asset\",\"required\":true}],\"outputs\":[{\"id\":\"asset\",\"type\":\"asset\"}],\"defaults\":{},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{},\"additionalProperties\":{}},\"capability\":\"implemented-local\"},{\"kind\":\"refinement\",\"version\":1,\"label\":\"Refinement\",\"category\":\"Text & LLM\",\"provider\":\"local\",\"inputs\":[{\"id\":\"prompt\",\"type\":\"text\",\"required\":true}],\"outputs\":[{\"id\":\"text\",\"type\":\"text\"}],\"defaults\":{\"notes\":\"\"},\"configSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"notes\":{\"type\":\"string\"}},\"required\":[\"notes\"],\"additionalProperties\":{}},\"capability\":\"implemented-local\"}],\"workflowSchema\":{\"$schema\":\"https://json-schema.org/draft/2020-12/schema\",\"type\":\"object\",\"properties\":{\"schemaVersion\":{\"type\":\"number\",\"const\":1},\"id\":{\"type\":\"string\",\"pattern\":\"^[a-zA-Z0-9_-]+$\"},\"name\":{\"type\":\"string\",\"minLength\":1},\"revision\":{\"type\":\"integer\",\"minimum\":0,\"maximum\":9007199254740991},\"nodes\":{\"maxItems\":500,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\",\"minLength\":1},\"kind\":{\"type\":\"string\"},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991},\"label\":{\"type\":\"string\"},\"position\":{\"type\":\"object\",\"properties\":{\"x\":{\"type\":\"number\"},\"y\":{\"type\":\"number\"}},\"required\":[\"x\",\"y\"],\"additionalProperties\":false},\"config\":{\"type\":\"object\",\"propertyNames\":{\"type\":\"string\"},\"additionalProperties\":{}}},\"required\":[\"id\",\"kind\",\"version\",\"label\",\"position\",\"config\"],\"additionalProperties\":false}},\"edges\":{\"maxItems\":2000,\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"source\":{\"type\":\"string\"},\"sourceHandle\":{\"type\":\"string\"},\"target\":{\"type\":\"string\"},\"targetHandle\":{\"type\":\"string\"}},\"required\":[\"id\",\"source\",\"sourceHandle\",\"target\",\"targetHandle\"],\"additionalProperties\":false}},\"groups\":{\"default\":[],\"type\":\"array\",\"items\":{\"type\":\"object\",\"properties\":{\"id\":{\"type\":\"string\"},\"name\":{\"type\":\"string\"},\"nodeIds\":{\"type\":\"array\",\"items\":{\"type\":\"string\"}},\"version\":{\"type\":\"integer\",\"exclusiveMinimum\":0,\"maximum\":9007199254740991}},\"required\":[\"id\",\"name\",\"nodeIds\",\"version\"],\"additionalProperties\":false}}},\"required\":[\"schemaVersion\",\"id\",\"name\",\"revision\",\"nodes\",\"edges\",\"groups\"],\"additionalProperties\":false}}"
+        }
+      ],
+      "structuredContent": {
+        "nodes": [
+          {
+            "kind": "text",
+            "version": 1,
+            "label": "Text",
+            "category": "Text & LLM",
+            "provider": "local",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "text",
+                "type": "text"
+              }
+            ],
+            "defaults": {
+              "text": ""
+            },
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "text": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "text"
+              ],
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          },
+          {
+            "kind": "combine",
+            "version": 1,
+            "label": "Combine",
+            "category": "Text & LLM",
+            "provider": "local",
+            "inputs": [
+              {
+                "id": "scene",
+                "type": "text",
+                "required": true
+              },
+              {
+                "id": "style",
+                "type": "text",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "text",
+                "type": "text"
+              }
+            ],
+            "defaults": {
+              "separator": "\n\n"
+            },
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "separator": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "separator"
+              ],
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          },
+          {
+            "kind": "asset",
+            "version": 1,
+            "label": "Asset Input",
+            "category": "Import & export",
+            "provider": "local",
+            "inputs": [],
+            "outputs": [
+              {
+                "id": "asset",
+                "type": "asset"
+              }
+            ],
+            "defaults": {
+              "uri": "",
+              "mediaType": "image"
+            },
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "uri": {
+                  "type": "string"
+                },
+                "mediaType": {
+                  "type": "string",
+                  "enum": [
+                    "image",
+                    "video",
+                    "audio"
+                  ]
+                },
+                "assetId": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "uri",
+                "mediaType"
+              ],
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          },
+          {
+            "kind": "reference_set",
+            "version": 1,
+            "label": "Reference Set",
+            "category": "Import & export",
+            "provider": "local",
+            "inputs": [
+              {
+                "id": "asset",
+                "type": "asset",
+                "required": true
+              },
+              {
+                "id": "existing",
+                "type": "assets"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "references",
+                "type": "assets"
+              }
+            ],
+            "defaults": {},
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          },
+          {
+            "kind": "weave",
+            "version": 1,
+            "label": "Weave Model",
+            "category": "AI generation",
+            "provider": "generative",
+            "inputs": [
+              {
+                "id": "prompt",
+                "type": "text",
+                "required": true
+              },
+              {
+                "id": "references",
+                "type": "assets"
+              }
+            ],
+            "outputs": [
+              {
+                "id": "asset",
+                "type": "asset"
+              }
+            ],
+            "defaults": {
+              "modelId": "",
+              "params": {}
+            },
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "modelId": {
+                  "type": "string"
+                },
+                "params": {
+                  "type": "object",
+                  "propertyNames": {
+                    "type": "string"
+                  },
+                  "additionalProperties": {}
+                }
+              },
+              "required": [
+                "modelId",
+                "params"
+              ],
+              "additionalProperties": {}
+            },
+            "capability": "external-dependent"
+          },
+          {
+            "kind": "preview",
+            "version": 1,
+            "label": "Preview",
+            "category": "Import & export",
+            "provider": "local",
+            "inputs": [
+              {
+                "id": "asset",
+                "type": "asset",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "asset",
+                "type": "asset"
+              }
+            ],
+            "defaults": {},
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {},
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          },
+          {
+            "kind": "refinement",
+            "version": 1,
+            "label": "Refinement",
+            "category": "Text & LLM",
+            "provider": "local",
+            "inputs": [
+              {
+                "id": "prompt",
+                "type": "text",
+                "required": true
+              }
+            ],
+            "outputs": [
+              {
+                "id": "text",
+                "type": "text"
+              }
+            ],
+            "defaults": {
+              "notes": ""
+            },
+            "configSchema": {
+              "$schema": "https://json-schema.org/draft/2020-12/schema",
+              "type": "object",
+              "properties": {
+                "notes": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "notes"
+              ],
+              "additionalProperties": {}
+            },
+            "capability": "implemented-local"
+          }
+        ],
+        "workflowSchema": {
+          "$schema": "https://json-schema.org/draft/2020-12/schema",
+          "type": "object",
+          "properties": {
+            "schemaVersion": {
+              "type": "number",
+              "const": 1
+            },
+            "id": {
+              "type": "string",
+              "pattern": "^[a-zA-Z0-9_-]+$"
+            },
+            "name": {
+              "type": "string",
+              "minLength": 1
+            },
+            "revision": {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 9007199254740991
+            },
+            "nodes": {
+              "maxItems": 500,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "kind": {
+                    "type": "string"
+                  },
+                  "version": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  },
+                  "label": {
+                    "type": "string"
+                  },
+                  "position": {
+                    "type": "object",
+                    "properties": {
+                      "x": {
+                        "type": "number"
+                      },
+                      "y": {
+                        "type": "number"
+                      }
+                    },
+                    "required": [
+                      "x",
+                      "y"
+                    ],
+                    "additionalProperties": false
+                  },
+                  "config": {
+                    "type": "object",
+                    "propertyNames": {
+                      "type": "string"
+                    },
+                    "additionalProperties": {}
+                  }
+                },
+                "required": [
+                  "id",
+                  "kind",
+                  "version",
+                  "label",
+                  "position",
+                  "config"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "edges": {
+              "maxItems": 2000,
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "source": {
+                    "type": "string"
+                  },
+                  "sourceHandle": {
+                    "type": "string"
+                  },
+                  "target": {
+                    "type": "string"
+                  },
+                  "targetHandle": {
+                    "type": "string"
+                  }
+                },
+                "required": [
+                  "id",
+                  "source",
+                  "sourceHandle",
+                  "target",
+                  "targetHandle"
+                ],
+                "additionalProperties": false
+              }
+            },
+            "groups": {
+              "default": [],
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "nodeIds": {
+                    "type": "array",
+                    "items": {
+                      "type": "string"
+                    }
+                  },
+                  "version": {
+                    "type": "integer",
+                    "exclusiveMinimum": 0,
+                    "maximum": 9007199254740991
+                  }
+                },
+                "required": [
+                  "id",
+                  "name",
+                  "nodeIds",
+                  "version"
+                ],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": [
+            "schemaVersion",
+            "id",
+            "name",
+            "revision",
+            "nodes",
+            "edges",
+            "groups"
+          ],
+          "additionalProperties": false
+        }
+      },
+      "isError": false
+    },
+    "workflows": {
+      "content": [
+        {
+          "type": "text",
+          "text": "{\"workflows\":[{\"id\":\"agent-proof\",\"name\":\"Agent proof · first light\",\"revision\":29,\"url\":\"http://127.0.0.1:5173/?workflow=agent-proof\"},{\"id\":\"borderpoint-image-first-chatgpt\",\"name\":\"BorderPoint · Classical Miniature Image Lab\",\"revision\":10,\"url\":\"http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt\"},{\"id\":\"borderpoint-original-b-v2-draft\",\"name\":\"BorderPoint · Original B Prompt Restoration · Draft\",\"revision\":3,\"url\":\"http://127.0.0.1:5173/?workflow=borderpoint-original-b-v2-draft\"},{\"id\":\"browser-interactions\",\"name\":\"Browser interaction proof\",\"revision\":10,\"url\":\"http://127.0.0.1:5173/?workflow=browser-interactions\"},{\"id\":\"mcp-http-1792839906124\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792839906124\"},{\"id\":\"mcp-http-1792840314685\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792840314685\"},{\"id\":\"mcp-http-1792844022949\",\"name\":\"Authenticated HTTP MCP proof\",\"revision\":1,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-http-1792844022949\"},{\"id\":\"mcp-proof-1792839808122\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":4,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839808122\"},{\"id\":\"mcp-proof-1792839862247\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839862247\"},{\"id\":\"mcp-proof-1792839945926\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":8,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926\"},{\"id\":\"mcp-proof-1792843889796\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":8,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796\"},{\"id\":\"mcp-proof-1792848649864\",\"name\":\"MCP Inspector · authored without browser\",\"revision\":5,\"url\":\"http://127.0.0.1:5173/?workflow=mcp-proof-1792848649864\"},{\"id\":\"stage2-reference-proof-1792844373922\",\"name\":\"Stage 2 · connected MCP reference proof (local test)\",\"revision\":2,\"url\":\"http://127.0.0.1:5173/?workflow=stage2-reference-proof-1792844373922\"}]}"
+        }
+      ],
+      "structuredContent": {
+        "workflows": [
+          {
+            "id": "agent-proof",
+            "name": "Agent proof · first light",
+            "revision": 29,
+            "url": "http://127.0.0.1:5173/?workflow=agent-proof"
+          },
+          {
+            "id": "borderpoint-image-first-chatgpt",
+            "name": "BorderPoint · Classical Miniature Image Lab",
+            "revision": 10,
+            "url": "http://127.0.0.1:5173/?workflow=borderpoint-image-first-chatgpt"
+          },
+          {
+            "id": "borderpoint-original-b-v2-draft",
+            "name": "BorderPoint · Original B Prompt Restoration · Draft",
+            "revision": 3,
+            "url": "http://127.0.0.1:5173/?workflow=borderpoint-original-b-v2-draft"
+          },
+          {
+            "id": "browser-interactions",
+            "name": "Browser interaction proof",
+            "revision": 10,
+            "url": "http://127.0.0.1:5173/?workflow=browser-interactions"
+          },
+          {
+            "id": "mcp-http-1792839906124",
+            "name": "Authenticated HTTP MCP proof",
+            "revision": 1,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792839906124"
+          },
+          {
+            "id": "mcp-http-1792840314685",
+            "name": "Authenticated HTTP MCP proof",
+            "revision": 1,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792840314685"
+          },
+          {
+            "id": "mcp-http-1792844022949",
+            "name": "Authenticated HTTP MCP proof",
+            "revision": 1,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-http-1792844022949"
+          },
+          {
+            "id": "mcp-proof-1792839808122",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 4,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839808122"
+          },
+          {
+            "id": "mcp-proof-1792839862247",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 5,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839862247"
+          },
+          {
+            "id": "mcp-proof-1792839945926",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 8,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792839945926"
+          },
+          {
+            "id": "mcp-proof-1792843889796",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 8,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792843889796"
+          },
+          {
+            "id": "mcp-proof-1792848649864",
+            "name": "MCP Inspector · authored without browser",
+            "revision": 5,
+            "url": "http://127.0.0.1:5173/?workflow=mcp-proof-1792848649864"
+          },
+          {
+            "id": "stage2-reference-proof-1792844373922",
+            "name": "Stage 2 · connected MCP reference proof (local test)",
+            "revision": 2,
+            "url": "http://127.0.0.1:5173/?workflow=stage2-reference-proof-1792844373922"
+          }
+        ]
+      },
+      "isError": false
+    }
+  }
+}

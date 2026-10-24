@@ -1,3 +1,7 @@
+# Current U1 authorization and implementation
+
+The owner authorized the full U1 cycle from main d3296549676e942ae402fcee7ea570d8fc51a16e. Work is on dev/u1-universal-execution: Input, Transform, local Invoke and Output integrated through WorkflowService, additive immutable artifacts/attempts, explicit separate local effect policy and minimal universal editor. This supersedes historical preparation-only statements below; it does not authorize U2 or a main merge. See docs/universal-workbench/U1_IMPLEMENTATION.md and the U1 verification record for actual gate outcomes. G8 requires a real ChatGPT-side U1 call and must remain HELD without that evidence. No paid generation is authorized or performed.
+
 # State — U0 owner-accepted; U1 preparation only, 24 October 2026
 
 The owner accepted U0: **PASS WITH NON-BLOCKING FINDINGS**, after reviewing the report and independent verification. Exact accepted candidate: `5e70993033ca2f093a2f1e7e7b63813c7e8ea8b1`. The eight primitives remain the approved foundation. The distinct acceptance record is `docs/decisions/2026-10-24-u0-owner-acceptance.md`; it retains the held candidate, repaired candidate and final exact-SHA lineage. Acceptance applies to the **isolated non-paid spike**, not a production universal engine.
