@@ -166,15 +166,13 @@ export function scenarios() {
           note: 'Structural vocabulary fixture only; domain semantics documented in U0 assessment'
         }
       })),
-      edges: primitives
-        .slice(1)
-        .map((_, i) => ({
-          id: `edge-${i}`,
-          source: `step-${i}`,
-          output: 'value',
-          target: `step-${i + 1}`,
-          input: 'value'
-        }))
+      edges: primitives.slice(1).map((_, i) => ({
+        id: `edge-${i}`,
+        source: `step-${i}`,
+        output: 'value',
+        target: `step-${i + 1}`,
+        input: 'value'
+      }))
     }
   }));
 }

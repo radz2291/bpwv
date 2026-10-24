@@ -1,12 +1,12 @@
 {
-  "verifiedAt": "2026-10-24T13:28:53.097Z",
-  "codeCommit": "a4832d29da59265cd559b9b33a669da807590c75",
+  "verifiedAt": "2026-10-24T13:35:36.577Z",
+  "codeCommit": "fd646e9ba3a2c76460254533124dd968c2c46377",
   "status": "non-paid isolated spike",
   "paidCalls": 0,
   "providerExecutors": 0,
   "localRun": {
     "schemaVersion": 1,
-    "id": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+    "id": "53e76641-3b2f-4eac-9d0b-9b03ecda42ad",
     "recipe": {
       "schemaVersion": 1,
       "id": "u0-local",
@@ -137,7 +137,7 @@
     "artifacts": [
       {
         "schemaVersion": 1,
-        "id": "084f0ec7-b776-435d-a79b-724607211ce8",
+        "id": "c52527c8-d57d-47bb-86d3-715c155f7a91",
         "version": 1,
         "type": {
           "kind": "text",
@@ -147,19 +147,20 @@
         "digest": "91d3caac855f38963ce0a5bd3331626ce4cb5ee2cb69068e941d4b5ccc4e315c",
         "access": "local",
         "parentIds": [],
-        "createdAt": "2026-10-24T13:28:52.619Z",
+        "createdAt": "2026-10-24T13:35:36.187Z",
         "origin": {
           "kind": "imported",
-          "runId": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+          "runId": "53e76641-3b2f-4eac-9d0b-9b03ecda42ad",
           "operationId": "in",
-          "attemptId": "9904a0d9-b039-4d68-a913-267edfaed6f0",
+          "portId": "value",
+          "attemptId": "409f3a2c-5201-41fb-a29e-bf2ab5615100",
           "recipeRevision": 0,
           "snapshotHash": "5af1e06173c71be9c7f376dade2cf64defd4e10795c8db46faaa3f4d525a85f8"
         }
       },
       {
         "schemaVersion": 1,
-        "id": "cd676988-bed0-4d0b-8026-f83dc50439b0",
+        "id": "cf079df1-c05a-4113-8e17-3e230ad8aba5",
         "version": 1,
         "type": {
           "kind": "text",
@@ -169,14 +170,15 @@
         "digest": "d8256389c1db38cfe71aa31e06a4dcc4afc8207cf93383646fc6acfca690b347",
         "access": "local",
         "parentIds": [
-          "084f0ec7-b776-435d-a79b-724607211ce8"
+          "c52527c8-d57d-47bb-86d3-715c155f7a91"
         ],
-        "createdAt": "2026-10-24T13:28:52.622Z",
+        "createdAt": "2026-10-24T13:35:36.191Z",
         "origin": {
           "kind": "local-transform",
-          "runId": "daa9b24a-ba77-4cab-abd7-8f9b64f94ccb",
+          "runId": "53e76641-3b2f-4eac-9d0b-9b03ecda42ad",
           "operationId": "transform",
-          "attemptId": "a1ee1a8f-d9b6-42fa-a8cf-f475bd2474df",
+          "portId": "value",
+          "attemptId": "045686df-cb2f-4de0-990f-972e894c25ff",
           "recipeRevision": 0,
           "snapshotHash": "5af1e06173c71be9c7f376dade2cf64defd4e10795c8db46faaa3f4d525a85f8"
         }
@@ -254,9 +256,9 @@
   },
   "invokePlan": {
     "schemaVersion": 1,
-    "id": "838f5672-1982-4f88-b940-abd301802d81",
-    "attemptId": "72439a10-363c-48ed-abdf-f70839d6b8b3",
-    "idempotencyKey": "4cf1cf09-02e0-4e82-9977-667f3ca89e4a",
+    "id": "2bedc9a6-613d-45ff-865f-8b86071c406a",
+    "attemptId": "99e8c3f3-04a9-4bda-9906-8d85e95737b3",
+    "idempotencyKey": "1569855c-1194-4bfb-8518-61c51812b712",
     "manifestHash": "45d2e71130cf41dfd6e6728c1a7577f6a233ba545ea818a2c334c92039a4f885",
     "recipeRevision": 0,
     "payloadHash": "dd6fd4fdc46a839aa0091325b160d155c3b6bedf006cfdd877ac940e21203608",

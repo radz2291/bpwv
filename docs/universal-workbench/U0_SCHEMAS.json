@@ -181,6 +181,11 @@
               "minLength": 1,
               "maxLength": 200
             },
+            "portId": {
+              "type": "string",
+              "minLength": 1,
+              "maxLength": 200
+            },
             "attemptId": {
               "type": "string",
               "minLength": 1,
@@ -210,6 +215,7 @@
             "kind",
             "runId",
             "operationId",
+            "portId",
             "attemptId",
             "recipeRevision",
             "snapshotHash"
@@ -433,6 +439,11 @@
                     "minLength": 1,
                     "maxLength": 200
                   },
+                  "portId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
                   "attemptId": {
                     "type": "string",
                     "minLength": 1,
@@ -462,6 +473,7 @@
                   "kind",
                   "runId",
                   "operationId",
+                  "portId",
                   "attemptId",
                   "recipeRevision",
                   "snapshotHash"
@@ -2148,6 +2160,11 @@
                     "minLength": 1,
                     "maxLength": 200
                   },
+                  "portId": {
+                    "type": "string",
+                    "minLength": 1,
+                    "maxLength": 200
+                  },
                   "attemptId": {
                     "type": "string",
                     "minLength": 1,
@@ -2177,6 +2194,7 @@
                   "kind",
                   "runId",
                   "operationId",
+                  "portId",
                   "attemptId",
                   "recipeRevision",
                   "snapshotHash"
@@ -2358,6 +2376,11 @@
                           "minLength": 1,
                           "maxLength": 200
                         },
+                        "portId": {
+                          "type": "string",
+                          "minLength": 1,
+                          "maxLength": 200
+                        },
                         "attemptId": {
                           "type": "string",
                           "minLength": 1,
@@ -2387,6 +2410,7 @@
                         "kind",
                         "runId",
                         "operationId",
+                        "portId",
                         "attemptId",
                         "recipeRevision",
                         "snapshotHash"

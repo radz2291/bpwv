@@ -212,10 +212,51 @@ test('U0 artifact tampering and fictitious external provenance fail restore', ()
   assert.equal(recipeSchema.safeParse({}).success, false);
   assert.equal(manifestSchema.safeParse({}).success, false);
 });
+test('U0 restore rejects cyclic lineage, wrong value/type and reassigned producer output', () => {
+  const base = () => structuredClone(runLocal(localRecipe(), 0));
+  const cycle = base();
+  cycle.artifacts[0].parentIds = [cycle.artifacts[1].id];
+  assert.throws(() => restoreRun(cycle), /lineage/);
+  const value = base();
+  value.artifacts[0].value = false;
+  value.artifacts[0].digest = digest(false);
+  assert.throws(() => restoreRun(value), /Invalid text/);
+  const type = base();
+  type.artifacts[0].type.kind = 'image';
+  assert.throws(() => restoreRun(type), /producer signature/);
+  const producer = base();
+  producer.artifacts[0].origin.operationId = 'out';
+  assert.throws(() => restoreRun(producer), /producer signature/);
+  const port = base();
+  port.artifacts[0].origin.portId = 'missing';
+  assert.throws(() => restoreRun(port), /producer signature|Missing parent/);
+  const changedInput = base();
+  changedInput.artifacts[0].value = 'forged';
+  changedInput.artifacts[0].digest = digest('forged');
+  assert.throws(() => restoreRun(changedInput), /snapshot value/);
+});
 test('U0 four cross-domain recipe fixtures validate without project primitives', () => {
   assert.equal(scenarios().length, 4);
   for (const s of scenarios()) {
     assert.ok(validateRecipe(s.recipe, 0));
     assert.ok(s.status === 'specification-fixture');
   }
+});
+test('U0 restored completion requires ordered producer/dependency events', () => {
+  const base = () => structuredClone(runLocal(localRecipe(), 0));
+  const missing = base();
+  missing.events = [];
+  assert.throws(() => restoreRun(missing), /completion event/);
+  const incomplete = base();
+  incomplete.events.pop();
+  assert.throws(() => restoreRun(incomplete), /Incomplete/);
+  const absent = base();
+  absent.artifacts.pop();
+  assert.throws(() => restoreRun(absent), /missing output/);
+  const order = base();
+  order.events.reverse();
+  assert.throws(() => restoreRun(order), /completion event|dependency/);
+  const duplicate = base();
+  duplicate.events.push({ ...duplicate.events[0], sequence: 3 });
+  assert.throws(() => restoreRun(duplicate), /completion event/);
 });

@@ -223,6 +223,7 @@ export function runLocal(
     )
       throw Error('Invalid declared outputs');
     const out: Record<string, Artifact> = {};
+    const attemptId = randomUUID();
     for (const p of op.outputs) {
       assertValue(values[p.id], p);
       const value = structuredClone(values[p.id]);
@@ -240,7 +241,8 @@ export function runLocal(
           kind: op.primitive === 'Input' ? 'imported' : 'local-transform',
           runId,
           operationId: op.id,
-          attemptId: randomUUID(),
+          portId: p.id,
+          attemptId,
           recipeRevision: recipe.revision,
           snapshotHash
         }
@@ -340,6 +342,27 @@ export function restoreRun(raw: unknown): Run {
   const ids = new Set(run.artifacts.map((a) => a.id));
   if (ids.size !== run.artifacts.length)
     throw Error('Duplicate artifact identity');
+  const produced = new Map<string, Artifact>();
+  const key = (operationId: string, portId: string) =>
+    JSON.stringify([operationId, portId]);
+  for (const a of run.artifacts) {
+    const k = key(a.origin.operationId, a.origin.portId);
+    if (produced.has(k)) throw Error('Duplicate producer output');
+    produced.set(k, a);
+  }
+  function upstream(operationId: string, portId: string): Artifact {
+    const op = run.recipe.operations.find((op) => op.id === operationId)!;
+    if (op.primitive === 'Output') {
+      const edge = run.recipe.edges.find(
+        (e) => e.target === operationId && e.input === portId
+      );
+      if (!edge) throw Error('Missing pass-through binding');
+      return upstream(edge.source, edge.output);
+    }
+    const artifact = produced.get(key(operationId, portId));
+    if (!artifact) throw Error('Missing parent output');
+    return artifact;
+  }
   for (const a of run.artifacts)
     if (
       digest(a.value) !== a.digest ||
@@ -350,8 +373,71 @@ export function restoreRun(raw: unknown): Run {
       a.parentIds.some((id) => !ids.has(id))
     )
       throw Error('Invalid artifact history');
+  for (const a of run.artifacts) {
+    const op = run.recipe.operations.find(
+      (op) => op.id === a.origin.operationId
+    )!;
+    const port = op.outputs.find((p) => p.id === a.origin.portId);
+    if (
+      !port ||
+      !sameType(port.type, a.type) ||
+      !['Input', 'Transform'].includes(op.primitive) ||
+      op.effect !== 'pure' ||
+      a.origin.kind !==
+        (op.primitive === 'Input' ? 'imported' : 'local-transform')
+    )
+      throw Error('Invalid artifact producer signature');
+    assertValue(a.value, port);
+    const parentIds = run.recipe.edges
+      .filter((e) => e.target === op.id)
+      .map((e) => upstream(e.source, e.output).id);
+    if (digest(parentIds) !== digest(a.parentIds))
+      throw Error('Invalid artifact lineage binding');
+    if (
+      op.primitive === 'Input' &&
+      (op.inputs.length ||
+        digest(a.value) !==
+          digest((op.config.values as Record<string, unknown>)?.[port.id]))
+    )
+      throw Error('Input snapshot value mismatch');
+  }
   if (run.invocations.some((i) => i.recipeRevision !== run.recipe.revision))
     throw Error('Invocation revision mismatch');
+  const eventIds = new Set<string>();
+  for (const [index, event] of run.events.entries()) {
+    if (
+      event.sequence !== index ||
+      eventIds.has(event.operationId) ||
+      event.status !== 'completed' ||
+      !run.recipe.operations.some((op) => op.id === event.operationId)
+    )
+      throw Error('Invalid U0 completion event');
+    for (const edge of run.recipe.edges.filter(
+      (e) => e.target === event.operationId
+    ))
+      if (!eventIds.has(edge.source))
+        throw Error('Completion before dependency');
+    eventIds.add(event.operationId);
+  }
+  if (run.artifacts.some((a) => !eventIds.has(a.origin.operationId)))
+    throw Error('Artifact missing producer completion event');
+  if (
+    run.status === 'completed' &&
+    (eventIds.size !== run.recipe.operations.length ||
+      run.recipe.operations.some(
+        (op) =>
+          !['Input', 'Transform', 'Output'].includes(op.primitive) ||
+          op.effect !== 'pure'
+      ))
+  )
+    throw Error('Incomplete or unsupported completed run');
+  if (run.status === 'completed')
+    for (const op of run.recipe.operations)
+      if (
+        op.primitive !== 'Output' &&
+        op.outputs.some((p) => !produced.has(key(op.id, p.id)))
+      )
+        throw Error('Completed producer missing output');
   if (run.status === 'completed' && run.invocations.length)
     throw Error('Blocked invocation cannot claim success');
   return freeze(run);

@@ -65,7 +65,11 @@ Input(imported images, crop settings) → Transform(validate dimensions and gene
 
 All operations can remain local and use zero model calls. Retain original bytes and identity; each crop is a successor artifact with parent ID, coordinate/color metadata and content digest when available. A bad dimension fails validation before writing. Filename collision, unauthorized destination and partial output failure require explicit policies. A collection is work items here; it is not a model's reference-conditioning input. No "BorderPoint Crop" primitive is needed.
 
-### 4. Financial data reconciliation
+### 4. Illustration, review and refinement
+
+The `illustration-review-refine` structural fixture corresponds to the design pack's BorderPoint reference recipe: Input(scene request, style exemplar) → Transform(prompt preparation) → Invoke(discovered image capability) → Invoke(review capability) → Branch(recommendation) → Approve → Iterate(bounded correction recipe) → Output(selected candidate). Roles keep style reference separate from edit target; only explicitly selected candidates become successors. Missing review/image-edit capability blocks that stage. No provider availability or paid result is asserted by this static example.
+
+### Additional paper challenge: financial data reconciliation
 
 Input(two CSV datasets and an approved mapping) → Transform(parse, normalize and join keyed records) → Branch(totals and unmatched rows pass?) → Approve(exception report or export plan) → Output(reconciliation record and optional authorized CSV).
 

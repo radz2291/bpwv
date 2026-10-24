@@ -103,6 +103,7 @@ export const artifactSchema = z
         kind: z.enum(['imported', 'local-transform', 'external-reported']),
         runId: id,
         operationId: id,
+        portId: id,
         attemptId: id,
         recipeRevision: z.number().int().nonnegative(),
         snapshotHash: hash,
